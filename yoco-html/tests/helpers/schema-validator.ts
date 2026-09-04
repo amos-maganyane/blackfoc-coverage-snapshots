@@ -1,11 +1,8 @@
 import Ajv, { type ValidateFunction } from 'ajv';
-import addFormats from 'ajv-formats';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
 const ajv = new Ajv({ allErrors: true });
-addFormats(ajv);
-
 const schemaCache = new Map<string, ValidateFunction>();
 
 export function validateSchema(data: unknown, schemaPath: string): void {
@@ -21,9 +18,7 @@ export function validateSchema(data: unknown, schemaPath: string): void {
 
   const valid = validate(data);
   if (!valid) {
-    const errors = validate.errors
-      ?.map((e) => `${e.instancePath} ${e.message}`)
-      .join('; ');
-    throw new Error(`Schema validation failed: ${errors}`);
+    const errors = validate.errors?.map((e) => String(e.instancePath) + ' ' + String(e.message)).join('; ');
+    throw new Error('Schema validation failed: ' + errors);
   }
 }

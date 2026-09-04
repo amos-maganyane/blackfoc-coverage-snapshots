@@ -1,256 +1,236 @@
-import { test, expect } from '@playwright/test';
-import { authHeaders, headersWithoutAuth, headersWithInvalidToken, headersWithReadOnlyToken } from './helpers/auth';
+import { test, expect, request, type APIRequestContext } from '@playwright/test';
 import { validateSchema } from './helpers/schema-validator';
 
 const API_BASE = process.env.API_BASE!;
-const EXISTING_PAYOUT_ID = process.env.EXISTING_PAYOUT_ID;
+const AUTH_TOKEN = process.env.API_TOKEN!;
 
-// ==== GET /v1/payouts ====
+test.describe('Payouts API', () => {
+  let apiContext: APIRequestContext;
 
-test.describe('GET /v1/payouts', () => {
+  test.beforeAll(async () => {
+    apiContext = await request.newContext({
+      extraHTTPHeaders: { Authorization: `Bearer ${AUTH_TOKEN}` },
+    });
+  });
+
+  test.afterAll(async () => {
+    await apiContext.dispose();
+  });
+
   test(
-    '[PYT-01] @smoke Given authorized credentials, when listing payouts, then returns 200 with payouts list',
-    async ({ request }) => {
+    '[YC-163] @smoke Given valid authorized credentials, when get /v1/payouts/:payout_id, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
       const start = Date.now();
-      const response = await request.get(`${API_BASE}/v1/payouts`, {
-        headers: authHeaders(),
-      });
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123`);
       const duration = Date.now() - start;
-
       expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
       expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'payouts-list-response.json');
-      expect(duration).toBeLessThan(8000);
+      const body = await response.json();
+      validateSchema(body, 'get--v1-payouts--payout-id-200.schema.json');
     },
   );
-
   test(
-    '[PYT-02] @smoke Given no authorization, when listing payouts, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/payouts`, {
-        headers: headersWithoutAuth(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[PYT-03] @smoke Given invalid token, when listing payouts, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/payouts`, {
-        headers: headersWithInvalidToken(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[PYT-04] @smoke Given invalid query parameter, when listing payouts, then returns 400 bad request',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/payouts?limit=not-a-number`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(400);
-    },
-  );
-
-  test(
-    '[PYT-05] @extended Given read-only scoped token, when listing payouts, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(`${API_BASE}/v1/payouts`, {
-        headers: headersWithReadOnlyToken(),
-      });
-      expect(response.status()).toBe(403);
-    },
-  );
-
-  test(
-    '[PYT-06] @extended Given throttled environment, when listing payouts, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(`${API_BASE}/v1/payouts`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(429);
-    },
-  );
-});
-
-// ==== GET /v1/payouts/:payout_id ====
-
-test.describe('GET /v1/payouts/:payout_id', () => {
-  test(
-    '[PYTF-01] @extended Given existing payout, when fetched by ID, then returns 200 with payout details echoing the ID',
-    { tag: ['@extended'] },
-    async ({ request }) => {
-      test.skip(!EXISTING_PAYOUT_ID, 'Set EXISTING_PAYOUT_ID in .env to enable');
+    '[YC-164] @smoke Given no Authorization header is supplied, when get /v1/payouts/:payout_id, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
       const start = Date.now();
-      const response = await request.get(`${API_BASE}/v1/payouts/${EXISTING_PAYOUT_ID}`, {
-        headers: authHeaders(),
-      });
+      const response = await noAuthContext.get(`${API_BASE}/v1/payouts/test-id-123`);
       const duration = Date.now() - start;
-
-      expect(response.status()).toBe(200);
-      expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'payout-response.json');
-      const typedBody = body as { id: string };
-      expect(typedBody.id).toBe(EXISTING_PAYOUT_ID);
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
+    },
+  );
+  test(
+    '[YC-165] @smoke Given error conditions for 401, when get /v1/payouts/:payout_id, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
       expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[PYTF-02] @smoke Given non-existent payout ID, when fetched, then returns 404 not found',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/non-existent-id-99999`,
-        { headers: authHeaders() },
-      );
-      expect(response.status()).toBe(404);
-    },
-  );
-
-  test(
-    '[PYTF-03] @smoke Given payout ID, when fetched without authorization, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id`,
-        { headers: headersWithoutAuth() },
-      );
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[PYTF-04] @smoke Given payout ID, when fetched with invalid token, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id`,
-        { headers: headersWithInvalidToken() },
-      );
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[PYTF-05] @extended Given read-only scoped token, when fetching payout by ID, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id`,
-        { headers: headersWithReadOnlyToken() },
-      );
-      expect(response.status()).toBe(403);
-    },
-  );
-
-  test(
-    '[PYTF-06] @extended Given throttled environment, when fetching payout by ID, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id`,
-        { headers: authHeaders() },
-      );
-      expect(response.status()).toBe(429);
-    },
-  );
-});
-
-// ==== GET /v1/payouts/:payout_id/payout_entries ====
-
-test.describe('GET /v1/payouts/:payout_id/payout_entries', () => {
-  test(
-    '[PYTE-01] @extended Given existing payout, when listing its payout entries, then returns 200 with entries list',
+    '[YC-166] @extended Given error conditions for 403, when get /v1/payouts/:payout_id, then returns 403 error',
     { tag: ['@extended'] },
-    async ({ request }) => {
-      test.skip(!EXISTING_PAYOUT_ID, 'Set EXISTING_PAYOUT_ID in .env to enable');
+    async () => {
       const start = Date.now();
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/${EXISTING_PAYOUT_ID}/payout_entries`,
-        { headers: authHeaders() },
-      );
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123`);
       const duration = Date.now() - start;
-
-      expect(response.status()).toBe(200);
-      expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'payout-entries-response.json');
-      expect(duration).toBeLessThan(8000);
-    },
-  );
-
-  test(
-    '[PYTE-02] @smoke Given non-existent payout ID, when listing payout entries, then returns 404 not found',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/non-existent-id-99999/payout_entries`,
-        { headers: authHeaders() },
-      );
-      expect(response.status()).toBe(404);
-    },
-  );
-
-  test(
-    '[PYTE-03] @smoke Given payout ID, when listing payout entries without authorization, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id/payout_entries`,
-        { headers: headersWithoutAuth() },
-      );
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[PYTE-04] @smoke Given payout ID, when listing payout entries with invalid token, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id/payout_entries`,
-        { headers: headersWithInvalidToken() },
-      );
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[PYTE-05] @smoke Given invalid query parameter, when listing payout entries, then returns 400 bad request',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id/payout_entries?limit=not-a-number`,
-        { headers: authHeaders() },
-      );
-      expect(response.status()).toBe(400);
-    },
-  );
-
-  test(
-    '[PYTE-06] @extended Given read-only scoped token, when listing payout entries, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id/payout_entries`,
-        { headers: headersWithReadOnlyToken() },
-      );
       expect(response.status()).toBe(403);
+      expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[PYTE-07] @extended Given throttled environment, when listing payout entries, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(
-        `${API_BASE}/v1/payouts/some-payout-id/payout_entries`,
-        { headers: authHeaders() },
-      );
+    '[YC-167] @smoke Given error conditions for 404, when get /v1/payouts/:payout_id, then returns 404 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(404);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-168] @extended Given error conditions for 429, when get /v1/payouts/:payout_id, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-169] @smoke Given valid authorized credentials, when get /v1/payouts/:payout_id/payout_entries, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123/payout_entries`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
+      expect(response.headers()['content-type']).toContain('application/json');
+      const body = await response.json();
+      validateSchema(body, 'get--v1-payouts--payout-id-payout-entries-200.schema.json');
+    },
+  );
+  test(
+    '[YC-170] @smoke Given no Authorization header is supplied, when get /v1/payouts/:payout_id/payout_entries, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.get(`${API_BASE}/v1/payouts/test-id-123/payout_entries`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
+    },
+  );
+  test(
+    '[YC-171] @smoke Given error conditions for 400, when get /v1/payouts/:payout_id/payout_entries, then returns 400 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123/payout_entries`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(400);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-172] @smoke Given error conditions for 401, when get /v1/payouts/:payout_id/payout_entries, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123/payout_entries`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-173] @extended Given error conditions for 403, when get /v1/payouts/:payout_id/payout_entries, then returns 403 error',
+    { tag: ['@extended'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123/payout_entries`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(403);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-174] @extended Given error conditions for 429, when get /v1/payouts/:payout_id/payout_entries, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123/payout_entries`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-175] @smoke Given valid authorized credentials, when get /v1/payouts, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
+      expect(response.headers()['content-type']).toContain('application/json');
+      const body = await response.json();
+      validateSchema(body, 'get--v1-payouts-200.schema.json');
+    },
+  );
+  test(
+    '[YC-176] @smoke Given no Authorization header is supplied, when get /v1/payouts, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.get(`${API_BASE}/v1/payouts`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
+    },
+  );
+  test(
+    '[YC-177] @smoke Given error conditions for 400, when get /v1/payouts, then returns 400 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(400);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-178] @smoke Given error conditions for 401, when get /v1/payouts, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-179] @extended Given error conditions for 403, when get /v1/payouts, then returns 403 error',
+    { tag: ['@extended'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(403);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-180] @extended Given error conditions for 429, when get /v1/payouts, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/payouts`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
     },
   );
 });

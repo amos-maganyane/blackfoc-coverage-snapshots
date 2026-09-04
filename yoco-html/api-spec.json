@@ -1,229 +1,15 @@
 {
-  "title": "yoco_api-reference-yoco-api-payment-links-list-payment-links-v-1-payment-links-get.html + yoco_guides-online-payments-webhooks-listen-for-events.html + yoco_docs-checkout-api-errors.html + yoco_guides-online-payments-webhooks.html + yoco_docs-api-authentication-scopes.html + yoco_docs-api-authentication-oauth.html + yoco_docs-checkout-api-authentication.html + yoco_docs-checkout-api.html + yoco_docs-api-error-codes-unauthorized.html + yoco_api-reference-yoco-api-webhook-events-item-created.html + yoco_api-reference-oauth-api-oauth-logout.html + yoco_api-reference-yoco-api-webhooks-send-test-webhook-event-v-1-webhooks-subscriptions-subscription-id-test-post.html + yoco_api-reference-yoco-api-payouts-list-payouts-v-1-payouts-get.html + yoco_api-reference-yoco-api-webhook-events-order-completed.html + yoco_api-reference-checkout-api-webhooks-list-webhooks.html + yoco_api-reference-yoco-api-staff-list-staff-v-1-staff-get.html + yoco_docs-api-webhooks-verifying-events.html + yoco_api-reference-yoco-api-modifier-groups-fetch-modifier-group-v-1-modifier-groups-modifier-group-id-get.html + yoco_guides-online-payments-accepting-a-payment.html + yoco_api-reference-yoco-api-item-brands-list-item-brands-v-1-item-brands-get.html + yoco_api-reference-yoco-api-locations-fetch-location-v-1-locations-location-id-get.html + yoco_api-reference-yoco-api-item-brands-fetch-item-brand-v-1-item-brands-item-brand-id-get.html + yoco_docs-api-webhooks-testing.html + yoco_docs-api-authentication.html + yoco_docs-api-authentication-oauth-managing-authorization.html + yoco_docs-api.html + yoco_api-reference-yoco-api-orders-list-orders-v-1-orders-get.html + yoco_api-reference-yoco-api-item-categories-list-item-categories-v-1-item-categories-get.html + yoco_api-reference-yoco-api-webhooks-create-webhook-subscription-v-1-webhooks-subscriptions-post.html + yoco_api-reference-yoco-api-modifier-groups-list-modifier-groups-v-1-modifier-groups-get.html + yoco_api-reference-yoco-api-web-pos-create-web-pos-device-v-1-webpos-post.html + yoco_api-reference-yoco-api-webhooks-delete-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-delete.html + yoco_api-reference-yoco-api-card-machines-fetch-card-machine-v-1-card-machines-card-machine-id-get.html + yoco_docs-api-webhooks-best-practices.html + yoco_docs-api-authentication-api-keys.html + yoco_docs-api-using-the-rest-api.html + yoco_api-reference-yoco-api-payouts-fetch-payout-v-1-payouts-payout-id-get.html + yoco_docs-api-error-codes-validation.html + yoco_api-reference-yoco-api-items-list-items-v-1-items-get.html + yoco_api-reference-yoco-api-webhook-events-order-created.html + yoco_api-reference-yoco-api-item-categories-fetch-item-category-v-1-item-categories-item-category-id-get.html + yoco_api-reference-yoco-api-webhook-events-payment-created.html + yoco_docs-api-error-codes-forbidden.html + Redirecting to secure checkout + yoco_docs-api-authentication-oauth-obtaining-authenticated-user-info.html + yoco_api-reference-yoco-api-webhooks-fetch-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-get.html + yoco_guides-online-payments-reconciliation-reconciling-checkout-api-payments-with-daily-payouts.html + yoco_docs-getting-started.html + yoco_api-reference-yoco-api-webhook-events-item-category-created.html + yoco_api-reference-checkout-api-webhook-events-refund-notification-failure-partial.html + yoco_docs-api-authentication-oauth-logging-out-users.html + yoco_api-reference-yoco-api-orders-introduction.html + yoco_api-reference-yoco-api-webhook-events-payment-refunded.html + yoco_api-reference-checkout-api-webhook-events-refund-notification-failure-full.html + yoco_docs-api-authentication-applications.html + yoco_docs-api-webhooks-handling-events.html + yoco_api-reference-yoco-api-webhook-events-item-deleted.html + yoco_docs-api-security.html + yoco_docs-api-error-codes-not-found.html + yoco_docs-api-authentication-oauth-refreshing-access-tokens.html + yoco_api-reference-checkout-api-webhook-events-refund-notification-success-partial.html + yoco_api-reference-yoco-api-payment-links-create-payment-link-v-1-payment-links-post.html + yoco_guides-online-payments-webhooks-verifying-the-events.html + yoco_docs-api-error-codes-method-not-allowed.html + yoco_api-reference-yoco-api-payments-list-payments-v-1-payments-get.html + yoco_api-reference-oauth-api-oauth-token.html + yoco_docs-api-error-codes-server.html + yoco_api-reference-yoco-api.html + yoco_api-reference-yoco-api-web-pos-create-web-pos-payment-v-1-webpos-webpos-device-id-payments-post.html + yoco_api-reference-yoco-api-capital-list-active-capital-advances-v-1-capital-active-advances-get.html + yoco_api-reference-yoco-api-web-pos-fetch-web-pos-payment-v-1-webpos-webpos-device-id-payments-payment-id-get.html + yoco_api-reference-checkout-api-webhook-events-payment-notification.html + yoco_docs-api-error-codes-rate-limited.html + yoco_api-reference-checkout-api-webhook-events-refund-notification-success-full.html + yoco_api-reference-yoco-api-webhooks-introduction.html + yoco_docs-api-error-codes-missing-required-field.html + yoco_api-reference-checkout-api.html + yoco_api-reference-yoco-api-webhooks-list-webhook-subscriptions-v-1-webhooks-subscriptions-get.html + yoco_api-reference-yoco-api-payouts-list-payout-entries-v-1-payouts-payout-id-payout-entries-get.html + yoco_api-reference-yoco-api-webhook-events-order-cancelled.html + yoco_api-reference-yoco-api-orders-fetch-order-v-1-orders-order-id-get.html + yoco_api-reference-oauth-api-oauth-userinfo.html + yoco_api-reference-yoco-api-payouts-introduction.html + yoco_api-reference-yoco-api-webhook-events-item-updated.html + yoco_api-reference-yoco-api-payments-fetch-payment-v-1-payments-payment-id-get.html + yoco_api-reference-yoco-api-capital-list-active-capital-offers-v-1-capital-active-offers-get.html + yoco_guides-payments-creating-a-payment-link.html + yoco_docs-checkout-api-testing.html + yoco_docs-api-authentication-api-keys-managing-api-keys.html + yoco_api-reference-yoco-api-payment-links-delete-payment-link-v-1-payment-links-payment-link-id-delete.html + yoco_api-reference-yoco-api-refunds-fetch-refund-v-1-refunds-refund-id-get.html + yoco_api-reference-yoco-api-webhook-events-order-updated.html + yoco_docs-api-versioning.html + yoco_docs-api-webhooks.html + yoco_api-reference-yoco-api-locations-list-locations-v-1-locations-get.html + yoco_docs-api-authentication-oauth-obtaining-tokens.html + yoco_api-reference-yoco-api-webhooks-rotate-webhook-subscription-secret-v-1-webhooks-subscriptions-subscription-id-secret-post.html + yoco_api-reference-yoco-api-items-fetch-item-v-1-items-item-id-get.html + yoco_docs-api-authentication-oauth-creating-authorization-ur-ls.html + yoco_docs-api-authentication-applications-setting-up-your-application.html + yoco_api-reference-checkout-api-checkout-refund-checkout.html + yoco_docs-api-pagination.html + yoco_api-reference-yoco-api-webhook-events-item-category-updated.html + yoco_docs-api-open-api-description.html + yoco_api-reference-yoco-api-o-auth-2-0-get-token-info-v-1-oauth-2-token-info-get.html + yoco_api-reference-checkout-api-checkout-create-checkout.html + yoco_api-reference-checkout-api-webhooks-delete-webhook.html + yoco_docs-design-resources.html + yoco_api-reference-yoco-api-payment-links-introduction.html + yoco_docs-api-rate-limiting.html + yoco_guides-online-payments-refunding-a-payment.html + yoco_docs-api-webhooks-creating-a-subscription.html + yoco_api-reference-yoco-api-card-machines-list-card-machines-v-1-card-machines-get.html + yoco_api-reference-checkout-api-webhooks-register-webhook.html + yoco_api-reference-yoco-api-webhook-events-item-category-deleted.html + yoco_api-reference-oauth-api.html + yoco_api-reference-yoco-api-webhooks-list-webhook-event-definitions-v-1-webhooks-events-get.html + yoco_api-reference-oauth-api-oauth-authorize.html + yoco_api-reference-yoco-api-staff-fetch-staff-v-1-staff-staff-id-get.html + yoco_api-reference-yoco-api-webhooks-update-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-patch.html + yoco_docs-checkout-api-idempotency.html + yoco_api-reference-yoco-api-payment-links-fetch-payment-link-v-1-payment-links-payment-link-id-get.html + yoco_api-reference-yoco-api-refunds-list-refunds-v-1-refunds-get.html + yoco_api-reference-yoco-api-web-pos-fetch-web-pos-device-v-1-webpos-webpos-device-id-get.html + yoco_docs-api-error-handling.html + yoco_docs-terms-of-use.html",
+  "title": "yoco_api-reference-checkout-api-checkout-create-checkout.html + yoco_api-reference-checkout-api-checkout-refund-checkout.html + yoco_api-reference-checkout-api-webhook-events-payment-notification.html + yoco_api-reference-checkout-api-webhook-events-refund-notification-failure-full.html + yoco_api-reference-checkout-api-webhook-events-refund-notification-failure-partial.html + yoco_api-reference-checkout-api-webhook-events-refund-notification-success-full.html + yoco_api-reference-checkout-api-webhook-events-refund-notification-success-partial.html + yoco_api-reference-checkout-api-webhooks-delete-webhook.html + yoco_api-reference-checkout-api-webhooks-list-webhooks.html + yoco_api-reference-checkout-api-webhooks-register-webhook.html + yoco_api-reference-checkout-api.html + yoco_api-reference-oauth-api-oauth-authorize.html + yoco_api-reference-oauth-api-oauth-logout.html + yoco_api-reference-oauth-api-oauth-token.html + yoco_api-reference-oauth-api-oauth-userinfo.html + yoco_api-reference-oauth-api.html + yoco_api-reference-yoco-api-capital-list-active-capital-advances-v-1-capital-active-advances-get.html + yoco_api-reference-yoco-api-capital-list-active-capital-offers-v-1-capital-active-offers-get.html + yoco_api-reference-yoco-api-card-machines-fetch-card-machine-v-1-card-machines-card-machine-id-get.html + yoco_api-reference-yoco-api-card-machines-list-card-machines-v-1-card-machines-get.html + yoco_api-reference-yoco-api-item-brands-fetch-item-brand-v-1-item-brands-item-brand-id-get.html + yoco_api-reference-yoco-api-item-brands-list-item-brands-v-1-item-brands-get.html + yoco_api-reference-yoco-api-item-categories-fetch-item-category-v-1-item-categories-item-category-id-get.html + yoco_api-reference-yoco-api-item-categories-list-item-categories-v-1-item-categories-get.html + yoco_api-reference-yoco-api-items-fetch-item-v-1-items-item-id-get.html + yoco_api-reference-yoco-api-items-list-items-v-1-items-get.html + yoco_api-reference-yoco-api-locations-fetch-location-v-1-locations-location-id-get.html + yoco_api-reference-yoco-api-locations-list-locations-v-1-locations-get.html + yoco_api-reference-yoco-api-modifier-groups-fetch-modifier-group-v-1-modifier-groups-modifier-group-id-get.html + yoco_api-reference-yoco-api-modifier-groups-list-modifier-groups-v-1-modifier-groups-get.html + yoco_api-reference-yoco-api-o-auth-2-0-get-token-info-v-1-oauth-2-token-info-get.html + yoco_api-reference-yoco-api-orders-fetch-order-v-1-orders-order-id-get.html + yoco_api-reference-yoco-api-orders-introduction.html + yoco_api-reference-yoco-api-orders-list-orders-v-1-orders-get.html + yoco_api-reference-yoco-api-payment-links-create-payment-link-v-1-payment-links-post.html + yoco_api-reference-yoco-api-payment-links-delete-payment-link-v-1-payment-links-payment-link-id-delete.html + yoco_api-reference-yoco-api-payment-links-fetch-payment-link-v-1-payment-links-payment-link-id-get.html + yoco_api-reference-yoco-api-payment-links-introduction.html + yoco_api-reference-yoco-api-payment-links-list-payment-links-v-1-payment-links-get.html + yoco_api-reference-yoco-api-payments-fetch-payment-v-1-payments-payment-id-get.html + yoco_api-reference-yoco-api-payments-list-payments-v-1-payments-get.html + yoco_api-reference-yoco-api-payouts-fetch-payout-v-1-payouts-payout-id-get.html + yoco_api-reference-yoco-api-payouts-introduction.html + yoco_api-reference-yoco-api-payouts-list-payout-entries-v-1-payouts-payout-id-payout-entries-get.html + yoco_api-reference-yoco-api-payouts-list-payouts-v-1-payouts-get.html + yoco_api-reference-yoco-api-refunds-fetch-refund-v-1-refunds-refund-id-get.html + yoco_api-reference-yoco-api-refunds-list-refunds-v-1-refunds-get.html + yoco_api-reference-yoco-api-staff-fetch-staff-v-1-staff-staff-id-get.html + yoco_api-reference-yoco-api-staff-list-staff-v-1-staff-get.html + yoco_api-reference-yoco-api-web-pos-create-web-pos-device-v-1-webpos-post.html + yoco_api-reference-yoco-api-web-pos-create-web-pos-payment-v-1-webpos-webpos-device-id-payments-post.html + yoco_api-reference-yoco-api-web-pos-fetch-web-pos-device-v-1-webpos-webpos-device-id-get.html + yoco_api-reference-yoco-api-web-pos-fetch-web-pos-payment-v-1-webpos-webpos-device-id-payments-payment-id-get.html + yoco_api-reference-yoco-api-webhook-events-item-category-created.html + yoco_api-reference-yoco-api-webhook-events-item-category-deleted.html + yoco_api-reference-yoco-api-webhook-events-item-category-updated.html + yoco_api-reference-yoco-api-webhook-events-item-created.html + yoco_api-reference-yoco-api-webhook-events-item-deleted.html + yoco_api-reference-yoco-api-webhook-events-item-updated.html + yoco_api-reference-yoco-api-webhook-events-order-cancelled.html + yoco_api-reference-yoco-api-webhook-events-order-completed.html + yoco_api-reference-yoco-api-webhook-events-order-created.html + yoco_api-reference-yoco-api-webhook-events-order-updated.html + yoco_api-reference-yoco-api-webhook-events-payment-created.html + yoco_api-reference-yoco-api-webhook-events-payment-refunded.html + yoco_api-reference-yoco-api-webhooks-create-webhook-subscription-v-1-webhooks-subscriptions-post.html + yoco_api-reference-yoco-api-webhooks-delete-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-delete.html + yoco_api-reference-yoco-api-webhooks-fetch-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-get.html + yoco_api-reference-yoco-api-webhooks-introduction.html + yoco_api-reference-yoco-api-webhooks-list-webhook-event-definitions-v-1-webhooks-events-get.html + yoco_api-reference-yoco-api-webhooks-list-webhook-subscriptions-v-1-webhooks-subscriptions-get.html + yoco_api-reference-yoco-api-webhooks-rotate-webhook-subscription-secret-v-1-webhooks-subscriptions-subscription-id-secret-post.html + yoco_api-reference-yoco-api-webhooks-send-test-webhook-event-v-1-webhooks-subscriptions-subscription-id-test-post.html + yoco_api-reference-yoco-api-webhooks-update-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-patch.html + yoco_api-reference-yoco-api.html + yoco_docs-api-authentication-api-keys-managing-api-keys.html + yoco_docs-api-authentication-api-keys.html + yoco_docs-api-authentication-applications-setting-up-your-application.html + yoco_docs-api-authentication-applications.html + yoco_docs-api-authentication-oauth-creating-authorization-ur-ls.html + yoco_docs-api-authentication-oauth-logging-out-users.html + yoco_docs-api-authentication-oauth-managing-authorization.html + yoco_docs-api-authentication-oauth-obtaining-authenticated-user-info.html + yoco_docs-api-authentication-oauth-obtaining-tokens.html + yoco_docs-api-authentication-oauth-refreshing-access-tokens.html + yoco_docs-api-authentication-oauth.html + yoco_docs-api-authentication-scopes.html + yoco_docs-api-authentication.html + yoco_docs-api-error-codes-forbidden.html + yoco_docs-api-error-codes-method-not-allowed.html + yoco_docs-api-error-codes-missing-required-field.html + yoco_docs-api-error-codes-not-found.html + yoco_docs-api-error-codes-rate-limited.html + yoco_docs-api-error-codes-server.html + yoco_docs-api-error-codes-unauthorized.html + yoco_docs-api-error-codes-validation.html + yoco_docs-api-error-handling.html + yoco_docs-api-open-api-description.html + yoco_docs-api-pagination.html + yoco_docs-api-rate-limiting.html + yoco_docs-api-security.html + yoco_docs-api-using-the-rest-api.html + yoco_docs-api-versioning.html + yoco_docs-api-webhooks-best-practices.html + yoco_docs-api-webhooks-creating-a-subscription.html + yoco_docs-api-webhooks-handling-events.html + yoco_docs-api-webhooks-testing.html + yoco_docs-api-webhooks-verifying-events.html + yoco_docs-api-webhooks.html + yoco_docs-api.html + yoco_docs-checkout-api-authentication.html + yoco_docs-checkout-api-errors.html + yoco_docs-checkout-api-idempotency.html + Redirecting to secure checkout + yoco_docs-checkout-api-testing.html + yoco_docs-checkout-api.html + yoco_docs-design-resources.html + yoco_docs-getting-started.html + yoco_docs-terms-of-use.html + yoco_guides-online-payments-accepting-a-payment.html + yoco_guides-online-payments-reconciliation-reconciling-checkout-api-payments-with-daily-payouts.html + yoco_guides-online-payments-refunding-a-payment.html + yoco_guides-online-payments-webhooks-listen-for-events.html + yoco_guides-online-payments-webhooks-verifying-the-events.html + yoco_guides-online-payments-webhooks.html + yoco_guides-payments-creating-a-payment-link.html",
   "version": "1.0",
   "baseUrl": "",
-  "authSchemes": [],
+  "authSchemes": [
+    {
+      "type": "bearer",
+      "name": "Authorization",
+      "description": "Bearer token authentication (Authorization: Bearer <token>)"
+    }
+  ],
   "endpoints": [
-    {
-      "method": "GET",
-      "path": "/v1/payment_links",
-      "operationId": "get /v1/payment_links/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "POST",
-      "path": "/api/webhooks",
-      "operationId": "post /api/webhooks",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Invalid Input Error"
-        },
-        {
-          "status": "403",
-          "description": "Permission Error"
-        },
-        {
-          "status": "500",
-          "description": "Server Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/oauth2/sessions/logout",
-      "operationId": "get /oauth2/sessions/logout",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "POST",
-      "path": "/v1/webhooks/subscriptions/:subscription_id/test",
-      "operationId": "post /v1/webhooks/subscriptions/:subscription_id/test",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/payouts",
-      "operationId": "get /v1/payouts/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/api/webhooks",
-      "operationId": "get /api/webhooks",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Invalid Input Error"
-        },
-        {
-          "status": "403",
-          "description": "Permission Error"
-        },
-        {
-          "status": "500",
-          "description": "Server Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/staff",
-      "operationId": "get /v1/staff/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/modifier_groups/:modifier_group_id",
-      "operationId": "get /v1/modifier_groups/:modifier_group_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
     {
       "method": "POST",
       "path": "/api/checkouts",
@@ -251,9 +37,35 @@
       "tags": []
     },
     {
-      "method": "GET",
-      "path": "/v1/item_brands",
-      "operationId": "get /v1/item_brands/",
+      "method": "POST",
+      "path": "/api/checkouts/:id/refund",
+      "operationId": "post /api/checkouts/:id/refund",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "403",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "409",
+          "description": "Conflict Error"
+        },
+        {
+          "status": "422",
+          "description": "Idempotency Mismatch Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/webhooks/:id",
+      "operationId": "delete /api/webhooks/:id",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -263,7 +75,125 @@
         },
         {
           "status": "400",
-          "description": "Bad Request Error"
+          "description": "Invalid Input Error"
+        },
+        {
+          "status": "403",
+          "description": "Permission Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/api/webhooks",
+      "operationId": "get /api/webhooks",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Invalid Input Error"
+        },
+        {
+          "status": "403",
+          "description": "Permission Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/api/webhooks",
+      "operationId": "post /api/webhooks",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Invalid Input Error"
+        },
+        {
+          "status": "403",
+          "description": "Permission Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/oauth2/auth",
+      "operationId": "get /oauth2/auth",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/oauth2/sessions/logout",
+      "operationId": "get /oauth2/sessions/logout",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/oauth2/token",
+      "operationId": "post /oauth2/token",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/userinfo",
+      "operationId": "get /userinfo",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/capital/active_advances",
+      "operationId": "get /v1/capital/active_advances",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
         },
         {
           "status": "401",
@@ -282,8 +212,34 @@
     },
     {
       "method": "GET",
-      "path": "/v1/locations/:location_id",
-      "operationId": "get /v1/locations/:location_id",
+      "path": "/v1/capital/active_offers",
+      "operationId": "get /v1/capital/active_offers",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/card_machines/:card_machine_id",
+      "operationId": "get /v1/card_machines/:card_machine_id",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -302,6 +258,36 @@
         {
           "status": "404",
           "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/card_machines",
+      "operationId": "get /v1/card_machines/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
         },
         {
           "status": "429",
@@ -342,368 +328,8 @@
     },
     {
       "method": "GET",
-      "path": "/v1/orders",
-      "operationId": "get /v1/orders/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/item_categories",
-      "operationId": "get /v1/item_categories/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "POST",
-      "path": "/v1/webhooks/subscriptions",
-      "operationId": "post /v1/webhooks/subscriptions/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "201",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/modifier_groups",
-      "operationId": "get /v1/modifier_groups/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "POST",
-      "path": "/v1/webpos",
-      "operationId": "post /v1/webpos/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "201",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "DELETE",
-      "path": "/v1/webhooks/subscriptions/:subscription_id",
-      "operationId": "delete /v1/webhooks/subscriptions/:subscription_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/card_machines/:card_machine_id",
-      "operationId": "get /v1/card_machines/:card_machine_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "PUT",
-      "path": "/v1/orders/:order_id",
-      "operationId": "put /v1/orders/:order_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "DELETE",
-      "path": "/v1/orders/:order_id",
-      "operationId": "delete /v1/orders/:order_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "PATCH",
-      "path": "/v1/orders/:order_id",
-      "operationId": "patch /v1/orders/:order_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "POST",
-      "path": "/v1/payment_links",
-      "operationId": "post /v1/payment_links/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "201",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/payouts/:payout_id",
-      "operationId": "get /v1/payouts/:payout_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/items",
-      "operationId": "get /v1/items/",
+      "path": "/v1/item_brands",
+      "operationId": "get /v1/item_brands/",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -762,22 +388,38 @@
     },
     {
       "method": "GET",
-      "path": "/userinfo",
-      "operationId": "get /userinfo",
+      "path": "/v1/item_categories",
+      "operationId": "get /v1/item_categories/",
       "summary": "",
       "parameters": [],
       "responses": [
         {
           "status": "200",
           "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
         }
       ],
       "tags": []
     },
     {
       "method": "GET",
-      "path": "/v1/webhooks/subscriptions/:subscription_id",
-      "operationId": "get /v1/webhooks/subscriptions/:subscription_id",
+      "path": "/v1/items/:item_id",
+      "operationId": "get /v1/items/:item_id",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -805,15 +447,375 @@
       "tags": []
     },
     {
-      "method": "POST",
-      "path": "/oauth2/token",
-      "operationId": "post /oauth2/token",
+      "method": "GET",
+      "path": "/v1/items",
+      "operationId": "get /v1/items/",
       "summary": "",
       "parameters": [],
       "responses": [
         {
           "status": "200",
           "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/locations/:location_id",
+      "operationId": "get /v1/locations/:location_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/locations",
+      "operationId": "get /v1/locations/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/modifier_groups/:modifier_group_id",
+      "operationId": "get /v1/modifier_groups/:modifier_group_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/modifier_groups",
+      "operationId": "get /v1/modifier_groups/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/oauth2/token_info",
+      "operationId": "get /v1/oauth2/token_info",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/orders/:order_id",
+      "operationId": "get /v1/orders/:order_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/orders",
+      "operationId": "get /v1/orders/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/v1/payment_links",
+      "operationId": "post /v1/payment_links/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "201",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/payment_links/:payment_link_id",
+      "operationId": "delete /v1/payment_links/:payment_link_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payment_links/:payment_link_id",
+      "operationId": "get /v1/payment_links/:payment_link_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payment_links",
+      "operationId": "get /v1/payment_links/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payments/:payment_id",
+      "operationId": "get /v1/payments/:payment_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
         }
       ],
       "tags": []
@@ -827,6 +829,246 @@
       "responses": [
         {
           "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/:payout_id",
+      "operationId": "get /v1/payouts/:payout_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/:payout_id/payout_entries",
+      "operationId": "get /v1/payouts/:payout_id/payout_entries",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts",
+      "operationId": "get /v1/payouts/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/refunds/:refund_id",
+      "operationId": "get /v1/refunds/:refund_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/refunds",
+      "operationId": "get /v1/refunds/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/staff/:staff_id",
+      "operationId": "get /v1/staff/:staff_id",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/staff",
+      "operationId": "get /v1/staff/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request Error"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webpos",
+      "operationId": "post /v1/webpos/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "201",
           "description": "OK"
         },
         {
@@ -880,8 +1122,8 @@
     },
     {
       "method": "GET",
-      "path": "/v1/capital/active_advances",
-      "operationId": "get /v1/capital/active_advances",
+      "path": "/v1/webpos/:webpos_device_id",
+      "operationId": "get /v1/webpos/:webpos_device_id",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -896,6 +1138,10 @@
         {
           "status": "403",
           "description": "Forbidden Error"
+        },
+        {
+          "status": "404",
+          "description": "Not Found Error"
         },
         {
           "status": "429",
@@ -935,135 +1181,19 @@
       "tags": []
     },
     {
-      "method": "GET",
+      "method": "POST",
       "path": "/v1/webhooks/subscriptions",
-      "operationId": "get /v1/webhooks/subscriptions/",
+      "operationId": "post /v1/webhooks/subscriptions/",
       "summary": "",
       "parameters": [],
       "responses": [
         {
-          "status": "200",
+          "status": "201",
           "description": "OK"
         },
         {
           "status": "400",
           "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/payouts/:payout_id/payout_entries",
-      "operationId": "get /v1/payouts/:payout_id/payout_entries",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/orders/:order_id",
-      "operationId": "get /v1/orders/:order_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/payments/:payment_id",
-      "operationId": "get /v1/payments/:payment_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/capital/active_offers",
-      "operationId": "get /v1/capital/active_offers",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
         },
         {
           "status": "401",
@@ -1082,8 +1212,8 @@
     },
     {
       "method": "DELETE",
-      "path": "/v1/payment_links/:payment_link_id",
-      "operationId": "delete /v1/payment_links/:payment_link_id",
+      "path": "/v1/webhooks/subscriptions/:subscription_id",
+      "operationId": "delete /v1/webhooks/subscriptions/:subscription_id",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -1112,8 +1242,8 @@
     },
     {
       "method": "GET",
-      "path": "/v1/refunds/:refund_id",
-      "operationId": "get /v1/refunds/:refund_id",
+      "path": "/v1/webhooks/subscriptions/:subscription_id",
+      "operationId": "get /v1/webhooks/subscriptions/:subscription_id",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -1142,8 +1272,34 @@
     },
     {
       "method": "GET",
-      "path": "/v1/locations",
-      "operationId": "get /v1/locations/",
+      "path": "/v1/webhooks/events",
+      "operationId": "get /v1/webhooks/events/",
+      "summary": "",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized Error"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden Error"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests Error"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/subscriptions",
+      "operationId": "get /v1/webhooks/subscriptions/",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -1205,105 +1361,9 @@
       "tags": []
     },
     {
-      "method": "GET",
-      "path": "/v1/items/:item_id",
-      "operationId": "get /v1/items/:item_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
       "method": "POST",
-      "path": "/api/checkouts/:id/refund",
-      "operationId": "post /api/checkouts/:id/refund",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "403",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "409",
-          "description": "Conflict Error"
-        },
-        {
-          "status": "422",
-          "description": "Idempotency Mismatch Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/oauth2/token_info",
-      "operationId": "get /v1/oauth2/token_info",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/webhooks/:id",
-      "operationId": "delete /api/webhooks/:id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Invalid Input Error"
-        },
-        {
-          "status": "403",
-          "description": "Permission Error"
-        },
-        {
-          "status": "500",
-          "description": "Server Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/card_machines",
-      "operationId": "get /v1/card_machines/",
+      "path": "/v1/webhooks/subscriptions/:subscription_id/test",
+      "operationId": "post /v1/webhooks/subscriptions/:subscription_id/test",
       "summary": "",
       "parameters": [],
       "responses": [
@@ -1314,72 +1374,6 @@
         {
           "status": "400",
           "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/webhooks/events",
-      "operationId": "get /v1/webhooks/events/",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/oauth2/auth",
-      "operationId": "get /oauth2/auth",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": []
-    },
-    {
-      "method": "GET",
-      "path": "/v1/staff/:staff_id",
-      "operationId": "get /v1/staff/:staff_id",
-      "summary": "",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
         },
         {
           "status": "401",
@@ -1435,97 +1429,49 @@
       "tags": []
     },
     {
-      "method": "GET",
-      "path": "/v1/payment_links/:payment_link_id",
-      "operationId": "get /v1/payment_links/:payment_link_id",
+      "method": "PUT",
+      "path": "/v1/orders/:id",
+      "operationId": "put /v1/orders/1851231235",
       "summary": "",
       "parameters": [],
       "responses": [
         {
           "status": "200",
           "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
         }
       ],
       "tags": []
     },
     {
-      "method": "GET",
-      "path": "/v1/refunds",
-      "operationId": "get /v1/refunds/",
+      "method": "DELETE",
+      "path": "/v1/orders/:id",
+      "operationId": "delete /v1/orders/1851231235",
       "summary": "",
       "parameters": [],
       "responses": [
         {
           "status": "200",
           "description": "OK"
-        },
-        {
-          "status": "400",
-          "description": "Bad Request Error"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
         }
       ],
       "tags": []
     },
     {
-      "method": "GET",
-      "path": "/v1/webpos/:webpos_device_id",
-      "operationId": "get /v1/webpos/:webpos_device_id",
+      "method": "PATCH",
+      "path": "/v1/orders/:id",
+      "operationId": "patch /v1/orders/1851231235",
       "summary": "",
       "parameters": [],
       "responses": [
         {
           "status": "200",
           "description": "OK"
-        },
-        {
-          "status": "401",
-          "description": "Unauthorized Error"
-        },
-        {
-          "status": "403",
-          "description": "Forbidden Error"
-        },
-        {
-          "status": "404",
-          "description": "Not Found Error"
-        },
-        {
-          "status": "429",
-          "description": "Too Many Requests Error"
         }
       ],
       "tags": []
     }
   ],
   "sourceFormat": "html",
-  "sourceFile": "yoco_api-reference-yoco-api-payment-links-list-payment-links-v-1-payment-links-get.html, yoco_guides-online-payments-webhooks-listen-for-events.html, yoco_docs-checkout-api-errors.html, yoco_guides-online-payments-webhooks.html, yoco_docs-api-authentication-scopes.html, yoco_docs-api-authentication-oauth.html, yoco_docs-checkout-api-authentication.html, yoco_docs-checkout-api.html, yoco_docs-api-error-codes-unauthorized.html, yoco_api-reference-yoco-api-webhook-events-item-created.html, yoco_api-reference-oauth-api-oauth-logout.html, yoco_api-reference-yoco-api-webhooks-send-test-webhook-event-v-1-webhooks-subscriptions-subscription-id-test-post.html, yoco_api-reference-yoco-api-payouts-list-payouts-v-1-payouts-get.html, yoco_api-reference-yoco-api-webhook-events-order-completed.html, yoco_api-reference-checkout-api-webhooks-list-webhooks.html, yoco_api-reference-yoco-api-staff-list-staff-v-1-staff-get.html, yoco_docs-api-webhooks-verifying-events.html, yoco_api-reference-yoco-api-modifier-groups-fetch-modifier-group-v-1-modifier-groups-modifier-group-id-get.html, yoco_guides-online-payments-accepting-a-payment.html, yoco_api-reference-yoco-api-item-brands-list-item-brands-v-1-item-brands-get.html, yoco_api-reference-yoco-api-locations-fetch-location-v-1-locations-location-id-get.html, yoco_api-reference-yoco-api-item-brands-fetch-item-brand-v-1-item-brands-item-brand-id-get.html, yoco_docs-api-webhooks-testing.html, yoco_docs-api-authentication.html, yoco_docs-api-authentication-oauth-managing-authorization.html, yoco_docs-api.html, yoco_api-reference-yoco-api-orders-list-orders-v-1-orders-get.html, yoco_api-reference-yoco-api-item-categories-list-item-categories-v-1-item-categories-get.html, yoco_api-reference-yoco-api-webhooks-create-webhook-subscription-v-1-webhooks-subscriptions-post.html, yoco_api-reference-yoco-api-modifier-groups-list-modifier-groups-v-1-modifier-groups-get.html, yoco_api-reference-yoco-api-web-pos-create-web-pos-device-v-1-webpos-post.html, yoco_api-reference-yoco-api-webhooks-delete-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-delete.html, yoco_api-reference-yoco-api-card-machines-fetch-card-machine-v-1-card-machines-card-machine-id-get.html, yoco_docs-api-webhooks-best-practices.html, yoco_docs-api-authentication-api-keys.html, yoco_docs-api-using-the-rest-api.html, yoco_api-reference-yoco-api-payouts-fetch-payout-v-1-payouts-payout-id-get.html, yoco_docs-api-error-codes-validation.html, yoco_api-reference-yoco-api-items-list-items-v-1-items-get.html, yoco_api-reference-yoco-api-webhook-events-order-created.html, yoco_api-reference-yoco-api-item-categories-fetch-item-category-v-1-item-categories-item-category-id-get.html, yoco_api-reference-yoco-api-webhook-events-payment-created.html, yoco_docs-api-error-codes-forbidden.html, yoco_docs-checkout-api-sharing-checkout-links.html, yoco_docs-api-authentication-oauth-obtaining-authenticated-user-info.html, yoco_api-reference-yoco-api-webhooks-fetch-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-get.html, yoco_guides-online-payments-reconciliation-reconciling-checkout-api-payments-with-daily-payouts.html, yoco_docs-getting-started.html, yoco_api-reference-yoco-api-webhook-events-item-category-created.html, yoco_api-reference-checkout-api-webhook-events-refund-notification-failure-partial.html, yoco_docs-api-authentication-oauth-logging-out-users.html, yoco_api-reference-yoco-api-orders-introduction.html, yoco_api-reference-yoco-api-webhook-events-payment-refunded.html, yoco_api-reference-checkout-api-webhook-events-refund-notification-failure-full.html, yoco_docs-api-authentication-applications.html, yoco_docs-api-webhooks-handling-events.html, yoco_api-reference-yoco-api-webhook-events-item-deleted.html, yoco_docs-api-security.html, yoco_docs-api-error-codes-not-found.html, yoco_docs-api-authentication-oauth-refreshing-access-tokens.html, yoco_api-reference-checkout-api-webhook-events-refund-notification-success-partial.html, yoco_api-reference-yoco-api-payment-links-create-payment-link-v-1-payment-links-post.html, yoco_guides-online-payments-webhooks-verifying-the-events.html, yoco_docs-api-error-codes-method-not-allowed.html, yoco_api-reference-yoco-api-payments-list-payments-v-1-payments-get.html, yoco_api-reference-oauth-api-oauth-token.html, yoco_docs-api-error-codes-server.html, yoco_api-reference-yoco-api.html, yoco_api-reference-yoco-api-web-pos-create-web-pos-payment-v-1-webpos-webpos-device-id-payments-post.html, yoco_api-reference-yoco-api-capital-list-active-capital-advances-v-1-capital-active-advances-get.html, yoco_api-reference-yoco-api-web-pos-fetch-web-pos-payment-v-1-webpos-webpos-device-id-payments-payment-id-get.html, yoco_api-reference-checkout-api-webhook-events-payment-notification.html, yoco_docs-api-error-codes-rate-limited.html, yoco_api-reference-checkout-api-webhook-events-refund-notification-success-full.html, yoco_api-reference-yoco-api-webhooks-introduction.html, yoco_docs-api-error-codes-missing-required-field.html, yoco_api-reference-checkout-api.html, yoco_api-reference-yoco-api-webhooks-list-webhook-subscriptions-v-1-webhooks-subscriptions-get.html, yoco_api-reference-yoco-api-payouts-list-payout-entries-v-1-payouts-payout-id-payout-entries-get.html, yoco_api-reference-yoco-api-webhook-events-order-cancelled.html, yoco_api-reference-yoco-api-orders-fetch-order-v-1-orders-order-id-get.html, yoco_api-reference-oauth-api-oauth-userinfo.html, yoco_api-reference-yoco-api-payouts-introduction.html, yoco_api-reference-yoco-api-webhook-events-item-updated.html, yoco_api-reference-yoco-api-payments-fetch-payment-v-1-payments-payment-id-get.html, yoco_api-reference-yoco-api-capital-list-active-capital-offers-v-1-capital-active-offers-get.html, yoco_guides-payments-creating-a-payment-link.html, yoco_docs-checkout-api-testing.html, yoco_docs-api-authentication-api-keys-managing-api-keys.html, yoco_api-reference-yoco-api-payment-links-delete-payment-link-v-1-payment-links-payment-link-id-delete.html, yoco_api-reference-yoco-api-refunds-fetch-refund-v-1-refunds-refund-id-get.html, yoco_api-reference-yoco-api-webhook-events-order-updated.html, yoco_docs-api-versioning.html, yoco_docs-api-webhooks.html, yoco_api-reference-yoco-api-locations-list-locations-v-1-locations-get.html, yoco_docs-api-authentication-oauth-obtaining-tokens.html, yoco_api-reference-yoco-api-webhooks-rotate-webhook-subscription-secret-v-1-webhooks-subscriptions-subscription-id-secret-post.html, yoco_api-reference-yoco-api-items-fetch-item-v-1-items-item-id-get.html, yoco_docs-api-authentication-oauth-creating-authorization-ur-ls.html, yoco_docs-api-authentication-applications-setting-up-your-application.html, yoco_api-reference-checkout-api-checkout-refund-checkout.html, yoco_docs-api-pagination.html, yoco_api-reference-yoco-api-webhook-events-item-category-updated.html, yoco_docs-api-open-api-description.html, yoco_api-reference-yoco-api-o-auth-2-0-get-token-info-v-1-oauth-2-token-info-get.html, yoco_api-reference-checkout-api-checkout-create-checkout.html, yoco_api-reference-checkout-api-webhooks-delete-webhook.html, yoco_docs-design-resources.html, yoco_api-reference-yoco-api-payment-links-introduction.html, yoco_docs-api-rate-limiting.html, yoco_guides-online-payments-refunding-a-payment.html, yoco_docs-api-webhooks-creating-a-subscription.html, yoco_api-reference-yoco-api-card-machines-list-card-machines-v-1-card-machines-get.html, yoco_api-reference-checkout-api-webhooks-register-webhook.html, yoco_api-reference-yoco-api-webhook-events-item-category-deleted.html, yoco_api-reference-oauth-api.html, yoco_api-reference-yoco-api-webhooks-list-webhook-event-definitions-v-1-webhooks-events-get.html, yoco_api-reference-oauth-api-oauth-authorize.html, yoco_api-reference-yoco-api-staff-fetch-staff-v-1-staff-staff-id-get.html, yoco_api-reference-yoco-api-webhooks-update-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-patch.html, yoco_docs-checkout-api-idempotency.html, yoco_api-reference-yoco-api-payment-links-fetch-payment-link-v-1-payment-links-payment-link-id-get.html, yoco_api-reference-yoco-api-refunds-list-refunds-v-1-refunds-get.html, yoco_api-reference-yoco-api-web-pos-fetch-web-pos-device-v-1-webpos-webpos-device-id-get.html, yoco_docs-api-error-handling.html, yoco_docs-terms-of-use.html",
-  "digest": "sha256:3ef650543a8557585ba81b3b30020b112c6184ff47f7574cf6b25f0cc8a41a88"
+  "sourceFile": "yoco_api-reference-checkout-api-checkout-create-checkout.html, yoco_api-reference-checkout-api-checkout-refund-checkout.html, yoco_api-reference-checkout-api-webhook-events-payment-notification.html, yoco_api-reference-checkout-api-webhook-events-refund-notification-failure-full.html, yoco_api-reference-checkout-api-webhook-events-refund-notification-failure-partial.html, yoco_api-reference-checkout-api-webhook-events-refund-notification-success-full.html, yoco_api-reference-checkout-api-webhook-events-refund-notification-success-partial.html, yoco_api-reference-checkout-api-webhooks-delete-webhook.html, yoco_api-reference-checkout-api-webhooks-list-webhooks.html, yoco_api-reference-checkout-api-webhooks-register-webhook.html, yoco_api-reference-checkout-api.html, yoco_api-reference-oauth-api-oauth-authorize.html, yoco_api-reference-oauth-api-oauth-logout.html, yoco_api-reference-oauth-api-oauth-token.html, yoco_api-reference-oauth-api-oauth-userinfo.html, yoco_api-reference-oauth-api.html, yoco_api-reference-yoco-api-capital-list-active-capital-advances-v-1-capital-active-advances-get.html, yoco_api-reference-yoco-api-capital-list-active-capital-offers-v-1-capital-active-offers-get.html, yoco_api-reference-yoco-api-card-machines-fetch-card-machine-v-1-card-machines-card-machine-id-get.html, yoco_api-reference-yoco-api-card-machines-list-card-machines-v-1-card-machines-get.html, yoco_api-reference-yoco-api-item-brands-fetch-item-brand-v-1-item-brands-item-brand-id-get.html, yoco_api-reference-yoco-api-item-brands-list-item-brands-v-1-item-brands-get.html, yoco_api-reference-yoco-api-item-categories-fetch-item-category-v-1-item-categories-item-category-id-get.html, yoco_api-reference-yoco-api-item-categories-list-item-categories-v-1-item-categories-get.html, yoco_api-reference-yoco-api-items-fetch-item-v-1-items-item-id-get.html, yoco_api-reference-yoco-api-items-list-items-v-1-items-get.html, yoco_api-reference-yoco-api-locations-fetch-location-v-1-locations-location-id-get.html, yoco_api-reference-yoco-api-locations-list-locations-v-1-locations-get.html, yoco_api-reference-yoco-api-modifier-groups-fetch-modifier-group-v-1-modifier-groups-modifier-group-id-get.html, yoco_api-reference-yoco-api-modifier-groups-list-modifier-groups-v-1-modifier-groups-get.html, yoco_api-reference-yoco-api-o-auth-2-0-get-token-info-v-1-oauth-2-token-info-get.html, yoco_api-reference-yoco-api-orders-fetch-order-v-1-orders-order-id-get.html, yoco_api-reference-yoco-api-orders-introduction.html, yoco_api-reference-yoco-api-orders-list-orders-v-1-orders-get.html, yoco_api-reference-yoco-api-payment-links-create-payment-link-v-1-payment-links-post.html, yoco_api-reference-yoco-api-payment-links-delete-payment-link-v-1-payment-links-payment-link-id-delete.html, yoco_api-reference-yoco-api-payment-links-fetch-payment-link-v-1-payment-links-payment-link-id-get.html, yoco_api-reference-yoco-api-payment-links-introduction.html, yoco_api-reference-yoco-api-payment-links-list-payment-links-v-1-payment-links-get.html, yoco_api-reference-yoco-api-payments-fetch-payment-v-1-payments-payment-id-get.html, yoco_api-reference-yoco-api-payments-list-payments-v-1-payments-get.html, yoco_api-reference-yoco-api-payouts-fetch-payout-v-1-payouts-payout-id-get.html, yoco_api-reference-yoco-api-payouts-introduction.html, yoco_api-reference-yoco-api-payouts-list-payout-entries-v-1-payouts-payout-id-payout-entries-get.html, yoco_api-reference-yoco-api-payouts-list-payouts-v-1-payouts-get.html, yoco_api-reference-yoco-api-refunds-fetch-refund-v-1-refunds-refund-id-get.html, yoco_api-reference-yoco-api-refunds-list-refunds-v-1-refunds-get.html, yoco_api-reference-yoco-api-staff-fetch-staff-v-1-staff-staff-id-get.html, yoco_api-reference-yoco-api-staff-list-staff-v-1-staff-get.html, yoco_api-reference-yoco-api-web-pos-create-web-pos-device-v-1-webpos-post.html, yoco_api-reference-yoco-api-web-pos-create-web-pos-payment-v-1-webpos-webpos-device-id-payments-post.html, yoco_api-reference-yoco-api-web-pos-fetch-web-pos-device-v-1-webpos-webpos-device-id-get.html, yoco_api-reference-yoco-api-web-pos-fetch-web-pos-payment-v-1-webpos-webpos-device-id-payments-payment-id-get.html, yoco_api-reference-yoco-api-webhook-events-item-category-created.html, yoco_api-reference-yoco-api-webhook-events-item-category-deleted.html, yoco_api-reference-yoco-api-webhook-events-item-category-updated.html, yoco_api-reference-yoco-api-webhook-events-item-created.html, yoco_api-reference-yoco-api-webhook-events-item-deleted.html, yoco_api-reference-yoco-api-webhook-events-item-updated.html, yoco_api-reference-yoco-api-webhook-events-order-cancelled.html, yoco_api-reference-yoco-api-webhook-events-order-completed.html, yoco_api-reference-yoco-api-webhook-events-order-created.html, yoco_api-reference-yoco-api-webhook-events-order-updated.html, yoco_api-reference-yoco-api-webhook-events-payment-created.html, yoco_api-reference-yoco-api-webhook-events-payment-refunded.html, yoco_api-reference-yoco-api-webhooks-create-webhook-subscription-v-1-webhooks-subscriptions-post.html, yoco_api-reference-yoco-api-webhooks-delete-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-delete.html, yoco_api-reference-yoco-api-webhooks-fetch-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-get.html, yoco_api-reference-yoco-api-webhooks-introduction.html, yoco_api-reference-yoco-api-webhooks-list-webhook-event-definitions-v-1-webhooks-events-get.html, yoco_api-reference-yoco-api-webhooks-list-webhook-subscriptions-v-1-webhooks-subscriptions-get.html, yoco_api-reference-yoco-api-webhooks-rotate-webhook-subscription-secret-v-1-webhooks-subscriptions-subscription-id-secret-post.html, yoco_api-reference-yoco-api-webhooks-send-test-webhook-event-v-1-webhooks-subscriptions-subscription-id-test-post.html, yoco_api-reference-yoco-api-webhooks-update-webhook-subscription-v-1-webhooks-subscriptions-subscription-id-patch.html, yoco_api-reference-yoco-api.html, yoco_docs-api-authentication-api-keys-managing-api-keys.html, yoco_docs-api-authentication-api-keys.html, yoco_docs-api-authentication-applications-setting-up-your-application.html, yoco_docs-api-authentication-applications.html, yoco_docs-api-authentication-oauth-creating-authorization-ur-ls.html, yoco_docs-api-authentication-oauth-logging-out-users.html, yoco_docs-api-authentication-oauth-managing-authorization.html, yoco_docs-api-authentication-oauth-obtaining-authenticated-user-info.html, yoco_docs-api-authentication-oauth-obtaining-tokens.html, yoco_docs-api-authentication-oauth-refreshing-access-tokens.html, yoco_docs-api-authentication-oauth.html, yoco_docs-api-authentication-scopes.html, yoco_docs-api-authentication.html, yoco_docs-api-error-codes-forbidden.html, yoco_docs-api-error-codes-method-not-allowed.html, yoco_docs-api-error-codes-missing-required-field.html, yoco_docs-api-error-codes-not-found.html, yoco_docs-api-error-codes-rate-limited.html, yoco_docs-api-error-codes-server.html, yoco_docs-api-error-codes-unauthorized.html, yoco_docs-api-error-codes-validation.html, yoco_docs-api-error-handling.html, yoco_docs-api-open-api-description.html, yoco_docs-api-pagination.html, yoco_docs-api-rate-limiting.html, yoco_docs-api-security.html, yoco_docs-api-using-the-rest-api.html, yoco_docs-api-versioning.html, yoco_docs-api-webhooks-best-practices.html, yoco_docs-api-webhooks-creating-a-subscription.html, yoco_docs-api-webhooks-handling-events.html, yoco_docs-api-webhooks-testing.html, yoco_docs-api-webhooks-verifying-events.html, yoco_docs-api-webhooks.html, yoco_docs-api.html, yoco_docs-checkout-api-authentication.html, yoco_docs-checkout-api-errors.html, yoco_docs-checkout-api-idempotency.html, yoco_docs-checkout-api-sharing-checkout-links.html, yoco_docs-checkout-api-testing.html, yoco_docs-checkout-api.html, yoco_docs-design-resources.html, yoco_docs-getting-started.html, yoco_docs-terms-of-use.html, yoco_guides-online-payments-accepting-a-payment.html, yoco_guides-online-payments-reconciliation-reconciling-checkout-api-payments-with-daily-payouts.html, yoco_guides-online-payments-refunding-a-payment.html, yoco_guides-online-payments-webhooks-listen-for-events.html, yoco_guides-online-payments-webhooks-verifying-the-events.html, yoco_guides-online-payments-webhooks.html, yoco_guides-payments-creating-a-payment-link.html",
+  "digest": "sha256:cb72561e4184601510ef524e326dd1b9fed15f22af5a5f47340fb4df0e861ced"
 }

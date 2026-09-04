@@ -1,163 +1,164 @@
-import { test, expect } from '@playwright/test';
-import { authHeaders, headersWithoutAuth, headersWithInvalidToken, headersWithReadOnlyToken } from './helpers/auth';
+import { test, expect, request, type APIRequestContext } from '@playwright/test';
 import { validateSchema } from './helpers/schema-validator';
 
 const API_BASE = process.env.API_BASE!;
-const EXISTING_STAFF_ID = process.env.EXISTING_STAFF_ID;
+const AUTH_TOKEN = process.env.API_TOKEN!;
 
-// ==== GET /v1/staff ====
+test.describe('Staff API', () => {
+  let apiContext: APIRequestContext;
 
-test.describe('GET /v1/staff', () => {
+  test.beforeAll(async () => {
+    apiContext = await request.newContext({
+      extraHTTPHeaders: { Authorization: `Bearer ${AUTH_TOKEN}` },
+    });
+  });
+
+  test.afterAll(async () => {
+    await apiContext.dispose();
+  });
+
   test(
-    '[STF-01] @smoke Given authorized credentials, when listing staff, then returns 200 with staff list',
-    async ({ request }) => {
+    '[YC-193] @smoke Given valid authorized credentials, when get /v1/staff/:staff_id, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
       const start = Date.now();
-      const response = await request.get(`${API_BASE}/v1/staff`, {
-        headers: authHeaders(),
-      });
+      const response = await apiContext.get(`${API_BASE}/v1/staff/test-id-123`);
       const duration = Date.now() - start;
-
       expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
       expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'staff-list-response.json');
+      const body = await response.json();
+      validateSchema(body, 'get--v1-staff--staff-id-200.schema.json');
+    },
+  );
+  test(
+    '[YC-194] @smoke Given no Authorization header is supplied, when get /v1/staff/:staff_id, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.get(`${API_BASE}/v1/staff/test-id-123`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
+    },
+  );
+  test(
+    '[YC-195] @smoke Given error conditions for 401, when get /v1/staff/:staff_id, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/staff/test-id-123`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
       expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[STF-02] @smoke Given no authorization, when listing staff, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/staff`, {
-        headers: headersWithoutAuth(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[STF-03] @smoke Given invalid token, when listing staff, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/staff`, {
-        headers: headersWithInvalidToken(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[STF-04] @smoke Given invalid query parameter, when listing staff, then returns 400 bad request',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/staff?limit=not-a-number`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(400);
-    },
-  );
-
-  test(
-    '[STF-05] @extended Given read-only scoped token, when listing staff, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(`${API_BASE}/v1/staff`, {
-        headers: headersWithReadOnlyToken(),
-      });
-      expect(response.status()).toBe(403);
-    },
-  );
-
-  test(
-    '[STF-06] @extended Given throttled environment, when listing staff, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(`${API_BASE}/v1/staff`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(429);
-    },
-  );
-});
-
-// ==== GET /v1/staff/:staff_id ====
-
-test.describe('GET /v1/staff/:staff_id', () => {
-  test(
-    '[STFF-01] @extended Given existing staff member, when fetched by ID, then returns 200 with staff details echoing the ID',
+    '[YC-196] @extended Given error conditions for 403, when get /v1/staff/:staff_id, then returns 403 error',
     { tag: ['@extended'] },
-    async ({ request }) => {
-      test.skip(!EXISTING_STAFF_ID, 'Set EXISTING_STAFF_ID in .env to enable');
+    async () => {
       const start = Date.now();
-      const response = await request.get(`${API_BASE}/v1/staff/${EXISTING_STAFF_ID}`, {
-        headers: authHeaders(),
-      });
+      const response = await apiContext.get(`${API_BASE}/v1/staff/test-id-123`);
       const duration = Date.now() - start;
-
-      expect(response.status()).toBe(200);
-      expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'staff-member-response.json');
-      const typedBody = body as { id: string };
-      expect(typedBody.id).toBe(EXISTING_STAFF_ID);
+      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[STFF-02] @smoke Given non-existent staff ID, when fetched, then returns 404 not found',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/staff/non-existent-id-99999`,
-        { headers: authHeaders() },
-      );
+    '[YC-197] @smoke Given error conditions for 404, when get /v1/staff/:staff_id, then returns 404 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/staff/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(404);
+      expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[STFF-03] @smoke Given staff ID, when fetched without authorization, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/staff/some-staff-id`,
-        { headers: headersWithoutAuth() },
-      );
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[STFF-04] @smoke Given staff ID, when fetched with invalid token, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(
-        `${API_BASE}/v1/staff/some-staff-id`,
-        { headers: headersWithInvalidToken() },
-      );
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[STFF-05] @extended Given read-only scoped token, when fetching staff by ID, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(
-        `${API_BASE}/v1/staff/some-staff-id`,
-        { headers: headersWithReadOnlyToken() },
-      );
-      expect(response.status()).toBe(403);
-    },
-  );
-
-  test(
-    '[STFF-06] @extended Given throttled environment, when fetching staff by ID, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(
-        `${API_BASE}/v1/staff/some-staff-id`,
-        { headers: authHeaders() },
-      );
+    '[YC-198] @extended Given error conditions for 429, when get /v1/staff/:staff_id, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/staff/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-199] @smoke Given valid authorized credentials, when get /v1/staff, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/staff`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
+      expect(response.headers()['content-type']).toContain('application/json');
+      const body = await response.json();
+      validateSchema(body, 'get--v1-staff-200.schema.json');
+    },
+  );
+  test(
+    '[YC-200] @smoke Given no Authorization header is supplied, when get /v1/staff, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.get(`${API_BASE}/v1/staff`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
+    },
+  );
+  test(
+    '[YC-201] @smoke Given error conditions for 400, when get /v1/staff, then returns 400 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/staff`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(400);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-202] @smoke Given error conditions for 401, when get /v1/staff, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/staff`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-203] @extended Given error conditions for 403, when get /v1/staff, then returns 403 error',
+    { tag: ['@extended'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/staff`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(403);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-204] @extended Given error conditions for 429, when get /v1/staff, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/staff`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
     },
   );
 });

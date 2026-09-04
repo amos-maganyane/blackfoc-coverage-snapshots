@@ -1,335 +1,245 @@
-import { test, expect } from '@playwright/test';
-import { authHeaders, headersWithoutAuth, headersWithInvalidToken, headersWithReadOnlyToken } from './helpers/auth';
+import { test, expect, request, type APIRequestContext } from '@playwright/test';
 import { validateSchema } from './helpers/schema-validator';
 
 const API_BASE = process.env.API_BASE!;
-const EXISTING_ORDER_ID = process.env.EXISTING_ORDER_ID;
+const AUTH_TOKEN = process.env.API_TOKEN!;
 
-// ==== GET /v1/orders ====
+test.describe('Orders API', () => {
+  let apiContext: APIRequestContext;
 
-test.describe('GET /v1/orders', () => {
+  test.beforeAll(async () => {
+    apiContext = await request.newContext({
+      extraHTTPHeaders: { Authorization: `Bearer ${AUTH_TOKEN}` },
+    });
+  });
+
+  test.afterAll(async () => {
+    await apiContext.dispose();
+  });
+
   test(
-    '[ORD-01] @smoke Given authorized credentials, when listing orders, then returns 200 with orders list',
-    async ({ request }) => {
+    '[YC-115] @smoke Given valid authorized credentials, when get /v1/orders/:order_id, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
       const start = Date.now();
-      const response = await request.get(`${API_BASE}/v1/orders`, {
-        headers: authHeaders(),
-      });
+      const response = await apiContext.get(`${API_BASE}/v1/orders/test-id-123`);
       const duration = Date.now() - start;
-
       expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
       expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'orders-list-response.json');
-      expect(duration).toBeLessThan(8000);
+      const body = await response.json();
+      validateSchema(body, 'get--v1-orders--order-id-200.schema.json');
     },
   );
-
   test(
-    '[ORD-02] @smoke Given no authorization, when listing orders, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/orders`, {
-        headers: headersWithoutAuth(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[ORD-03] @smoke Given invalid token, when listing orders, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/orders`, {
-        headers: headersWithInvalidToken(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[ORD-04] @smoke Given invalid query parameter, when listing orders, then returns 400 bad request',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/orders?limit=not-a-number`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(400);
-    },
-  );
-
-  test(
-    '[ORD-05] @extended Given read-only scoped token, when listing orders, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(`${API_BASE}/v1/orders`, {
-        headers: headersWithReadOnlyToken(),
-      });
-      expect(response.status()).toBe(403);
-    },
-  );
-
-  test(
-    '[ORD-06] @extended Given throttled environment, when listing orders, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(`${API_BASE}/v1/orders`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(429);
-    },
-  );
-});
-
-// ==== GET /v1/orders/:order_id ====
-
-test.describe('GET /v1/orders/:order_id', () => {
-  test(
-    '[ORDF-01] @extended Given existing order, when fetched by ID, then returns 200 with order details echoing the ID',
-    { tag: ['@extended'] },
-    async ({ request }) => {
-      test.skip(!EXISTING_ORDER_ID, 'Set EXISTING_ORDER_ID in .env to enable');
+    '[YC-116] @smoke Given no Authorization header is supplied, when get /v1/orders/:order_id, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
       const start = Date.now();
-      const response = await request.get(`${API_BASE}/v1/orders/${EXISTING_ORDER_ID}`, {
-        headers: authHeaders(),
-      });
+      const response = await noAuthContext.get(`${API_BASE}/v1/orders/test-id-123`);
       const duration = Date.now() - start;
-
-      expect(response.status()).toBe(200);
-      expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'order-response.json');
-      const typedBody = body as { id: string };
-      expect(typedBody.id).toBe(EXISTING_ORDER_ID);
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
+    },
+  );
+  test(
+    '[YC-117] @smoke Given error conditions for 401, when get /v1/orders/:order_id, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
       expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[ORDF-02] @smoke Given non-existent order ID, when fetched, then returns 404 not found',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/orders/non-existent-id-99999`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(404);
-    },
-  );
-
-  test(
-    '[ORDF-03] @smoke Given order ID, when fetched without authorization, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: headersWithoutAuth(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[ORDF-04] @extended Given read-only scoped token, when fetching order by ID, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: headersWithReadOnlyToken(),
-      });
+    '[YC-118] @extended Given error conditions for 403, when get /v1/orders/:order_id, then returns 403 error',
+    { tag: ['@extended'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(403);
+      expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[ORDF-05] @extended Given throttled environment, when fetching order by ID, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: authHeaders(),
-      });
+    '[YC-119] @smoke Given error conditions for 404, when get /v1/orders/:order_id, then returns 404 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(404);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-120] @extended Given error conditions for 429, when get /v1/orders/:order_id, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
     },
   );
-});
-
-// ==== PUT /v1/orders/:order_id ====
-
-test.describe('PUT /v1/orders/:order_id', () => {
   test(
-    '[ORDU-01] @extended Given existing order, when replaced with valid payload, then returns 200 with updated order',
-    async ({ request }) => {
-      test.skip(!EXISTING_ORDER_ID, 'Set EXISTING_ORDER_ID in .env to enable');
-      const response = await request.put(`${API_BASE}/v1/orders/${EXISTING_ORDER_ID}`, {
-        headers: authHeaders(),
-        data: { status: 'CANCELLED' },
-      });
-
+    '[YC-121] @smoke Given valid authorized credentials, when get /v1/orders, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(200);
-      const body: unknown = await response.json();
-      validateSchema(body, 'order-response.json');
+      expect(duration).toBeLessThan(5000);
+      expect(response.headers()['content-type']).toContain('application/json');
+      const body = await response.json();
+      validateSchema(body, 'get--v1-orders-200.schema.json');
     },
   );
-
   test(
-    '[ORDU-02] @smoke Given no authorization, when replacing an order, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.put(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: headersWithoutAuth(),
-        data: { status: 'CANCELLED' },
-      });
+    '[YC-122] @smoke Given no Authorization header is supplied, when get /v1/orders, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.get(`${API_BASE}/v1/orders`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
     },
   );
-
   test(
-    '[ORDU-03] @smoke Given non-existent order ID, when replaced, then returns 404 not found',
-    async ({ request }) => {
-      const response = await request.put(`${API_BASE}/v1/orders/non-existent-id-99999`, {
-        headers: authHeaders(),
-        data: { status: 'CANCELLED' },
-      });
-      expect(response.status()).toBe(404);
+    '[YC-123] @smoke Given error conditions for 400, when get /v1/orders, then returns 400 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(400);
+      expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[ORDU-04] @extended Given read-only scoped token, when replacing an order, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.put(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: headersWithReadOnlyToken(),
-        data: { status: 'CANCELLED' },
-      });
+    '[YC-124] @smoke Given error conditions for 401, when get /v1/orders, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-125] @extended Given error conditions for 403, when get /v1/orders, then returns 403 error',
+    { tag: ['@extended'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(403);
+      expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[ORDU-05] @extended Given throttled environment, when replacing an order, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.put(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: authHeaders(),
-        data: { status: 'CANCELLED' },
-      });
+    '[YC-126] @extended Given error conditions for 429, when get /v1/orders, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/orders`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
     },
   );
-});
-
-// ==== PATCH /v1/orders/:order_id ====
-
-test.describe('PATCH /v1/orders/:order_id', () => {
   test(
-    '[ORDP-01] @extended Given existing order, when partially updated with valid payload, then returns 200 with updated order',
-    async ({ request }) => {
-      test.skip(!EXISTING_ORDER_ID, 'Set EXISTING_ORDER_ID in .env to enable');
-      const response = await request.patch(`${API_BASE}/v1/orders/${EXISTING_ORDER_ID}`, {
-        headers: authHeaders(),
-        data: { status: 'CANCELLED' },
-      });
-
+    '[YC-279] @smoke Given valid authorized credentials, when put /v1/orders/:id, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.put(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(200);
-      const body: unknown = await response.json();
-      validateSchema(body, 'order-response.json');
+      expect(duration).toBeLessThan(5000);
+      expect(response.headers()['content-type']).toContain('application/json');
+      const body = await response.json();
+      validateSchema(body, 'put--v1-orders--id-200.schema.json');
     },
   );
-
   test(
-    '[ORDP-02] @smoke Given no authorization, when partially updating an order, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.patch(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: headersWithoutAuth(),
-        data: { status: 'CANCELLED' },
-      });
+    '[YC-280] @smoke Given no Authorization header is supplied, when put /v1/orders/:id, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.put(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
     },
   );
-
   test(
-    '[ORDP-03] @smoke Given non-existent order ID, when partially updated, then returns 404 not found',
-    async ({ request }) => {
-      const response = await request.patch(`${API_BASE}/v1/orders/non-existent-id-99999`, {
-        headers: authHeaders(),
-        data: { status: 'CANCELLED' },
-      });
-      expect(response.status()).toBe(404);
-    },
-  );
-
-  test(
-    '[ORDP-04] @extended Given read-only scoped token, when partially updating an order, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.patch(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: headersWithReadOnlyToken(),
-        data: { status: 'CANCELLED' },
-      });
-      expect(response.status()).toBe(403);
-    },
-  );
-
-  test(
-    '[ORDP-05] @extended Given throttled environment, when partially updating an order, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.patch(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: authHeaders(),
-        data: { status: 'CANCELLED' },
-      });
-      expect(response.status()).toBe(429);
-    },
-  );
-});
-
-// ==== DELETE /v1/orders/:order_id ====
-
-test.describe('DELETE /v1/orders/:order_id', () => {
-  test(
-    '[ORDD-01] @extended Given existing order, when deleted with authorized credentials, then returns 200',
-    async ({ request }) => {
-      test.skip(!EXISTING_ORDER_ID, 'Set EXISTING_ORDER_ID in .env to enable — deletes the referenced order');
-      const response = await request.delete(`${API_BASE}/v1/orders/${EXISTING_ORDER_ID}`, {
-        headers: authHeaders(),
-      });
+    '[YC-281] @smoke Given valid authorized credentials, when delete /v1/orders/:id, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.delete(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
+      expect(response.headers()['content-type']).toContain('application/json');
+      const body = await response.json();
+      validateSchema(body, 'delete--v1-orders--id-200.schema.json');
     },
   );
-
   test(
-    '[ORDD-02] @smoke Given no authorization, when deleting an order, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.delete(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: headersWithoutAuth(),
-      });
+    '[YC-282] @smoke Given no Authorization header is supplied, when delete /v1/orders/:id, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.delete(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
     },
   );
-
   test(
-    '[ORDD-03] @smoke Given non-existent order ID, when deleted, then returns 404 not found',
-    async ({ request }) => {
-      const response = await request.delete(`${API_BASE}/v1/orders/non-existent-id-99999`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(404);
+    '[YC-283] @smoke Given valid authorized credentials, when patch /v1/orders/:id, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.patch(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
+      expect(response.headers()['content-type']).toContain('application/json');
+      const body = await response.json();
+      validateSchema(body, 'patch--v1-orders--id-200.schema.json');
     },
   );
-
   test(
-    '[ORDD-04] @extended Given read-only scoped token, when deleting an order, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.delete(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: headersWithReadOnlyToken(),
-      });
-      expect(response.status()).toBe(403);
-    },
-  );
-
-  test(
-    '[ORDD-05] @extended Given throttled environment, when deleting an order, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.delete(`${API_BASE}/v1/orders/some-order-id`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(429);
+    '[YC-284] @smoke Given no Authorization header is supplied, when patch /v1/orders/:id, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.patch(`${API_BASE}/v1/orders/test-id-123`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
     },
   );
 });

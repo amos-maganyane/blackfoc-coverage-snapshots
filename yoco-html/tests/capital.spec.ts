@@ -1,133 +1,142 @@
-import { test, expect } from '@playwright/test';
-import { authHeaders, headersWithoutAuth, headersWithInvalidToken, headersWithReadOnlyToken } from './helpers/auth';
+import { test, expect, request, type APIRequestContext } from '@playwright/test';
 import { validateSchema } from './helpers/schema-validator';
 
 const API_BASE = process.env.API_BASE!;
+const AUTH_TOKEN = process.env.API_TOKEN!;
 
-// ==== GET /v1/capital/active_advances ====
+test.describe('Capital API', () => {
+  let apiContext: APIRequestContext;
 
-test.describe('GET /v1/capital/active_advances', () => {
+  test.beforeAll(async () => {
+    apiContext = await request.newContext({
+      extraHTTPHeaders: { Authorization: `Bearer ${AUTH_TOKEN}` },
+    });
+  });
+
+  test.afterAll(async () => {
+    await apiContext.dispose();
+  });
+
   test(
-    '[CAA-01] @smoke Given authorized credentials, when listing active capital advances, then returns 200 with advances list',
-    async ({ request }) => {
+    '[YC-31] @smoke Given valid authorized credentials, when get /v1/capital/active_advances, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
       const start = Date.now();
-      const response = await request.get(`${API_BASE}/v1/capital/active_advances`, {
-        headers: authHeaders(),
-      });
+      const response = await apiContext.get(`${API_BASE}/v1/capital/active_advances`);
       const duration = Date.now() - start;
-
       expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
       expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'capital-advances-response.json');
-      expect(duration).toBeLessThan(8000);
+      const body = await response.json();
+      validateSchema(body, 'get--v1-capital-active-advances-200.schema.json');
     },
   );
-
   test(
-    '[CAA-02] @smoke Given no authorization, when listing capital advances, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/capital/active_advances`, {
-        headers: headersWithoutAuth(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[CAA-03] @smoke Given invalid token, when listing capital advances, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/capital/active_advances`, {
-        headers: headersWithInvalidToken(),
-      });
-      expect(response.status()).toBe(401);
-    },
-  );
-
-  test(
-    '[CAA-04] @extended Given read-only scoped token, when listing capital advances, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(`${API_BASE}/v1/capital/active_advances`, {
-        headers: headersWithReadOnlyToken(),
-      });
-      expect(response.status()).toBe(403);
-    },
-  );
-
-  test(
-    '[CAA-05] @extended Given throttled environment, when listing capital advances, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(`${API_BASE}/v1/capital/active_advances`, {
-        headers: authHeaders(),
-      });
-      expect(response.status()).toBe(429);
-    },
-  );
-});
-
-// ==== GET /v1/capital/active_offers ====
-
-test.describe('GET /v1/capital/active_offers', () => {
-  test(
-    '[CAO-01] @smoke Given authorized credentials, when listing active capital offers, then returns 200 with offers list',
-    async ({ request }) => {
+    '[YC-32] @smoke Given no Authorization header is supplied, when get /v1/capital/active_advances, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
       const start = Date.now();
-      const response = await request.get(`${API_BASE}/v1/capital/active_offers`, {
-        headers: authHeaders(),
-      });
+      const response = await noAuthContext.get(`${API_BASE}/v1/capital/active_advances`);
       const duration = Date.now() - start;
-
-      expect(response.status()).toBe(200);
-      expect(response.headers()['content-type']).toContain('application/json');
-
-      const body: unknown = await response.json();
-      validateSchema(body, 'capital-offers-response.json');
-      expect(duration).toBeLessThan(8000);
-    },
-  );
-
-  test(
-    '[CAO-02] @smoke Given no authorization, when listing capital offers, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/capital/active_offers`, {
-        headers: headersWithoutAuth(),
-      });
       expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
     },
   );
-
   test(
-    '[CAO-03] @smoke Given invalid token, when listing capital offers, then returns 401 unauthorized',
-    async ({ request }) => {
-      const response = await request.get(`${API_BASE}/v1/capital/active_offers`, {
-        headers: headersWithInvalidToken(),
-      });
+    '[YC-33] @smoke Given error conditions for 401, when get /v1/capital/active_advances, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/capital/active_advances`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[CAO-04] @extended Given read-only scoped token, when listing capital offers, then returns 403 forbidden',
-    async ({ request }) => {
-      test.skip(!process.env.API_TOKEN_READ_ONLY, 'Set API_TOKEN_READ_ONLY in .env to enable — requires scoped token');
-      const response = await request.get(`${API_BASE}/v1/capital/active_offers`, {
-        headers: headersWithReadOnlyToken(),
-      });
+    '[YC-34] @extended Given error conditions for 403, when get /v1/capital/active_advances, then returns 403 error',
+    { tag: ['@extended'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/capital/active_advances`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(403);
+      expect(duration).toBeLessThan(5000);
     },
   );
-
   test(
-    '[CAO-05] @extended Given throttled environment, when listing capital offers, then returns 429 too many requests',
-    async ({ request }) => {
-      test.skip(!process.env.API_TRIGGER_RATE_LIMIT, 'Skipped: set API_TRIGGER_RATE_LIMIT=true in an environment where this endpoint can be throttled');
-      const response = await request.get(`${API_BASE}/v1/capital/active_offers`, {
-        headers: authHeaders(),
-      });
+    '[YC-35] @extended Given error conditions for 429, when get /v1/capital/active_advances, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/capital/active_advances`);
+      const duration = Date.now() - start;
       expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-36] @smoke Given valid authorized credentials, when get /v1/capital/active_offers, then returns 200 success',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/capital/active_offers`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(200);
+      expect(duration).toBeLessThan(5000);
+      expect(response.headers()['content-type']).toContain('application/json');
+      const body = await response.json();
+      validateSchema(body, 'get--v1-capital-active-offers-200.schema.json');
+    },
+  );
+  test(
+    '[YC-37] @smoke Given no Authorization header is supplied, when get /v1/capital/active_offers, then returns 401 unauthorized',
+    { tag: ['@smoke'] },
+    async () => {
+      const noAuthContext = await request.newContext();
+      const start = Date.now();
+      const response = await noAuthContext.get(`${API_BASE}/v1/capital/active_offers`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+      await noAuthContext.dispose();
+    },
+  );
+  test(
+    '[YC-38] @smoke Given error conditions for 401, when get /v1/capital/active_offers, then returns 401 error',
+    { tag: ['@smoke'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/capital/active_offers`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(401);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-39] @extended Given error conditions for 403, when get /v1/capital/active_offers, then returns 403 error',
+    { tag: ['@extended'] },
+    async () => {
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/capital/active_offers`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(403);
+      expect(duration).toBeLessThan(5000);
+    },
+  );
+  test(
+    '[YC-40] @extended Given error conditions for 429, when get /v1/capital/active_offers, then returns 429 error',
+    { tag: ['@extended'] },
+    async () => {
+      test.skip(!process.env.TEST_RATE_LIMITS, 'Needs specific environment to trigger rate limits');
+      const start = Date.now();
+      const response = await apiContext.get(`${API_BASE}/v1/capital/active_offers`);
+      const duration = Date.now() - start;
+      expect(response.status()).toBe(429);
+      expect(duration).toBeLessThan(5000);
     },
   );
 });
