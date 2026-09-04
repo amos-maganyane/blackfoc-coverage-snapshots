@@ -1,9 +1,472 @@
 {
-  "title": "Payments [Public] + Payouts [Public] + Payment Links [Public] + Recon [Public] + Checkout [Public]",
+  "title": "Checkout [Public] + Payment Links [Public] + Payments [Public] + Payouts [Public] + Recon [Public]",
   "version": "1.0",
   "baseUrl": "",
-  "authSchemes": [],
+  "authSchemes": [
+    {
+      "type": "bearer",
+      "name": "Authorization",
+      "description": "Bearer token authentication (Authorization: Bearer <token>)"
+    }
+  ],
   "endpoints": [
+    {
+      "method": "POST",
+      "path": "/checkout",
+      "operationId": "Initiate Checkout",
+      "summary": "Initiate Checkout",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v1"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/checkout/validate",
+      "operationId": "Validate Checkout request",
+      "summary": "Validate Checkout request",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v1"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/merchant_specs",
+      "operationId": "Retrieve a list of payment methods for a currency",
+      "summary": "Retrieve a list of payment methods for a currency",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v1"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/status",
+      "operationId": "Query Checkout status",
+      "summary": "Query Checkout status",
+      "parameters": [
+        {
+          "name": "authentication.entityId",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "merchantTransactionId",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "signature",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v1"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/checkout/initiate",
+      "operationId": "Initiate redirect-based Checkout",
+      "summary": "Initiate redirect-based Checkout",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "201",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v1"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v2/channels/{entityId}/payment-methods",
+      "operationId": "Retrieve a list of payment methods for a currency",
+      "summary": "Retrieve a list of payment methods for a currency",
+      "parameters": [
+        {
+          "name": "currency",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v2"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v2/checkout",
+      "operationId": "Generate Checkout ID",
+      "summary": "Generate Checkout ID",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v2"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v2/checkout/validate",
+      "operationId": "Validate Checkout request",
+      "summary": "Validate Checkout request",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v2"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v2/checkout/{checkoutId}/status",
+      "operationId": "Query Checkout status v2",
+      "summary": "Query Checkout status v2",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v2"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/oauth/token",
+      "operationId": "Merchant Access",
+      "summary": "Merchant Access",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "v2",
+        "auth"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/attachments",
+      "operationId": "Upload a file",
+      "summary": "Upload a file",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Links",
+        "api"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/channels/:entityId/payments",
+      "operationId": "Generate link",
+      "summary": "Generate link",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Links",
+        "api",
+        "channels/{entity Id}"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/payments",
+      "operationId": "Export all merchant payment links",
+      "summary": "Export all merchant payment links",
+      "parameters": [
+        {
+          "name": "perPage",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "filters[startDate]",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "filters[endDate]",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "filters[status][0]",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "filters[amountOperator]",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "filters[amountValue]",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "merchant",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Links",
+        "api",
+        "payments"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/payments/:paymentId",
+      "operationId": "Cancel link",
+      "summary": "Cancel link",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Links",
+        "api",
+        "payments",
+        "{payment Id}"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/payments/:paymentId",
+      "operationId": "Query payment status",
+      "summary": "Query payment status",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Links",
+        "api",
+        "payments",
+        "{payment Id}"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/payments/:paymentId/files/:fileId",
+      "operationId": "Download a file",
+      "summary": "Download a file",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Links",
+        "api",
+        "payments",
+        "{payment Id}",
+        "files"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/api/channels/:entityId/payments/batches",
+      "operationId": "Create batch",
+      "summary": "Create batch",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json"
+      },
+      "responses": [
+        {
+          "status": "202",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Batch",
+        "api",
+        "channels/{entity Id}"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/channels/:entityId/payments/batches",
+      "operationId": "Retrieve all batches",
+      "summary": "Retrieve all batches",
+      "parameters": [
+        {
+          "name": "filters[startDate]",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "filters[endDate]",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Batch",
+        "api",
+        "channels/{entity Id}"
+      ]
+    },
+    {
+      "method": "PUT",
+      "path": "{{batchUrl}}",
+      "operationId": "Submit batch",
+      "summary": "Submit batch",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Batch",
+        "api",
+        "channels/{entity Id}"
+      ],
+      "excludedFromCoverage": true,
+      "exclusionReason": "Dynamic-target request: URL is a collection-variable placeholder set at runtime by a prior request, not a fixed path."
+    },
+    {
+      "method": "GET",
+      "path": "/api/batches/:batchId",
+      "operationId": "Query batch status",
+      "summary": "Query batch status",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Batch",
+        "api",
+        "batches/{batch Id}"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/api/batches/:batchId/files",
+      "operationId": "Retrieve batch error files",
+      "summary": "Retrieve batch error files",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "Batch",
+        "api",
+        "batches/{batch Id}",
+        "files"
+      ]
+    },
     {
       "method": "POST",
       "path": "/payments",
@@ -61,6 +524,24 @@
       ]
     },
     {
+      "method": "POST",
+      "path": "{{paymentRedirectUrl}}",
+      "operationId": "Payment Redirect Example",
+      "summary": "Payment Redirect Example",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        }
+      ],
+      "tags": [
+        "payments"
+      ],
+      "excludedFromCoverage": true,
+      "exclusionReason": "Dynamic-target request: URL is a collection-variable placeholder set at runtime by a prior request, not a fixed path."
+    },
+    {
       "method": "GET",
       "path": "/payments/:transactionId",
       "operationId": "Query transaction by transaction ID",
@@ -115,25 +596,6 @@
     },
     {
       "method": "POST",
-      "path": "/api/oauth/token",
-      "operationId": "Merchant Access",
-      "summary": "Merchant Access",
-      "parameters": [],
-      "requestBody": {
-        "contentType": "application/json"
-      },
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "auth"
-      ]
-    },
-    {
-      "method": "POST",
       "path": "/api/merchants/:merchantId/payouts",
       "operationId": "Create payouts",
       "summary": "Create payouts",
@@ -143,7 +605,7 @@
       },
       "responses": [
         {
-          "status": "200",
+          "status": "201",
           "description": "OK"
         }
       ],
@@ -316,248 +778,6 @@
       ]
     },
     {
-      "method": "POST",
-      "path": "/api/attachments",
-      "operationId": "Upload a file",
-      "summary": "Upload a file",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Links",
-        "api"
-      ]
-    },
-    {
-      "method": "POST",
-      "path": "/api/channels/:entityId/payments",
-      "operationId": "Generate link",
-      "summary": "Generate link",
-      "parameters": [],
-      "requestBody": {
-        "contentType": "application/json"
-      },
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Links",
-        "api",
-        "channels/{entity Id}"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/api/payments",
-      "operationId": "Export all merchant payment links",
-      "summary": "Export all merchant payment links",
-      "parameters": [
-        {
-          "name": "perPage",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "offset",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "filters[startDate]",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "filters[endDate]",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "filters[status][0]",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "filters[amountOperator]",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "filters[amountValue]",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "merchant",
-          "in": "query",
-          "required": false
-        }
-      ],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Links",
-        "api",
-        "payments"
-      ]
-    },
-    {
-      "method": "DELETE",
-      "path": "/api/payments/:paymentId",
-      "operationId": "Cancel link",
-      "summary": "Cancel link",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Links",
-        "api",
-        "payments",
-        "{payment Id}"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/api/payments/:paymentId",
-      "operationId": "Query payment status",
-      "summary": "Query payment status",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Links",
-        "api",
-        "payments",
-        "{payment Id}"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/api/payments/:paymentId/files/:fileId",
-      "operationId": "Download a file",
-      "summary": "Download a file",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Links",
-        "api",
-        "payments",
-        "{payment Id}",
-        "files"
-      ]
-    },
-    {
-      "method": "POST",
-      "path": "/api/channels/:entityId/payments/batches",
-      "operationId": "Create batch",
-      "summary": "Create batch",
-      "parameters": [],
-      "requestBody": {
-        "contentType": "application/json"
-      },
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Batch",
-        "api",
-        "channels/{entity Id}"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/api/channels/:entityId/payments/batches",
-      "operationId": "Retrieve all batches",
-      "summary": "Retrieve all batches",
-      "parameters": [
-        {
-          "name": "filters[startDate]",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "filters[endDate]",
-          "in": "query",
-          "required": false
-        }
-      ],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Batch",
-        "api",
-        "channels/{entity Id}"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/api/batches/:batchId",
-      "operationId": "Query batch status",
-      "summary": "Query batch status",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Batch",
-        "api",
-        "batches/{batch Id}"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/api/batches/:batchId/files",
-      "operationId": "Retrieve batch error files",
-      "summary": "Retrieve batch error files",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Batch",
-        "api",
-        "batches/{batch Id}",
-        "files"
-      ]
-    },
-    {
       "method": "GET",
       "path": "/api/merchants/:merchantId/transactions-recon",
       "operationId": "List merchant transactions recon",
@@ -594,222 +814,9 @@
         "api",
         "merchants"
       ]
-    },
-    {
-      "method": "POST",
-      "path": "/checkout",
-      "operationId": "Initiate Checkout",
-      "summary": "Initiate Checkout",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v1"
-      ]
-    },
-    {
-      "method": "POST",
-      "path": "/checkout/validate",
-      "operationId": "Validate Checkout request",
-      "summary": "Validate Checkout request",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v1"
-      ]
-    },
-    {
-      "method": "POST",
-      "path": "/merchant_specs",
-      "operationId": "Retrieve a list of payment methods for a currency",
-      "summary": "Retrieve a list of payment methods for a currency",
-      "parameters": [],
-      "requestBody": {
-        "contentType": "application/json"
-      },
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v1"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/status",
-      "operationId": "Query Checkout status",
-      "summary": "Query Checkout status",
-      "parameters": [
-        {
-          "name": "authentication.entityId",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "merchantTransactionId",
-          "in": "query",
-          "required": false
-        },
-        {
-          "name": "signature",
-          "in": "query",
-          "required": false
-        }
-      ],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v1"
-      ]
-    },
-    {
-      "method": "POST",
-      "path": "/checkout/initiate",
-      "operationId": "Initiate redirect-based Checkout",
-      "summary": "Initiate redirect-based Checkout",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v1"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/v2/channels/{entityId}/payment-methods",
-      "operationId": "Retrieve a list of payment methods for a currency",
-      "summary": "Retrieve a list of payment methods for a currency",
-      "parameters": [
-        {
-          "name": "currency",
-          "in": "query",
-          "required": false
-        }
-      ],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v2"
-      ]
-    },
-    {
-      "method": "POST",
-      "path": "/v2/checkout",
-      "operationId": "Generate Checkout ID",
-      "summary": "Generate Checkout ID",
-      "parameters": [],
-      "requestBody": {
-        "contentType": "application/json"
-      },
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v2"
-      ]
-    },
-    {
-      "method": "POST",
-      "path": "/v2/checkout/validate",
-      "operationId": "Validate Checkout request",
-      "summary": "Validate Checkout request",
-      "parameters": [],
-      "requestBody": {
-        "contentType": "application/json"
-      },
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v2"
-      ]
-    },
-    {
-      "method": "GET",
-      "path": "/v2/checkout/{checkoutId}/status",
-      "operationId": "Query Checkout status v2",
-      "summary": "Query Checkout status v2",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "v2"
-      ]
-    },
-    {
-      "method": "PUT",
-      "path": "{{batchUrl}}",
-      "operationId": "Submit batch",
-      "summary": "Submit batch",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "Batch",
-        "api",
-        "channels/{entity Id}"
-      ],
-      "excludedFromCoverage": true,
-      "exclusionReason": "Dynamic-target request: URL is returned by a prior response (batch upload URL), not a fixed path. Present in the raw Postman collection; not representable as a static method+path in the coverage matrix."
-    },
-    {
-      "method": "POST",
-      "path": "{{paymentRedirectUrl}}",
-      "operationId": "Payment Redirect Example",
-      "summary": "Payment Redirect Example",
-      "parameters": [],
-      "responses": [
-        {
-          "status": "200",
-          "description": "OK"
-        }
-      ],
-      "tags": [
-        "payments"
-      ],
-      "excludedFromCoverage": true,
-      "exclusionReason": "Dynamic-target request: URL is a payment redirect callback returned by a prior response, not a fixed path. Present in the raw Postman collection; not representable as a static method+path in the coverage matrix."
     }
   ],
   "sourceFormat": "postman",
-  "sourceFile": "peach_payments.json, peach_payouts.json, peach_payment_links.json, peach_recon.json, peach_checkout.json",
-  "digest": "sha256:615e1a4a03fe61e23c2d932e37622065d796c0e71d71d7985a6f5e5371bb1de4"
+  "sourceFile": "peach_checkout.json, peach_payment_links.json, peach_payments.json, peach_payouts.json, peach_recon.json",
+  "digest": "sha256:1cad3248b03ccbecd6bafe1d8c92b5a5b2b769768fdde397ba13884151a781e4"
 }

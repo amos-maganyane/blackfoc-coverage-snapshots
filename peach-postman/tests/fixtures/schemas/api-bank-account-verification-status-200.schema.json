@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "bankVerificationId",
+    "status",
+    "resultCode"
+  ],
+  "properties": {
+    "bankVerificationId": {},
+    "status": {},
+    "resultCode": {}
+  }
+}

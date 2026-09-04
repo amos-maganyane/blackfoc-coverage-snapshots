@@ -1,29 +1,27 @@
 import Ajv, { type ValidateFunction } from 'ajv';
-import addFormats from 'ajv-formats';
 import { readFileSync } from 'fs';
 import { join } from 'path';
 
 const ajv = new Ajv({ allErrors: true });
-addFormats(ajv);
-
 const schemaCache = new Map<string, ValidateFunction>();
 
 export function validateSchema(data: unknown, schemaPath: string): void {
-  let validate = schemaCache.get(schemaPath);
-  if (!validate) {
-    const schemaFile = readFileSync(
-      join(__dirname, '..', 'fixtures', 'schemas', schemaPath),
-      'utf-8',
-    );
-    validate = ajv.compile(JSON.parse(schemaFile));
-    schemaCache.set(schemaPath, validate);
+  const cached = schemaCache.get(schemaPath);
+  if (cached) {
+    const valid = cached(data);
+    if (!valid) {
+      const errors = cached.errors?.map((error) => String(error.instancePath) + ' ' + String(error.message)).join('; ');
+      throw new Error('Schema validation failed: ' + errors);
+    }
+    return;
   }
 
-  const valid = validate(data);
+  const schemaFile = readFileSync(join(__dirname, '..', 'fixtures', 'schemas', schemaPath), 'utf-8');
+  const compiled = ajv.compile(JSON.parse(schemaFile)) as ValidateFunction;
+  schemaCache.set(schemaPath, compiled);
+  const valid = compiled(data);
   if (!valid) {
-    const errors = validate.errors
-      ?.map((e) => `${e.instancePath} ${e.message}`)
-      .join('; ');
-    throw new Error(`Schema validation failed: ${errors}`);
+    const errors = compiled.errors?.map((error) => String(error.instancePath) + ' ' + String(error.message)).join('; ');
+    throw new Error('Schema validation failed: ' + errors);
   }
 }

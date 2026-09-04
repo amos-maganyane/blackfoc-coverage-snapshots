@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>API Test Coverage Report</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Open Sans', Helvetica, Arial, sans-serif; background: #ffffff; color: #333333; padding: 2rem; }
+  .header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; border-bottom: 3px solid #8CC63F; padding-bottom: 1rem; }
+  .header h1 { font-size: 1.5rem; color: #8CC63F; font-weight: 700; }
+  .summary { display: flex; gap: 1.5rem; margin-bottom: 2rem; }
+  .metric { background: #F8FFF0; border: 1px solid #8CC63F; border-radius: 6px; padding: 1.25rem 1.5rem; flex: 1; }
+  .metric-label { font-size: 0.85rem; color: #333333; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; }
+  .metric-value { font-size: 2rem; font-weight: 700; margin-top: 0.25rem; color: #8CC63F; }
+  .metric-detail { font-size: 0.85rem; color: #666666; margin-top: 0.25rem; }
+  table { width: 100%; border-collapse: collapse; border: 1px solid #CCCCCC; }
+  th { background: #8CC63F; color: #ffffff; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; padding: 0.75rem 0.5rem; text-align: center; font-weight: 700; }
+  td { padding: 0.6rem 0.5rem; border-top: 1px solid #CCCCCC; text-align: center; font-size: 0.85rem; }
+  tbody tr:nth-child(even) { background: #F0F7E6; }
+  .method { font-weight: 600; color: #28ABE2; text-align: left; width: 60px; }
+  .path { text-align: left; font-family: 'SF Mono', 'Courier New', monospace; font-size: 0.8rem; color: #333333; }
+  .count { color: #666666; }
+  .hit { color: #8CC63F; font-weight: 700; }
+  .miss { color: #CC0000; font-weight: 700; }
+  .extra { color: #28ABE2; }
+  .na { color: #CCCCCC; }
+  .notes { text-align: left; font-size: 0.75rem; color: #666666; line-height: 1.5; max-width: 300px; }
+  .notes strong { color: #333333; }
+  .untested { opacity: 0.6; }
+  .legend { margin-top: 1.5rem; font-size: 0.8rem; color: #666666; }
+  .legend span { margin-right: 1.5rem; }
+  .timestamp { margin-top: 1rem; font-size: 0.75rem; color: #666666; }
+  .powered-by { margin-top: 0.75rem; font-size: 0.8rem; color: #28ABE2; font-weight: 600; }
+  .powered-by span { color: #8CC63F; }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>API Test Coverage Report</h1>
+</div>
+<div class="summary">
+  <div class="metric">
+    <div class="metric-label">Endpoint Coverage</div>
+    <div class="metric-value">100.0%</div>
+    <div class="metric-detail">33 of 33 endpoints tested</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Status Code Coverage</div>
+    <div class="metric-value">100.0%</div>
+    <div class="metric-detail">33 of 33 conditions tested</div>
+  </div>
+  <div class="metric">
+    <div class="metric-label">Test Assertions</div>
+    <div class="metric-value">66</div>
+    <div class="metric-detail">0 unmatched</div>
+  </div>
+</div>
+<table>
+  <thead>
+    <tr><th style="text-align:left">Method</th><th style="text-align:left">Endpoint</th><th>Files</th><th>200</th><th>201</th><th>202</th><th>401</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="method">POST</td><td class="path">/checkout</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/checkout/validate</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/merchant_specs</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/status</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/checkout/initiate</td><td class="count">1</td><td class="na">—</td><td class="hit">✓</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/v2/channels/{entityId}/payment-methods</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/v2/checkout</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/v2/checkout/validate</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/v2/checkout/{checkoutId}/status</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/api/oauth/token</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/api/attachments</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/api/channels/:entityId/payments</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/payments</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">DELETE</td><td class="path">/api/payments/:paymentId</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/payments/:paymentId</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/payments/:paymentId/files/:fileId</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/api/channels/:entityId/payments/batches</td><td class="count">1</td><td class="na">—</td><td class="na">—</td><td class="hit">✓</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/channels/:entityId/payments/batches</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr class="untested"><td class="method">PUT</td><td class="path">{{batchUrl}}</td><td class="count">0</td><td class="miss">✗</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/batches/:batchId</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/batches/:batchId/files</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/payments</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/payments</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr class="untested"><td class="method">POST</td><td class="path">{{paymentRedirectUrl}}</td><td class="count">0</td><td class="miss">✗</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+<tr><td class="method">GET</td><td class="path">/payments/:transactionId</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/payments/:transactionId</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/api/merchants/:merchantId/payouts</td><td class="count">1</td><td class="na">—</td><td class="hit">✓</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/merchants/:merchantId/payouts</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/merchants/:merchantId/payouts/:payoutRequestId/status</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">POST</td><td class="path">/api/merchants/:merchantId/banv</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/merchants/:merchantId/banv/:bankVerificationId/status</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/merchants/:merchantId/balance</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/merchants/:merchantId/reports/payouts/download</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/merchants/:merchantId/reports/statement/download</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+<tr><td class="method">GET</td><td class="path">/api/merchants/:merchantId/transactions-recon</td><td class="count">1</td><td class="hit">✓</td><td class="na">—</td><td class="na">—</td><td class="extra">●</td></tr>
+  </tbody>
+</table>
+<div class="legend">
+  <span><strong style="color:#8CC63F">✓</strong> Spec'd &amp; tested</span>
+  <span><strong style="color:#CC0000">✗</strong> Spec'd but untested</span>
+  <span><strong style="color:#28ABE2">●</strong> Tested but not in spec</span>
+  <span><strong style="color:#CCCCCC">—</strong> Not applicable</span>
+</div>
+<div class="timestamp">Generated: 2026/09/04, 18:58:24 SAST</div>
+<div class="powered-by">Powered by <span>Enviro365</span> I.T Solutions</div>
+</body>
+</html>
