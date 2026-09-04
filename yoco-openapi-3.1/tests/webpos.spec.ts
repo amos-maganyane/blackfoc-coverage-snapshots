@@ -261,6 +261,32 @@ test.describe('POST /v1/webpos/{webpos_device_id}/payments', () => {
 // ============================
 test.describe('GET /v1/webpos/{webpos_device_id}/payments/{payment_id}', () => {
 
+  test('[WP-11] @smoke Given a newly created Web POS device and payment, when fetching payment by ID, then returns 200 with matching id', async ({ request }) => {
+    const createDeviceResp = await request.post(`${API_BASE}/v1/webpos/`, {
+      headers: authHeaders(),
+      data: makeWebPOSDevicePayload(),
+    });
+    expect(createDeviceResp.status()).toBe(201);
+    const device = await createDeviceResp.json();
+    const deviceId: string = device.id;
+
+    const createPaymentResp = await request.post(`${API_BASE}/v1/webpos/${deviceId}/payments`, {
+      headers: authHeaders(),
+      data: makeWebPOSPaymentPayload(),
+    });
+    expect(createPaymentResp.status()).toBe(201);
+    const payment = await createPaymentResp.json();
+    const paymentId: string = payment.id;
+
+    const response = await request.get(`${API_BASE}/v1/webpos/${deviceId}/payments/${paymentId}`, {
+      headers: authHeaders(),
+    });
+    expect(response.status()).toBe(200);
+    const body = await response.json();
+    validateSchema(body, 'webpos-payment-response.json');
+    expect(body.id).toBe(paymentId);
+  });
+
   test('[WP-19] @smoke Given non-existent Web POS payment ID, when fetching payment, then returns 404 not found', async ({ request }) => {
     const response = await request.get(
       `${API_BASE}/v1/webpos/00000000-0000-0000-0000-000000000001/payments/00000000-0000-0000-0000-000000000000`,

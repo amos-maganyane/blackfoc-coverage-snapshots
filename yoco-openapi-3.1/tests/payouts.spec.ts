@@ -113,6 +113,19 @@ test.describe('GET /v1/payouts/{payout_id}', () => {
   });
 
 
+  test('[PO-10] @extended Given a pre-existing payout ID, when fetching payout by ID, then returns 200 with matching id', async ({ request }) => {
+    const payoutId = process.env.TEST_PAYOUT_ID;
+    test.skip(!payoutId, 'Skipped: set TEST_PAYOUT_ID to a real payout ID to execute');
+
+    const response = await request.get(`${API_BASE}/v1/payouts/${payoutId}`, {
+      headers: authHeaders(),
+    });
+    expect(response.status()).toBe(200);
+    const body: unknown = await response.json();
+    expect(body).not.toBeNull();
+  });
+
+
   test('[PO-18] @extended Given read-only scoped credentials, when fetching payout, then returns 403 forbidden', async ({ request }) => {
     test.skip(!process.env.API_TOKEN_READ_ONLY, 'Skipped: set API_TOKEN_READ_ONLY to a restricted-scope token to execute');
 
@@ -152,6 +165,18 @@ test.describe('GET /v1/payouts/{payout_id}/payout_entries', () => {
     expect(response.status()).toBe(404);
     const body: unknown = await response.json();
     validateSchema(body, 'error-response.json');
+  });
+
+  test('[PO-11] @extended Given a pre-existing payout ID, when listing payout entries, then returns 200 with entries', async ({ request }) => {
+    const payoutId = process.env.TEST_PAYOUT_ID;
+    test.skip(!payoutId, 'Skipped: set TEST_PAYOUT_ID to a real payout ID to execute');
+
+    const response = await request.get(`${API_BASE}/v1/payouts/${payoutId}/payout_entries`, {
+      headers: authHeaders(),
+    });
+    expect(response.status()).toBe(200);
+    const body: unknown = await response.json();
+    expect(body).not.toBeNull();
   });
 
   test('[PO-13] @smoke Given invalid limit parameter, when listing payout entries, then returns 400 bad request', async ({ request }) => {

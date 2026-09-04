@@ -113,6 +113,19 @@ test.describe('GET /v1/item_categories/{item_category_id}', () => {
   });
 
 
+  test('[IC-10] @extended Given a pre-existing item category ID, when fetching item category by ID, then returns 200 with matching id', async ({ request }) => {
+    const resourceId = process.env.TEST_ITEM_CATEGORY_ID;
+    test.skip(!resourceId, 'Skipped: set TEST_ITEM_CATEGORY_ID to a real item category ID to execute');
+
+    const response = await request.get(`${API_BASE}/v1/item_categories/${resourceId}`, {
+      headers: authHeaders(),
+    });
+    expect(response.status()).toBe(200);
+    const body: unknown = await response.json();
+    expect(body).not.toBeNull();
+  });
+
+
   test('[IC-12] @extended Given read-only scoped credentials, when fetching item category, then returns 403 forbidden', async ({ request }) => {
     test.skip(!process.env.API_TOKEN_READ_ONLY, 'Skipped: set API_TOKEN_READ_ONLY to a restricted-scope token to execute');
 

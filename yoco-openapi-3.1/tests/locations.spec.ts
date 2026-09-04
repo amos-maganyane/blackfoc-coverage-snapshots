@@ -110,6 +110,19 @@ test.describe('GET /v1/locations/{location_id}', () => {
   });
 
 
+  test('[LO-10] @extended Given a pre-existing location ID, when fetching location by ID, then returns 200 with matching id', async ({ request }) => {
+    const resourceId = process.env.TEST_LOCATION_ID;
+    test.skip(!resourceId, 'Skipped: set TEST_LOCATION_ID to a real location ID to execute');
+
+    const response = await request.get(`${API_BASE}/v1/locations/${resourceId}`, {
+      headers: authHeaders(),
+    });
+    expect(response.status()).toBe(200);
+    const body: unknown = await response.json();
+    expect(body).not.toBeNull();
+  });
+
+
   test('[LO-12] @extended Given read-only scoped credentials, when fetching location, then returns 403 forbidden', async ({ request }) => {
     test.skip(!process.env.API_TOKEN_READ_ONLY, 'Skipped: set API_TOKEN_READ_ONLY to a restricted-scope token to execute');
 

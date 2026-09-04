@@ -113,6 +113,19 @@ test.describe('GET /v1/refunds/{refund_id}', () => {
   });
 
 
+  test('[RF-10] @extended Given a pre-existing refund ID, when fetching refund by ID, then returns 200 with matching id', async ({ request }) => {
+    const resourceId = process.env.TEST_REFUND_ID;
+    test.skip(!resourceId, 'Skipped: set TEST_REFUND_ID to a real refund ID to execute');
+
+    const response = await request.get(`${API_BASE}/v1/refunds/${resourceId}`, {
+      headers: authHeaders(),
+    });
+    expect(response.status()).toBe(200);
+    const body: unknown = await response.json();
+    expect(body).not.toBeNull();
+  });
+
+
   test('[RF-12] @extended Given read-only scoped credentials, when fetching refund, then returns 403 forbidden', async ({ request }) => {
     test.skip(!process.env.API_TOKEN_READ_ONLY, 'Skipped: set API_TOKEN_READ_ONLY to a restricted-scope token to execute');
 

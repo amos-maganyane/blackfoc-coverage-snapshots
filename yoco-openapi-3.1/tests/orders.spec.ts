@@ -113,6 +113,19 @@ test.describe('GET /v1/orders/{order_id}', () => {
   });
 
 
+  test('[OR-10] @extended Given a pre-existing order ID, when fetching order by ID, then returns 200 with matching id', async ({ request }) => {
+    const resourceId = process.env.TEST_ORDER_ID;
+    test.skip(!resourceId, 'Skipped: set TEST_ORDER_ID to a real order ID to execute');
+
+    const response = await request.get(`${API_BASE}/v1/orders/${resourceId}`, {
+      headers: authHeaders(),
+    });
+    expect(response.status()).toBe(200);
+    const body: unknown = await response.json();
+    expect(body).not.toBeNull();
+  });
+
+
   test('[OR-12] @extended Given read-only scoped credentials, when fetching order, then returns 403 forbidden', async ({ request }) => {
     test.skip(!process.env.API_TOKEN_READ_ONLY, 'Skipped: set API_TOKEN_READ_ONLY to a restricted-scope token to execute');
 

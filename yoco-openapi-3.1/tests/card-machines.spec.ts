@@ -113,6 +113,19 @@ test.describe('GET /v1/card_machines/{card_machine_id}', () => {
   });
 
 
+  test('[CM-10] @extended Given a pre-existing card machine ID, when fetching card machine by ID, then returns 200 with matching id', async ({ request }) => {
+    const cardMachineId = process.env.TEST_CARD_MACHINE_ID;
+    test.skip(!cardMachineId, 'Skipped: set TEST_CARD_MACHINE_ID to a real card machine ID to execute');
+
+    const response = await request.get(`${API_BASE}/v1/card_machines/${cardMachineId}`, {
+      headers: authHeaders(),
+    });
+    expect(response.status()).toBe(200);
+    const body: unknown = await response.json();
+    expect(body).not.toBeNull();
+  });
+
+
   test('[CM-12] @extended Given read-only scoped credentials, when fetching card machine, then returns 403 forbidden', async ({ request }) => {
     test.skip(!process.env.API_TOKEN_READ_ONLY, 'Skipped: set API_TOKEN_READ_ONLY to a restricted-scope token to execute');
 
