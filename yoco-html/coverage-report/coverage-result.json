@@ -1,0 +1,1428 @@
+{
+  "totalEndpoints": 54,
+  "testedEndpoints": 54,
+  "endpointCoverage": 100,
+  "totalStatusConditions": 245,
+  "testedStatusConditions": 241,
+  "statusCodeCoverage": 98.36734693877551,
+  "matrix": [
+    {
+      "method": "GET",
+      "path": "/v1/payment_links",
+      "operationId": "get /v1/payment_links/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payment-links.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/webhooks",
+      "operationId": "post /api/webhooks",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "403",
+        "500"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "checkout-webhooks.spec.ts",
+        "relative-path-variants.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/oauth2/sessions/logout",
+      "operationId": "get /oauth2/sessions/logout",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "oauth-iam.spec.ts",
+        "oauth-relative-paths.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions/:subscription_id/test",
+      "operationId": "post /v1/webhooks/subscriptions/:subscription_id/test",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "201",
+        "404",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "relative-path-variants.spec.ts",
+        "workflows.spec.ts",
+        "yoco-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts",
+      "operationId": "get /v1/payouts/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payouts.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/webhooks",
+      "operationId": "get /api/webhooks",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "403",
+        "500"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "checkout-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/staff",
+      "operationId": "get /v1/staff/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "staff.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/modifier_groups/:modifier_group_id",
+      "operationId": "get /v1/modifier_groups/:modifier_group_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "locations-modifiers.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/checkouts",
+      "operationId": "post /api/checkouts",
+      "specStatusCodes": [
+        "200",
+        "403",
+        "409",
+        "422"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "409",
+        "422"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-checkout-create.spec.ts",
+        "post-checkout-refund.spec.ts",
+        "relative-path-variants.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_brands",
+      "operationId": "get /v1/item_brands/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "items-catalog.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/locations/:location_id",
+      "operationId": "get /v1/locations/:location_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "locations-modifiers.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_brands/:item_brand_id",
+      "operationId": "get /v1/item_brands/:item_brand_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "items-catalog.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/orders",
+      "operationId": "get /v1/orders/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "orders.spec.ts",
+        "relative-path-variants.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_categories",
+      "operationId": "get /v1/item_categories/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "items-catalog.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions",
+      "operationId": "post /v1/webhooks/subscriptions/",
+      "specStatusCodes": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "201",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "200"
+      ],
+      "tested": true,
+      "testFiles": [
+        "relative-path-variants.spec.ts",
+        "workflows.spec.ts",
+        "yoco-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/modifier_groups",
+      "operationId": "get /v1/modifier_groups/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "locations-modifiers.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webpos",
+      "operationId": "post /v1/webpos/",
+      "specStatusCodes": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "200"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webpos.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/webhooks/subscriptions/:subscription_id",
+      "operationId": "delete /v1/webhooks/subscriptions/:subscription_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "404",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "workflows.spec.ts",
+        "yoco-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/card_machines/:card_machine_id",
+      "operationId": "get /v1/card_machines/:card_machine_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "card-machines.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/v1/orders/:order_id",
+      "operationId": "put /v1/orders/:order_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "404",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "orders.spec.ts",
+        "relative-path-variants.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/orders/:order_id",
+      "operationId": "delete /v1/orders/:order_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "404",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "orders.spec.ts",
+        "relative-path-variants.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/orders/:order_id",
+      "operationId": "patch /v1/orders/:order_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "404",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "orders.spec.ts",
+        "relative-path-variants.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/payment_links",
+      "operationId": "post /v1/payment_links/",
+      "specStatusCodes": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "200"
+      ],
+      "tested": true,
+      "testFiles": [
+        "payment-links.spec.ts",
+        "relative-path-variants.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/:payout_id",
+      "operationId": "get /v1/payouts/:payout_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payouts.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/items",
+      "operationId": "get /v1/items/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "items-catalog.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_categories/:item_category_id",
+      "operationId": "get /v1/item_categories/:item_category_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "items-catalog.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/userinfo",
+      "operationId": "get /userinfo",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "oauth-iam.spec.ts",
+        "oauth-relative-paths.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/subscriptions/:subscription_id",
+      "operationId": "get /v1/webhooks/subscriptions/:subscription_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "workflows.spec.ts",
+        "yoco-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/oauth2/token",
+      "operationId": "post /oauth2/token",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "oauth-iam.spec.ts",
+        "oauth-relative-paths.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payments",
+      "operationId": "get /v1/payments/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payments.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webpos/:webpos_device_id/payments",
+      "operationId": "post /v1/webpos/:webpos_device_id/payments",
+      "specStatusCodes": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "404",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "200",
+        "404"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webpos.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/capital/active_advances",
+      "operationId": "get /v1/capital/active_advances",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "capital.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webpos/:webpos_device_id/payments/:payment_id",
+      "operationId": "get /v1/webpos/:webpos_device_id/payments/:payment_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "webpos.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/subscriptions",
+      "operationId": "get /v1/webhooks/subscriptions/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "yoco-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/:payout_id/payout_entries",
+      "operationId": "get /v1/payouts/:payout_id/payout_entries",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "404"
+      ],
+      "tested": true,
+      "testFiles": [
+        "payouts.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/orders/:order_id",
+      "operationId": "get /v1/orders/:order_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "orders.spec.ts",
+        "relative-path-variants.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payments/:payment_id",
+      "operationId": "get /v1/payments/:payment_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payments.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/capital/active_offers",
+      "operationId": "get /v1/capital/active_offers",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "capital.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/payment_links/:payment_link_id",
+      "operationId": "delete /v1/payment_links/:payment_link_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "404",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "payment-links.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/refunds/:refund_id",
+      "operationId": "get /v1/refunds/:refund_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "refunds.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/locations",
+      "operationId": "get /v1/locations/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "locations-modifiers.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions/:subscription_id/secret",
+      "operationId": "post /v1/webhooks/subscriptions/:subscription_id/secret",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "404",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "workflows.spec.ts",
+        "yoco-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/items/:item_id",
+      "operationId": "get /v1/items/:item_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "items-catalog.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/checkouts/:id/refund",
+      "operationId": "post /api/checkouts/:id/refund",
+      "specStatusCodes": [
+        "200",
+        "403",
+        "409",
+        "422"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "404",
+        "403",
+        "409",
+        "422"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "404"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-checkout-refund.spec.ts",
+        "relative-path-variants.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/oauth2/token_info",
+      "operationId": "get /v1/oauth2/token_info",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "oauth-iam.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/webhooks/:id",
+      "operationId": "delete /api/webhooks/:id",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "403",
+        "500"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "404",
+        "400",
+        "403"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "404"
+      ],
+      "tested": true,
+      "testFiles": [
+        "checkout-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/card_machines",
+      "operationId": "get /v1/card_machines/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "card-machines.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/events",
+      "operationId": "get /v1/webhooks/events/",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "yoco-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/oauth2/auth",
+      "operationId": "get /oauth2/auth",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "oauth-iam.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/staff/:staff_id",
+      "operationId": "get /v1/staff/:staff_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "staff.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/webhooks/subscriptions/:subscription_id",
+      "operationId": "patch /v1/webhooks/subscriptions/:subscription_id",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "404",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "workflows.spec.ts",
+        "yoco-webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payment_links/:payment_link_id",
+      "operationId": "get /v1/payment_links/:payment_link_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "payment-links.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/refunds",
+      "operationId": "get /v1/refunds/",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "refunds.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webpos/:webpos_device_id",
+      "operationId": "get /v1/webpos/:webpos_device_id",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webpos.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    }
+  ],
+  "excludedEndpoints": [],
+  "testCount": 640,
+  "unmatchedAssertions": [],
+  "assertionsLinkedToExcludedEndpoints": [],
+  "literalDuplicateEndpoints": [],
+  "qualityChecklist": {
+    "verdict": "pass",
+    "totalTests": 332,
+    "findings": [],
+    "summary": {
+      "testsWithoutTag": 0,
+      "testsWithoutBddName": 0,
+      "schemasWithoutAdditionalProperties": 0,
+      "schemasWithoutRequired": 0
+    }
+  }
+}

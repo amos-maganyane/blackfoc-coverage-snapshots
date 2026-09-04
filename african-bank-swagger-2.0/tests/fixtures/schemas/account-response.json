@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "accountType", "bankId", "branchCode", "number"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "accountType": { "type": "string", "enum": ["CHEQUE", "SAVINGS", "TRANSMISSION", "BOND", "CREDIT_CARD", "INVESTMENT"] },
+    "agentId": { "type": "integer" },
+    "balance": { "type": "object", "properties": { "amount": { "type": "number" }, "currency": { "type": "string" } } },
+    "bankId": { "type": "string", "minLength": 1 },
+    "branchCode": { "type": "string", "minLength": 1 },
+    "closedDate": { "type": ["string", "null"], "format": "date-time" },
+    "customers": { "type": "array" },
+    "number": { "type": "string", "minLength": 1 },
+    "openDate": { "type": ["string", "null"], "format": "date-time" },
+    "status": { "type": "string" }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["clientVerification", "identification", "personalDetails"],
+  "properties": {
+    "ficaId": { "type": ["string", "null"] },
+    "ficaStatus": { "type": ["string", "null"] },
+    "accountExecutive": { "type": ["object", "null"] },
+    "capture": { "type": ["object", "null"] },
+    "clientVerification": { "type": "object" },
+    "contactDetails": { "type": ["object", "null"] },
+    "employment": { "type": ["object", "null"] },
+    "ficaApproval": { "type": ["object", "null"] },
+    "identification": { "type": "object" },
+    "personalDetails": { "type": "object" }
+  }
+}

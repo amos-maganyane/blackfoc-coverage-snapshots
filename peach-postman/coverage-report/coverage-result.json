@@ -1,0 +1,841 @@
+{
+  "totalEndpoints": 35,
+  "testedEndpoints": 33,
+  "endpointCoverage": 94.28571428571428,
+  "totalStatusConditions": 35,
+  "testedStatusConditions": 33,
+  "statusCodeCoverage": 94.28571428571428,
+  "matrix": [
+    {
+      "method": "POST",
+      "path": "/payments",
+      "operationId": "Payment",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-payments.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/payments",
+      "operationId": "Query transaction by merchantTransactionId",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-payments-by-merchant-txn.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/payments/:transactionId",
+      "operationId": "Query transaction by transaction ID",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-payments-by-txn-id.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/payments/:transactionId",
+      "operationId": "Refund transaction",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-payments-refund.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/oauth/token",
+      "operationId": "Merchant Access",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-api-oauth-token.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/merchants/:merchantId/payouts",
+      "operationId": "Create payouts",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-payout-status.spec.ts",
+        "post-api-merchants-payouts.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/merchants/:merchantId/payouts",
+      "operationId": "List payouts",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-payouts.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/merchants/:merchantId/payouts/:payoutRequestId/status",
+      "operationId": "Query payout",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-payout-status.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/merchants/:merchantId/banv",
+      "operationId": "Create bank account verification",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-banv-status.spec.ts",
+        "post-api-merchants-banv.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/merchants/:merchantId/banv/:bankVerificationId/status",
+      "operationId": "Bank account verification status",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-banv-status.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/merchants/:merchantId/balance",
+      "operationId": "Retrieve balance",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-balance.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/merchants/:merchantId/reports/payouts/download",
+      "operationId": "Transaction report",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-report-payouts.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/merchants/:merchantId/reports/statement/download",
+      "operationId": "Statement report",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-report-statement.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/attachments",
+      "operationId": "Upload a file",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-api-attachments.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/channels/:entityId/payments",
+      "operationId": "Generate link",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "delete-api-payment.spec.ts",
+        "get-api-payment-status.spec.ts",
+        "post-api-channels-payments.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/payments",
+      "operationId": "Export all merchant payment links",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-payments-export.spec.ts",
+        "get-api-payments-list.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/api/payments/:paymentId",
+      "operationId": "Cancel link",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "delete-api-payment.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/payments/:paymentId",
+      "operationId": "Query payment status",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-payment-status.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/payments/:paymentId/files/:fileId",
+      "operationId": "Download a file",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-payment-file.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/api/channels/:entityId/payments/batches",
+      "operationId": "Create batch",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400"
+      ],
+      "extraStatusCodes": [
+        "401",
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-batch-status.spec.ts",
+        "post-api-batches.spec.ts",
+        "put-api-batch-submit.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/channels/:entityId/payments/batches",
+      "operationId": "Retrieve all batches",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-batches.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/batches/:batchId",
+      "operationId": "Query batch status",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-batch-status.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/batches/:batchId/files",
+      "operationId": "Retrieve batch error files",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-batch-files.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/api/merchants/:merchantId/transactions-recon",
+      "operationId": "List merchant transactions recon",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-api-merchants-recon.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/checkout",
+      "operationId": "Initiate Checkout",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-checkout.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/checkout/validate",
+      "operationId": "Validate Checkout request",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-checkout-validate.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/merchant_specs",
+      "operationId": "Retrieve a list of payment methods for a currency",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-merchant-specs.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/status",
+      "operationId": "Query Checkout status",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-checkout-status.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/checkout/initiate",
+      "operationId": "Initiate redirect-based Checkout",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-checkout-initiate.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v2/channels/{entityId}/payment-methods",
+      "operationId": "Retrieve a list of payment methods for a currency",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-v2-payment-methods.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v2/checkout",
+      "operationId": "Generate Checkout ID",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-v2-checkout-status.spec.ts",
+        "post-v2-checkout.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v2/checkout/validate",
+      "operationId": "Validate Checkout request",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "post-v2-checkout-validate.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v2/checkout/{checkoutId}/status",
+      "operationId": "Query Checkout status v2",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401"
+      ],
+      "extraStatusCodes": [
+        "401"
+      ],
+      "tested": true,
+      "testFiles": [
+        "get-v2-checkout-status.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "PUT",
+      "path": "{{batchUrl}}",
+      "operationId": "Submit batch",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [],
+      "extraStatusCodes": [],
+      "tested": false,
+      "testFiles": [],
+      "excluded": true,
+      "exclusionReason": "Dynamic-target request: URL is returned by a prior response (batch upload URL), not a fixed path. Present in the raw Postman collection; not representable as a static method+path in the coverage matrix."
+    },
+    {
+      "method": "POST",
+      "path": "{{paymentRedirectUrl}}",
+      "operationId": "Payment Redirect Example",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [],
+      "extraStatusCodes": [],
+      "tested": false,
+      "testFiles": [],
+      "excluded": true,
+      "exclusionReason": "Dynamic-target request: URL is a payment redirect callback returned by a prior response, not a fixed path. Present in the raw Postman collection; not representable as a static method+path in the coverage matrix."
+    }
+  ],
+  "excludedEndpoints": [
+    {
+      "method": "PUT",
+      "path": "{{batchUrl}}",
+      "operationId": "Submit batch",
+      "exclusionReason": "Dynamic-target request: URL is returned by a prior response (batch upload URL), not a fixed path. Present in the raw Postman collection; not representable as a static method+path in the coverage matrix.",
+      "relatedTestFiles": [
+        "put-api-batch-submit.spec.ts"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "{{paymentRedirectUrl}}",
+      "operationId": "Payment Redirect Example",
+      "exclusionReason": "Dynamic-target request: URL is a payment redirect callback returned by a prior response, not a fixed path. Present in the raw Postman collection; not representable as a static method+path in the coverage matrix.",
+      "relatedTestFiles": [
+        "post-payment-redirect.spec.ts"
+      ]
+    }
+  ],
+  "testCount": 205,
+  "unmatchedAssertions": [],
+  "assertionsLinkedToExcludedEndpoints": [
+    {
+      "method": "POST",
+      "path": "/&amount=1.00&connector=EFTSECURE&currency=ZAR&transaction=fe18dc76af3940978d7de9d0a3486174",
+      "status": "200",
+      "file": "post-payment-redirect.spec.ts",
+      "testName": "[PR-01] @smoke Given valid redirect payment parameters, when redirect payment is submitted, then returns 200 with payment result",
+      "relatedExcludedEndpoint": "POST {{paymentRedirectUrl}}"
+    },
+    {
+      "method": "POST",
+      "path": "/&amount=1.00&connector=EFTSECURE&currency=ZAR&transaction=fe18dc76af3940978d7de9d0a3486174",
+      "status": "200",
+      "file": "post-payment-redirect.spec.ts",
+      "testName": "[PR-02] @smoke Given payment redirect request, when submitted without authorization, then returns 401 unauthorized",
+      "relatedExcludedEndpoint": "POST {{paymentRedirectUrl}}"
+    },
+    {
+      "method": "POST",
+      "path": "/&amount=1.00&connector=EFTSECURE&currency=ZAR&transaction=fe18dc76af3940978d7de9d0a3486174",
+      "status": "401",
+      "file": "post-payment-redirect.spec.ts",
+      "testName": "[PR-02] @smoke Given payment redirect request, when submitted without authorization, then returns 401 unauthorized",
+      "relatedExcludedEndpoint": "POST {{paymentRedirectUrl}}"
+    },
+    {
+      "method": "POST",
+      "path": "/&amount=1.00&connector=EFTSECURE&currency=ZAR&transaction=fe18dc76af3940978d7de9d0a3486174",
+      "status": "200",
+      "file": "post-payment-redirect.spec.ts",
+      "testName": "[PR-03] @smoke Given payment redirect request, when submitted with invalid token, then returns 401 unauthorized",
+      "relatedExcludedEndpoint": "POST {{paymentRedirectUrl}}"
+    },
+    {
+      "method": "POST",
+      "path": "/&amount=1.00&connector=EFTSECURE&currency=ZAR&transaction=fe18dc76af3940978d7de9d0a3486174",
+      "status": "401",
+      "file": "post-payment-redirect.spec.ts",
+      "testName": "[PR-03] @smoke Given payment redirect request, when submitted with invalid token, then returns 401 unauthorized",
+      "relatedExcludedEndpoint": "POST {{paymentRedirectUrl}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/channels/{param}/payments/batches/{param}",
+      "status": "200",
+      "file": "put-api-batch-submit.spec.ts",
+      "testName": "[SB-01] @extended Given a created batch, when the batch is submitted for processing, then returns 200 confirming submission",
+      "relatedExcludedEndpoint": "PUT {{batchUrl}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/channels/{param}/payments/batches/non-existent-id",
+      "status": "200",
+      "file": "put-api-batch-submit.spec.ts",
+      "testName": "[SB-02] @smoke Given submit batch request, when submitted without authorization, then returns 401 unauthorized",
+      "relatedExcludedEndpoint": "PUT {{batchUrl}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/channels/{param}/payments/batches/non-existent-id",
+      "status": "401",
+      "file": "put-api-batch-submit.spec.ts",
+      "testName": "[SB-02] @smoke Given submit batch request, when submitted without authorization, then returns 401 unauthorized",
+      "relatedExcludedEndpoint": "PUT {{batchUrl}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/channels/{param}/payments/batches/non-existent-id",
+      "status": "200",
+      "file": "put-api-batch-submit.spec.ts",
+      "testName": "[SB-03] @smoke Given submit batch request, when submitted with invalid token, then returns 401 unauthorized",
+      "relatedExcludedEndpoint": "PUT {{batchUrl}}"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/channels/{param}/payments/batches/non-existent-id",
+      "status": "401",
+      "file": "put-api-batch-submit.spec.ts",
+      "testName": "[SB-03] @smoke Given submit batch request, when submitted with invalid token, then returns 401 unauthorized",
+      "relatedExcludedEndpoint": "PUT {{batchUrl}}"
+    }
+  ],
+  "literalDuplicateEndpoints": [],
+  "qualityChecklist": {
+    "verdict": "pass",
+    "totalTests": 117,
+    "findings": [],
+    "summary": {
+      "testsWithoutTag": 0,
+      "testsWithoutBddName": 0,
+      "schemasWithoutAdditionalProperties": 0,
+      "schemasWithoutRequired": 0
+    }
+  }
+}

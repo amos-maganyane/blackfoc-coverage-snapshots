@@ -1,0 +1,1135 @@
+{
+  "totalEndpoints": 42,
+  "testedEndpoints": 42,
+  "endpointCoverage": 100,
+  "totalStatusConditions": 206,
+  "testedStatusConditions": 205,
+  "statusCodeCoverage": 99.51456310679612,
+  "matrix": [
+    {
+      "method": "GET",
+      "path": "/v1/capital/active_offers",
+      "operationId": "list_active_capital_offers_v1_capital_active_offers_get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "capital.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/capital/active_advances",
+      "operationId": "list_active_capital_advances_v1_capital_active_advances_get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "capital.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/card_machines/",
+      "operationId": "list_card_machines_v1_card_machines__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "card-machines.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/card_machines/{card_machine_id}",
+      "operationId": "fetch_card_machine_v1_card_machines__card_machine_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "card-machines.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_brands/",
+      "operationId": "list_item_brands_v1_item_brands__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "item-brands.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_brands/{item_brand_id}",
+      "operationId": "fetch_item_brand_v1_item_brands__item_brand_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "item-brands.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_categories/",
+      "operationId": "list_item_categories_v1_item_categories__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "item-categories.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_categories/{item_category_id}",
+      "operationId": "fetch_item_category_v1_item_categories__item_category_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "item-categories.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/items/",
+      "operationId": "list_items_v1_items__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "items.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/items/{item_id}",
+      "operationId": "fetch_item_v1_items__item_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "items.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/locations/",
+      "operationId": "list_locations_v1_locations__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "locations.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/locations/{location_id}",
+      "operationId": "fetch_location_v1_locations__location_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "locations.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/modifier_groups/",
+      "operationId": "list_modifier_groups_v1_modifier_groups__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "modifier-groups.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/modifier_groups/{modifier_group_id}",
+      "operationId": "fetch_modifier_group_v1_modifier_groups__modifier_group_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "modifier-groups.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/orders/",
+      "operationId": "list_orders_v1_orders__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "orders.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/orders/{order_id}",
+      "operationId": "fetch_order_v1_orders__order_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "orders.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/payment_links/",
+      "operationId": "create_payment_link_v1_payment_links__post",
+      "specStatusCodes": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "400",
+        "401",
+        "403",
+        "429",
+        "204",
+        "404"
+      ],
+      "extraStatusCodes": [
+        "200",
+        "204",
+        "404"
+      ],
+      "tested": true,
+      "testFiles": [
+        "payment-links.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payment_links/",
+      "operationId": "list_payment_links_v1_payment_links__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payment-links.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payment_links/{payment_link_id}",
+      "operationId": "fetch_payment_link_v1_payment_links__payment_link_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403",
+        "429",
+        "204"
+      ],
+      "extraStatusCodes": [
+        "201",
+        "204"
+      ],
+      "tested": true,
+      "testFiles": [
+        "payment-links.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/payment_links/{payment_link_id}",
+      "operationId": "delete_payment_link_v1_payment_links__payment_link_id__delete",
+      "specStatusCodes": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "204",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "200",
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "payment-links.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payments/",
+      "operationId": "list_payments_v1_payments__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payments.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payments/{payment_id}",
+      "operationId": "fetch_payment_v1_payments__payment_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payments.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/",
+      "operationId": "list_payouts_v1_payouts__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payouts.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/{payout_id}",
+      "operationId": "fetch_payout_v1_payouts__payout_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payouts.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/{payout_id}/payout_entries",
+      "operationId": "list_payout_entries_v1_payouts__payout_id__payout_entries_get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "404"
+      ],
+      "tested": true,
+      "testFiles": [
+        "payouts.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/refunds/",
+      "operationId": "list_refunds_v1_refunds__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "refunds.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/refunds/{refund_id}",
+      "operationId": "fetch_refund_v1_refunds__refund_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "refunds.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/staff/",
+      "operationId": "list_staff_v1_staff__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "staff.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/staff/{staff_id}",
+      "operationId": "fetch_staff_v1_staff__staff_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "staff.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions/",
+      "operationId": "create_webhook_subscription_v1_webhooks_subscriptions__post",
+      "specStatusCodes": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "400",
+        "401",
+        "403",
+        "429",
+        "204",
+        "404"
+      ],
+      "extraStatusCodes": [
+        "200",
+        "204",
+        "404"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webhooks.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/subscriptions/",
+      "operationId": "list_webhook_subscriptions_v1_webhooks_subscriptions__get",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}",
+      "operationId": "fetch_webhook_subscription_v1_webhooks_subscriptions__subscription_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403",
+        "429",
+        "204"
+      ],
+      "extraStatusCodes": [
+        "201",
+        "204"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webhooks.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}",
+      "operationId": "delete_webhook_subscription_v1_webhooks_subscriptions__subscription_id__delete",
+      "specStatusCodes": [
+        "204",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "204",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "200",
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webhooks.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}",
+      "operationId": "update_webhook_subscription_v1_webhooks_subscriptions__subscription_id__patch",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "400",
+        "401",
+        "404",
+        "403",
+        "429",
+        "204"
+      ],
+      "extraStatusCodes": [
+        "201",
+        "204"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webhooks.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}/secret",
+      "operationId": "rotate_webhook_subscription_secret_v1_webhooks_subscriptions__subscription_id__secret_post",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403",
+        "429",
+        "204"
+      ],
+      "extraStatusCodes": [
+        "201",
+        "204"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webhooks.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}/test",
+      "operationId": "send_test_webhook_event_v1_webhooks_subscriptions__subscription_id__test_post",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "400",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/events/",
+      "operationId": "list_webhook_event_definitions_v1_webhooks_events__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "webhooks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webpos/",
+      "operationId": "create_web_pos_device_v1_webpos__post",
+      "specStatusCodes": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "200"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webpos.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webpos/{webpos_device_id}",
+      "operationId": "fetch_web_pos_device_v1_webpos__webpos_device_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webpos.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webpos/{webpos_device_id}/payments",
+      "operationId": "create_web_pos_payment_v1_webpos__webpos_device_id__payments_post",
+      "specStatusCodes": [
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "400",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [
+        "200"
+      ],
+      "tested": true,
+      "testFiles": [
+        "webpos.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webpos/{webpos_device_id}/payments/{payment_id}",
+      "operationId": "fetch_web_pos_payment_v1_webpos__webpos_device_id__payments__payment_id__get",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404",
+        "429"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "webpos.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/v1/oauth2/token_info",
+      "operationId": "get_token_info_v1_oauth2_token_info_get",
+      "specStatusCodes": [
+        "200"
+      ],
+      "testedStatusCodes": [
+        "200"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "oauth2.spec.ts"
+      ],
+      "excluded": false
+    }
+  ],
+  "excludedEndpoints": [],
+  "testCount": 514,
+  "unmatchedAssertions": [],
+  "assertionsLinkedToExcludedEndpoints": [],
+  "literalDuplicateEndpoints": [],
+  "qualityChecklist": {
+    "verdict": "pass",
+    "totalTests": 237,
+    "findings": [],
+    "summary": {
+      "testsWithoutTag": 0,
+      "testsWithoutBddName": 0,
+      "schemasWithoutAdditionalProperties": 0,
+      "schemasWithoutRequired": 0
+    }
+  }
+}

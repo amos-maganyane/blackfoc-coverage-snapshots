@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "data": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "total": {
+      "type": "number"
+    },
+    "offset": {
+      "type": "number"
+    },
+    "perPage": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "data",
+    "total",
+    "offset",
+    "perPage"
+  ]
+}

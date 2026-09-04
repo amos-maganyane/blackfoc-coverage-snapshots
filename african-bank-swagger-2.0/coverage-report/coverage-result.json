@@ -1,0 +1,1004 @@
+{
+  "totalEndpoints": 39,
+  "testedEndpoints": 39,
+  "endpointCoverage": 100,
+  "totalStatusConditions": 170,
+  "testedStatusConditions": 164,
+  "statusCodeCoverage": 96.47058823529412,
+  "matrix": [
+    {
+      "method": "GET",
+      "path": "/accounts",
+      "operationId": "getAccountsUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "accounts-list.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/accounts",
+      "operationId": "createAccountUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "400",
+        "404"
+      ],
+      "extraStatusCodes": [
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "account-by-id.spec.ts",
+        "accounts-list.spec.ts",
+        "txn-beneficiary.spec.ts",
+        "txn-freeform.spec.ts",
+        "txn-public-account.spec.ts",
+        "txn-transfer.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/public",
+      "operationId": "GetPublicAccountsUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "accounts-public.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}",
+      "operationId": "getAccountUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "account-by-id.spec.ts",
+        "accounts-public.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transaction-request-types",
+      "operationId": "getTransactionRequestTypesUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "txn-request-types.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transaction-requests",
+      "operationId": "getTransactionRequestsUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "txn-requests.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{accountId}/transaction-requests/BENEFICIARY",
+      "operationId": "beneficiaryUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "txn-beneficiary.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{accountId}/transaction-requests/FREE_FORM",
+      "operationId": "freeFormUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "txn-freeform.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{accountId}/transaction-requests/PUBLIC_ACCOUNT",
+      "operationId": "publicAccountUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "txn-public-account.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{accountId}/transaction-requests/TRANSFER_TO_ACCOUNT",
+      "operationId": "transferToAnotherAccountUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "txn-transfer.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transactions",
+      "operationId": "getTransactionsUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "transactions.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transactions/{transactionId}",
+      "operationId": "getTransactionByIdUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "transaction-by-id.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/banks",
+      "operationId": "getBanksUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "banks.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/customers",
+      "operationId": "getCustomersUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "customers-list.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/customers",
+      "operationId": "createCustomerUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "400"
+      ],
+      "extraStatusCodes": [
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "beneficiaries.spec.ts",
+        "beneficiary-by-id.spec.ts",
+        "customer-by-id.spec.ts",
+        "customers-list.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/customers/{customerId}",
+      "operationId": "getCustomerUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "customer-by-id.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/customers/{customerId}/beneficiaries",
+      "operationId": "getBeneficiariesUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "beneficiaries.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/customers/{customerId}/beneficiaries",
+      "operationId": "createBeneficiaryUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "beneficiaries.spec.ts",
+        "beneficiary-by-id.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/customers/{customerId}/beneficiaries/{beneficiaryId}",
+      "operationId": "getBeneficiaryUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "beneficiary-by-id.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/customers/{customerId}/messages",
+      "operationId": "getCustomerMessagesUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "201"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "customer-messages.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/customers/{customerId}/messages",
+      "operationId": "createCustomerMessageUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "201"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "customer-messages.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/entitlements",
+      "operationId": "getEntitlementsUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "entitlements.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/fica/individuals",
+      "operationId": "createIndividualFicaUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "400",
+        "404"
+      ],
+      "extraStatusCodes": [
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "fica-individuals.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/fica/individuals/{ficaId}",
+      "operationId": "getIndividualFicaUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "201"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "fica-individuals.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "PUT",
+      "path": "/fica/individuals/{ficaId}",
+      "operationId": "updateIndividualFicaUsingPUT",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "fica-update.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "PATCH",
+      "path": "/fica/individuals/{ficaId}",
+      "operationId": "updateFicaStatusUsingPATCH",
+      "specStatusCodes": [
+        "200",
+        "204",
+        "401",
+        "403"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "fica-update.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/guarantees/{guaranteeID}/state",
+      "operationId": "getGuaranteeStateUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "guarantees.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/investment-types",
+      "operationId": "getInvestmentTypesUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "investment-types.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "operationId": "getProductsUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "products.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/products/{code}",
+      "operationId": "getProductUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "products.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "operationId": "createUserUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "400"
+      ],
+      "extraStatusCodes": [
+        "400"
+      ],
+      "tested": true,
+      "testFiles": [
+        "user-by-id.spec.ts",
+        "users.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/users/current/customers",
+      "operationId": "getCustomersForCurrentUserUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "users.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/users/current/entitlements",
+      "operationId": "getEntitlementsForCurrentUserUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "users.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/users/{userId}",
+      "operationId": "getUserByIdUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "201",
+        "404",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "user-by-id.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/users/{userId}/entitlements",
+      "operationId": "getEntitlementsForUserUsingGET",
+      "specStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "201"
+      ],
+      "extraStatusCodes": [
+        "201"
+      ],
+      "tested": true,
+      "testFiles": [
+        "user-entitlements.spec.ts",
+        "users.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/users/{userId}/entitlements",
+      "operationId": "addEntitlementForUserUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "404",
+        "401",
+        "403",
+        "201"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "user-entitlements.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "DELETE",
+      "path": "/users/{userId}/entitlements/{entitlementId}",
+      "operationId": "deleteUserEntitlementUsingDELETE",
+      "specStatusCodes": [
+        "200",
+        "204",
+        "401",
+        "403"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "204",
+        "401",
+        "403"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "user-entitlements.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/validate/accountnumber",
+      "operationId": "validateAccountNumberUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "validate-account.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/verifications/account",
+      "operationId": "accountVerificationUsingPOST",
+      "specStatusCodes": [
+        "200",
+        "201",
+        "401",
+        "403",
+        "404"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "403",
+        "404"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "verify-account.spec.ts"
+      ],
+      "excluded": false
+    }
+  ],
+  "excludedEndpoints": [],
+  "testCount": 400,
+  "unmatchedAssertions": [],
+  "assertionsLinkedToExcludedEndpoints": [],
+  "literalDuplicateEndpoints": [],
+  "qualityChecklist": {
+    "verdict": "pass",
+    "totalTests": 187,
+    "findings": [],
+    "summary": {
+      "testsWithoutTag": 0,
+      "testsWithoutBddName": 0,
+      "schemasWithoutAdditionalProperties": 0,
+      "schemasWithoutRequired": 0
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "totalEndpoints": 5,
+  "testedEndpoints": 5,
+  "endpointCoverage": 100,
+  "totalStatusConditions": 40,
+  "testedStatusConditions": 30,
+  "statusCodeCoverage": 75,
+  "matrix": [
+    {
+      "method": "POST",
+      "path": "/domestic-payment-consents",
+      "operationId": "post /domestic-payment-consents",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "412",
+        "429",
+        "500",
+        "502"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "412",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "consents-create.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/domestic-payment-consents/{consentId}",
+      "operationId": "get /domestic-payment-consents/{consentId}",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "412",
+        "429",
+        "500",
+        "502"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "412",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "consents-get.spec.ts",
+        "funds-confirmation.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/domestic-payment-consents/{consentId}/funds-confirmation",
+      "operationId": "get /domestic-payment-consents/{consentId}/funds-confirmation",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "412",
+        "429",
+        "500",
+        "502"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "412",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "funds-confirmation.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "POST",
+      "path": "/domestic-payments",
+      "operationId": "post /domestic-payments",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "412",
+        "429",
+        "500",
+        "502"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "412",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payments-create.spec.ts"
+      ],
+      "excluded": false
+    },
+    {
+      "method": "GET",
+      "path": "/domestic-payments/{domesticPaymentId}",
+      "operationId": "get /domestic-payments/{domesticPaymentId}",
+      "specStatusCodes": [
+        "200",
+        "400",
+        "401",
+        "403",
+        "412",
+        "429",
+        "500",
+        "502"
+      ],
+      "testedStatusCodes": [
+        "200",
+        "401",
+        "400",
+        "403",
+        "412",
+        "429"
+      ],
+      "extraStatusCodes": [],
+      "tested": true,
+      "testFiles": [
+        "payments-get.spec.ts",
+        "workflows.spec.ts"
+      ],
+      "excluded": false
+    }
+  ],
+  "excludedEndpoints": [],
+  "testCount": 134,
+  "unmatchedAssertions": [],
+  "assertionsLinkedToExcludedEndpoints": [],
+  "literalDuplicateEndpoints": [],
+  "qualityChecklist": {
+    "verdict": "pass",
+    "totalTests": 49,
+    "findings": [],
+    "summary": {
+      "testsWithoutTag": 0,
+      "testsWithoutBddName": 0,
+      "schemasWithoutAdditionalProperties": 0,
+      "schemasWithoutRequired": 0
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "Data": {
+    "ReadRefundAccount": "Y",
+    "Initiation": {
+      "InstructionIdentification": "MINIMAL-001",
+      "LocalInstrument": "RTC",
+      "CreditorAccount": {
+        "SchemeName": "AccountType.BranchId.AccountNumber",
+        "Identification": "632005-1234567890",
+        "Name": "Minimal Creditor",
+        "SecondaryIdentification": "ABSA"
+      },
+      "DebtorAccount": {
+        "SchemeName": "AccountType.BranchId.AccountNumber",
+        "Identification": "632005-0987654321",
+        "SecondaryIdentification": "ABSA"
+      },
+      "InstructedAmount": {
+        "Amount": 1.00,
+        "Currency": "ZAR"
+      },
+      "RemittanceInformation": {
+        "Unstructured": "Minimal test payment"
+      },
+      "SupplementaryData": {
+        "ConsentType": "SINGLE",
+        "TppUrl": "https://tpp.example.com/callback"
+      }
+    }
+  },
+  "Risk": {
+    "MerchantCategoryCode": "5411",
+    "PaymentContextCode": "BillPayment"
+  }
+}

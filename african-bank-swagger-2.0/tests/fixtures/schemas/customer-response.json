@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["customerId"],
+  "properties": {
+    "customerId": { "type": "string", "minLength": 1 },
+    "adminFeePercent": { "type": ["number", "null"] },
+    "agentReference": { "type": ["string", "null"] },
+    "customerReference": { "type": ["string", "null"] },
+    "defaultAccountNumber": { "type": ["string", "null"] },
+    "defaultCustomer": { "type": ["boolean", "null"] },
+    "otherCustomers": { "type": ["array", "null"] }
+  }
+}

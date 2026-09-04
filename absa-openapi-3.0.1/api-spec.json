@@ -1,0 +1,352 @@
+{
+  "title": "Absa Payments Services",
+  "version": "1.0",
+  "baseUrl": "",
+  "authSchemes": [],
+  "endpoints": [
+    {
+      "method": "POST",
+      "path": "/domestic-payment-consents",
+      "operationId": "post /domestic-payment-consents",
+      "summary": "Initiates a domestic payment consent request.",
+      "parameters": [
+        {
+          "name": "X-Absa-ClientInteractionId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Nonce",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Initiating-UserId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        }
+      ],
+      "requestBody": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/DomesticPaymentConsentRequestDataDomesticPaymentConsentRequestRiskApiRequestRiskData"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "The domestic payments consent result."
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "412",
+          "description": "Precondition Failed"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        },
+        {
+          "status": "500",
+          "description": "Internal Server Error"
+        },
+        {
+          "status": "502",
+          "description": "Bad Gateway"
+        }
+      ],
+      "tags": [
+        "Domestic Payments"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/domestic-payment-consents/{consentId}",
+      "operationId": "get /domestic-payment-consents/{consentId}",
+      "summary": "Retrieves the status of an existing domestic payment consent.",
+      "parameters": [
+        {
+          "name": "consentId",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-ClientInteractionId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Nonce",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Initiating-UserId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "The domestic payments consent status result."
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "412",
+          "description": "Precondition Failed"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        },
+        {
+          "status": "500",
+          "description": "Internal Server Error"
+        },
+        {
+          "status": "502",
+          "description": "Bad Gateway"
+        }
+      ],
+      "tags": [
+        "Domestic Payments"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/domestic-payment-consents/{consentId}/funds-confirmation",
+      "operationId": "get /domestic-payment-consents/{consentId}/funds-confirmation",
+      "summary": "Verifies that the client has funds available to process the payment request.",
+      "parameters": [
+        {
+          "name": "consentId",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-ClientInteractionId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Nonce",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Initiating-UserId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "The domestic payments fund confirmation result."
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "412",
+          "description": "Precondition Failed"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        },
+        {
+          "status": "500",
+          "description": "Internal Server Error"
+        },
+        {
+          "status": "502",
+          "description": "Bad Gateway"
+        }
+      ],
+      "tags": [
+        "Domestic Payments"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/domestic-payments",
+      "operationId": "post /domestic-payments",
+      "summary": "Initiates a domestic payment request.",
+      "parameters": [
+        {
+          "name": "X-Absa-ClientInteractionId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Nonce",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Initiating-UserId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        }
+      ],
+      "requestBody": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/DomesticPaymentRequestDataDomesticPaymentRequestRiskApiRequestRiskData"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "The domestic payment initiation result."
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "412",
+          "description": "Precondition Failed"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        },
+        {
+          "status": "500",
+          "description": "Internal Server Error"
+        },
+        {
+          "status": "502",
+          "description": "Bad Gateway"
+        }
+      ],
+      "tags": [
+        "Domestic Payments"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/domestic-payments/{domesticPaymentId}",
+      "operationId": "get /domestic-payments/{domesticPaymentId}",
+      "summary": "Retrieves the status of an existing domestic payment.",
+      "parameters": [
+        {
+          "name": "domesticPaymentId",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-ClientInteractionId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Nonce",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        },
+        {
+          "name": "X-Absa-Initiating-UserId",
+          "in": "header",
+          "required": false,
+          "schema": "{\"type\":\"string\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "The domestic payments status result."
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "412",
+          "description": "Precondition Failed"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        },
+        {
+          "status": "500",
+          "description": "Internal Server Error"
+        },
+        {
+          "status": "502",
+          "description": "Bad Gateway"
+        }
+      ],
+      "tags": [
+        "Domestic Payments"
+      ]
+    }
+  ],
+  "sourceFormat": "openapi",
+  "sourceFile": "absa-payments.json",
+  "digest": "sha256:8ccf6feb8683da0e9f36718d62dd73ab27a274aad1cd91bcd4d7dccc397f8c97"
+}

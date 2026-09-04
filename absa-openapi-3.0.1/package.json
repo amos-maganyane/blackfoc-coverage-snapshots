@@ -1,0 +1,20 @@
+{
+  "name": "absa-payments-api-tests",
+  "private": true,
+  "scripts": {
+    "test": "npx playwright test",
+    "test:smoke": "npx playwright test --grep @smoke",
+    "test:extended": "npx playwright test --grep @extended",
+    "test:report": "npx playwright show-report",
+    "allure:generate": "allure generate -o allure-report",
+    "allure:open": "allure open allure-report",
+    "allure:serve": "allure serve allure-results"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.0",
+    "ajv": "^8.17.0",
+    "allure": "^3.6.2",
+    "allure-playwright": "^3.6.0",
+    "dotenv": "^16.4.0"
+  }
+}

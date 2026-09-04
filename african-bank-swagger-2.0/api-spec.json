@@ -1,0 +1,1816 @@
+{
+  "title": "Grindrod Bank API",
+  "version": "4.1.0",
+  "baseUrl": "https://api.grindrodbank.co.za/api",
+  "authSchemes": [
+    {
+      "type": "oauth2",
+      "name": "oauth2",
+      "description": "oauth2"
+    }
+  ],
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/accounts",
+      "operationId": "getAccountsUsingGET",
+      "summary": "getAccounts",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/accounts",
+      "operationId": "createAccountUsingPOST",
+      "summary": "createAccount",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/CreateAccountRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/public",
+      "operationId": "GetPublicAccountsUsingGET",
+      "summary": "GetPublicAccounts",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "name",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}",
+      "operationId": "getAccountUsingGET",
+      "summary": "getAccount",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transaction-request-types",
+      "operationId": "getTransactionRequestTypesUsingGET",
+      "summary": "getTransactionRequestTypes",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transaction-requests",
+      "operationId": "getTransactionRequestsUsingGET",
+      "summary": "getTransactionRequests",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "fromDate",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "toDate",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{accountId}/transaction-requests/BENEFICIARY",
+      "operationId": "beneficiaryUsingPOST",
+      "summary": "beneficiary",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "transactionRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/BeneficiaryTransactionRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{accountId}/transaction-requests/FREE_FORM",
+      "operationId": "freeFormUsingPOST",
+      "summary": "freeForm",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "transactionRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/FreeFormTransactionRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{accountId}/transaction-requests/PUBLIC_ACCOUNT",
+      "operationId": "publicAccountUsingPOST",
+      "summary": "publicAccount",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "transactionRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/PublicAccountTransactionRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/accounts/{accountId}/transaction-requests/TRANSFER_TO_ACCOUNT",
+      "operationId": "transferToAnotherAccountUsingPOST",
+      "summary": "transferToAnotherAccount",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "transactionRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/TransferToAnotherAccountTransactionRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transactions",
+      "operationId": "getTransactionsUsingGET",
+      "summary": "getTransactions",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "fromDate",
+          "in": "query",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "toDate",
+          "in": "query",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/accounts/{accountId}/transactions/{transactionId}",
+      "operationId": "getTransactionByIdUsingGET",
+      "summary": "getTransactionById",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "accountId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "transactionId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/banks",
+      "operationId": "getBanksUsingGET",
+      "summary": "getBanks",
+      "parameters": [
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/customers",
+      "operationId": "getCustomersUsingGET",
+      "summary": "getCustomers",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/customers",
+      "operationId": "createCustomerUsingPOST",
+      "summary": "createCustomer",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "customerRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/CustomerRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/customers/{customerId}",
+      "operationId": "getCustomerUsingGET",
+      "summary": "getCustomer",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/customers/{customerId}/beneficiaries",
+      "operationId": "getBeneficiariesUsingGET",
+      "summary": "getBeneficiaries",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/customers/{customerId}/beneficiaries",
+      "operationId": "createBeneficiaryUsingPOST",
+      "summary": "createBeneficiary",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "beneficiaryRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/BeneficiaryRequest\"}"
+        },
+        {
+          "name": "customerId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/customers/{customerId}/beneficiaries/{beneficiaryId}",
+      "operationId": "getBeneficiaryUsingGET",
+      "summary": "getBeneficiary",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "beneficiaryId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/customers/{customerId}/messages",
+      "operationId": "getCustomerMessagesUsingGET",
+      "summary": "getCustomerMessages",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "pageNumber",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "paged",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort.sorted",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort.unsorted",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "unpaged",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/customers/{customerId}/messages",
+      "operationId": "createCustomerMessageUsingPOST",
+      "summary": "createCustomerMessage",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "customerId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "customerMessageRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/CustomerMessageRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/entitlements",
+      "operationId": "getEntitlementsUsingGET",
+      "summary": "getEntitlements",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/fica/individuals",
+      "operationId": "createIndividualFicaUsingPOST",
+      "summary": "createIndividualFica",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "ficaRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/IndividualFicaRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/fica/individuals/{ficaId}",
+      "operationId": "getIndividualFicaUsingGET",
+      "summary": "getIndividualFica",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "ficaId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "PUT",
+      "path": "/fica/individuals/{ficaId}",
+      "operationId": "updateIndividualFicaUsingPUT",
+      "summary": "updateIndividualFica",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "ficaId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "ficaRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/IndividualFicaRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "PATCH",
+      "path": "/fica/individuals/{ficaId}",
+      "operationId": "updateFicaStatusUsingPATCH",
+      "summary": "updateFicaStatus",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "ficaId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "patchFicaRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/PatchFicaRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "204",
+          "description": "No Content"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/guarantees/{guaranteeID}/state",
+      "operationId": "getGuaranteeStateUsingGET",
+      "summary": "getGuaranteeState",
+      "parameters": [
+        {
+          "name": "guaranteeID",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/investment-types",
+      "operationId": "getInvestmentTypesUsingGET",
+      "summary": "getInvestmentTypes",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/products",
+      "operationId": "getProductsUsingGET",
+      "summary": "getProducts",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "page",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "size",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/products/{code}",
+      "operationId": "getProductUsingGET",
+      "summary": "getProduct",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "code",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/users",
+      "operationId": "createUserUsingPOST",
+      "summary": "createUser",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "user",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/UserRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/users/current/customers",
+      "operationId": "getCustomersForCurrentUserUsingGET",
+      "summary": "getCustomersForCurrentUser",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/users/current/entitlements",
+      "operationId": "getEntitlementsForCurrentUserUsingGET",
+      "summary": "getEntitlementsForCurrentUser",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "pageNumber",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "paged",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort.sorted",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort.unsorted",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "unpaged",
+          "in": "query",
+          "required": false
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/users/{userId}",
+      "operationId": "getUserByIdUsingGET",
+      "summary": "getUserById",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "GET",
+      "path": "/users/{userId}/entitlements",
+      "operationId": "getEntitlementsForUserUsingGET",
+      "summary": "getEntitlementsForUser",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "pageNumber",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "paged",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort.sorted",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort.unsorted",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "unpaged",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/users/{userId}/entitlements",
+      "operationId": "addEntitlementForUserUsingPOST",
+      "summary": "addEntitlementForUser",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "entitlementRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/EntitlementRequest\"}"
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "DELETE",
+      "path": "/users/{userId}/entitlements/{entitlementId}",
+      "operationId": "deleteUserEntitlementUsingDELETE",
+      "summary": "deleteUserEntitlement",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "entitlementId",
+          "in": "path",
+          "required": true
+        },
+        {
+          "name": "offset",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "pageNumber",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "pageSize",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "paged",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort.sorted",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "sort.unsorted",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "unpaged",
+          "in": "query",
+          "required": false
+        },
+        {
+          "name": "userId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "204",
+          "description": "No Content"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/validate/accountnumber",
+      "operationId": "validateAccountNumberUsingPOST",
+      "summary": "validateAccountNumber",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "validateAccountRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/ValidateAccountRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    },
+    {
+      "method": "POST",
+      "path": "/verifications/account",
+      "operationId": "accountVerificationUsingPOST",
+      "summary": "accountVerification",
+      "parameters": [
+        {
+          "name": "Agent-Id",
+          "in": "header",
+          "required": true
+        },
+        {
+          "name": "avsRequest",
+          "in": "body",
+          "required": true,
+          "schema": "{\"$ref\":\"#/definitions/AvsRequest\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "OK"
+        },
+        {
+          "status": "201",
+          "description": "Created"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        }
+      ],
+      "tags": []
+    }
+  ],
+  "sourceFormat": "swagger",
+  "sourceFile": "africanbank-grindrod-swagger.json",
+  "digest": "sha256:94b97ad835951be044583789b48c4c2681a98eca75ae305cb7ff13fe9dd6572d"
+}

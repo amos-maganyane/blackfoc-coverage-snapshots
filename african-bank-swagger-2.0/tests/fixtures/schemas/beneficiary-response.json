@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["beneficiaryId", "accountNumber", "accountType", "bankCode", "bankName", "beneficiaryReference", "branchCode", "branchName", "clientReference", "name"],
+  "properties": {
+    "beneficiaryId": { "type": "string", "minLength": 1 },
+    "accountCategory": { "type": ["string", "null"] },
+    "accountNumber": { "type": "string", "minLength": 1 },
+    "accountType": { "type": "string" },
+    "bankCode": { "type": "string", "minLength": 1 },
+    "bankName": { "type": "string", "minLength": 1 },
+    "beneficiaryReference": { "type": "string" },
+    "branchCode": { "type": "string", "minLength": 1 },
+    "branchName": { "type": "string" },
+    "clientReference": { "type": "string" },
+    "name": { "type": "string", "minLength": 1 }
+  }
+}

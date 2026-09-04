@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "FundsAvailable": { "type": "boolean" },
+        "FundsAvailableDateTime": { "type": "string", "format": "date-time" },
+        "SupplementaryData": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "FundConfirmationFailureReasons": {
+              "type": "array",
+              "items": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      },
+      "required": ["FundsAvailable", "FundsAvailableDateTime"]
+    },
+    "Links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Rel": { "type": "string", "minLength": 1 },
+          "Href": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "Meta": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Name": { "type": "string", "minLength": 1 },
+          "Value": {}
+        }
+      }
+    }
+  },
+  "required": ["Data"]
+}

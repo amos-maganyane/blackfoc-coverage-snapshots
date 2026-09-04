@@ -1,0 +1,2034 @@
+{
+  "title": "yoco-api",
+  "version": "1.0.0",
+  "baseUrl": "https://api.yoco.com",
+  "authSchemes": [
+    {
+      "type": "http",
+      "name": "Bearer",
+      "description": "JWT authentication"
+    }
+  ],
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/v1/capital/active_offers",
+      "operationId": "list_active_capital_offers_v1_capital_active_offers_get",
+      "summary": "List active Capital offers",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Capital"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/capital/active_advances",
+      "operationId": "list_active_capital_advances_v1_capital_active_advances_get",
+      "summary": "List active Capital advances",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Capital"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/card_machines/",
+      "operationId": "list_card_machines_v1_card_machines__get",
+      "summary": "List card machines",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Card machines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/card_machines/{card_machine_id}",
+      "operationId": "fetch_card_machine_v1_card_machines__card_machine_id__get",
+      "summary": "Fetch a card machine",
+      "parameters": [
+        {
+          "name": "card_machine_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the card machine.\",\"title\":\"Card Machine Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Card machines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_brands/",
+      "operationId": "list_item_brands_v1_item_brands__get",
+      "summary": "List item brands",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Item Brands"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_brands/{item_brand_id}",
+      "operationId": "fetch_item_brand_v1_item_brands__item_brand_id__get",
+      "summary": "Fetch an item brand",
+      "parameters": [
+        {
+          "name": "item_brand_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the item brand.\",\"title\":\"Item Brand Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Item Brands"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_categories/",
+      "operationId": "list_item_categories_v1_item_categories__get",
+      "summary": "List item categories",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Item Categories"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/item_categories/{item_category_id}",
+      "operationId": "fetch_item_category_v1_item_categories__item_category_id__get",
+      "summary": "Fetch an item category",
+      "parameters": [
+        {
+          "name": "item_category_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the item category.\",\"title\":\"Item Category Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Item Categories"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/items/",
+      "operationId": "list_items_v1_items__get",
+      "summary": "List items",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        },
+        {
+          "name": "expand",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"array\",\"items\":{\"$ref\":\"#/components/schemas/ExpandableItem\"},\"description\":\"Specifies which related entities to inflate in the response. Repeat the parameter to expand multiple entities, e.g. `?expand=brand&expand=category`. By default, related entities are returned only as identifiers (e.g. `brand_id`, `category_id`).\",\"title\":\"Expand\"}"
+        },
+        {
+          "name": "location_id",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\"},{\"type\":\"null\"}],\"description\":\"Filter items to those available at this location, and resolve variant prices for that location.\",\"title\":\"Location Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/items/{item_id}",
+      "operationId": "fetch_item_v1_items__item_id__get",
+      "summary": "Fetch an item",
+      "parameters": [
+        {
+          "name": "item_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the item.\",\"title\":\"Item Id\"}"
+        },
+        {
+          "name": "expand",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"array\",\"items\":{\"$ref\":\"#/components/schemas/ExpandableItem\"}},{\"type\":\"null\"}],\"description\":\"Specifies which related entities to inflate in the response. Repeat the parameter to expand multiple entities, e.g. `?expand=brand&expand=category`. By default, related entities are returned only as identifiers (e.g. `brand_id`, `category_id`).\",\"title\":\"Expand\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Items"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/locations/",
+      "operationId": "list_locations_v1_locations__get",
+      "summary": "List locations",
+      "parameters": [
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Locations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/locations/{location_id}",
+      "operationId": "fetch_location_v1_locations__location_id__get",
+      "summary": "Fetch a location",
+      "parameters": [
+        {
+          "name": "location_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the location.\",\"title\":\"Location Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Locations"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/modifier_groups/",
+      "operationId": "list_modifier_groups_v1_modifier_groups__get",
+      "summary": "List modifier groups",
+      "parameters": [
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        },
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min modifier group created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max modifier group created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Modifier Groups"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/modifier_groups/{modifier_group_id}",
+      "operationId": "fetch_modifier_group_v1_modifier_groups__modifier_group_id__get",
+      "summary": "Fetch a modifier group",
+      "parameters": [
+        {
+          "name": "modifier_group_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the modifier group.\",\"title\":\"Modifier Group Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Modifier Groups"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/orders/",
+      "operationId": "list_orders_v1_orders__get",
+      "summary": "List orders",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        },
+        {
+          "name": "closed_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min closed date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Closed At  Gte\"}"
+        },
+        {
+          "name": "closed_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max closed date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Closed At  Lte\"}"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"array\",\"items\":{\"$ref\":\"#/components/schemas/OrderStatus\"}},{\"type\":\"null\"}],\"description\":\"A list of statuses to filter on.\",\"title\":\"Status\"}"
+        },
+        {
+          "name": "location_id",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"array\",\"items\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\"}},{\"type\":\"null\"}],\"description\":\"A list of location ids to filter on. Pass \\\"null\\\" to include orders without a location.\",\"title\":\"Location Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Orders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/orders/{order_id}",
+      "operationId": "fetch_order_v1_orders__order_id__get",
+      "summary": "Fetch an order",
+      "parameters": [
+        {
+          "name": "order_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the order.\",\"title\":\"Order Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Orders"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/payment_links/",
+      "operationId": "create_payment_link_v1_payment_links__post",
+      "summary": "Create a payment link",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/CreatePaymentLinkRequest"
+      },
+      "responses": [
+        {
+          "status": "201",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payment links"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payment_links/",
+      "operationId": "list_payment_links_v1_payment_links__get",
+      "summary": "List payment links",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"array\",\"items\":{\"$ref\":\"#/components/schemas/PaymentLinkStatus\"}},{\"type\":\"null\"}],\"description\":\"A list of statuses to filter on.\",\"title\":\"Status\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payment links"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payment_links/{payment_link_id}",
+      "operationId": "fetch_payment_link_v1_payment_links__payment_link_id__get",
+      "summary": "Fetch a payment link",
+      "parameters": [
+        {
+          "name": "payment_link_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the payment link.\",\"title\":\"Payment Link Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payment links"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/payment_links/{payment_link_id}",
+      "operationId": "delete_payment_link_v1_payment_links__payment_link_id__delete",
+      "summary": "Delete a payment link",
+      "parameters": [
+        {
+          "name": "payment_link_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the payment link.\",\"title\":\"Payment Link Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "204",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payment links"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payments/",
+      "operationId": "list_payments_v1_payments__get",
+      "summary": "List payments",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"array\",\"items\":{\"$ref\":\"#/components/schemas/PaymentStatus\"}},{\"type\":\"null\"}],\"description\":\"A list of statuses to filter on.\",\"title\":\"Status\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payments"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payments/{payment_id}",
+      "operationId": "fetch_payment_v1_payments__payment_id__get",
+      "summary": "Fetch a payment",
+      "parameters": [
+        {
+          "name": "payment_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the payment.\",\"title\":\"Payment Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payments"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/",
+      "operationId": "list_payouts_v1_payouts__get",
+      "summary": "List payouts",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"array\",\"items\":{\"$ref\":\"#/components/schemas/PayoutStatus\"}},{\"type\":\"null\"}],\"description\":\"A list of statuses to filter on.\",\"title\":\"Status\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payouts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/{payout_id}",
+      "operationId": "fetch_payout_v1_payouts__payout_id__get",
+      "summary": "Fetch a payout",
+      "parameters": [
+        {
+          "name": "payout_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the payout.\",\"title\":\"Payout Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payouts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/payouts/{payout_id}/payout_entries",
+      "operationId": "list_payout_entries_v1_payouts__payout_id__payout_entries_get",
+      "summary": "List payout entries",
+      "parameters": [
+        {
+          "name": "payout_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the payout.\",\"title\":\"Payout Id\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Payouts"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/refunds/",
+      "operationId": "list_refunds_v1_refunds__get",
+      "summary": "List refunds",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"array\",\"items\":{\"$ref\":\"#/components/schemas/RefundStatus\"}},{\"type\":\"null\"}],\"description\":\"A list of statuses to filter on.\",\"title\":\"Status\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Refunds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/refunds/{refund_id}",
+      "operationId": "fetch_refund_v1_refunds__refund_id__get",
+      "summary": "Fetch a refund",
+      "parameters": [
+        {
+          "name": "refund_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the refund.\",\"title\":\"Refund Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Refunds"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/staff/",
+      "operationId": "list_staff_v1_staff__get",
+      "summary": "List staff members",
+      "parameters": [
+        {
+          "name": "created_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Gte\"}"
+        },
+        {
+          "name": "created_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max created date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Created At  Lte\"}"
+        },
+        {
+          "name": "updated_at__gte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The min updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Gte\"}"
+        },
+        {
+          "name": "updated_at__lte",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"format\":\"date-time\"},{\"type\":\"null\"}],\"description\":\"The max updated date and time in ISO 8601 format. If only one bound is provided, the other is automatically set 31 days away (e.g. supplying only `__gte=2024-11-01T00:00:00Z` sets `__lte=2024-12-02T00:00:00Z`). When both bounds are provided, the range may not exceed 31 days.\",\"example\":\"2024-11-19T15:27:02+00:00\",\"title\":\"Updated At  Lte\"}"
+        },
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        },
+        {
+          "name": "status",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"$ref\":\"#/components/schemas/StaffStatus\"},{\"type\":\"null\"}],\"description\":\"Filter staff by whether they are currently active in the business. When omitted, both active and inactive (removed) staff are returned so that historical records referencing a removed staff member can still be resolved. Pass `active` or `inactive` to narrow the list.\",\"title\":\"Status\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Staff"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/staff/{staff_id}",
+      "operationId": "fetch_staff_v1_staff__staff_id__get",
+      "summary": "Fetch a staff member",
+      "parameters": [
+        {
+          "name": "staff_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"pattern\":\"^[A-Za-z0-9:-]+$\",\"description\":\"The unique identifier of the staff member.\",\"title\":\"Staff Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Staff"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions/",
+      "operationId": "create_webhook_subscription_v1_webhooks_subscriptions__post",
+      "summary": "Create webhook subscription",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/CreateWebhookSubscriptionRequest"
+      },
+      "responses": [
+        {
+          "status": "201",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/subscriptions/",
+      "operationId": "list_webhook_subscriptions_v1_webhooks_subscriptions__get",
+      "summary": "List webhook subscriptions",
+      "parameters": [
+        {
+          "name": "cursor",
+          "in": "query",
+          "required": false,
+          "schema": "{\"anyOf\":[{\"type\":\"string\",\"minLength\":1,\"maxLength\":255},{\"type\":\"null\"}],\"description\":\"A pagination cursor from where results should start being fetched.\",\"title\":\"Cursor\"}"
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "required": false,
+          "schema": "{\"type\":\"integer\",\"maximum\":100,\"minimum\":1,\"description\":\"The maximum number of results to return.\",\"format\":\"int32\",\"default\":50,\"title\":\"Limit\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}",
+      "operationId": "fetch_webhook_subscription_v1_webhooks_subscriptions__subscription_id__get",
+      "summary": "Fetch a webhook subscription",
+      "parameters": [
+        {
+          "name": "subscription_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"description\":\"The unique identifier of the subscription.\",\"title\":\"Subscription Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}",
+      "operationId": "delete_webhook_subscription_v1_webhooks_subscriptions__subscription_id__delete",
+      "summary": "Delete a webhook subscription",
+      "parameters": [
+        {
+          "name": "subscription_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"description\":\"The unique identifier of the subscription.\",\"title\":\"Subscription Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "204",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}",
+      "operationId": "update_webhook_subscription_v1_webhooks_subscriptions__subscription_id__patch",
+      "summary": "Update a webhook subscription",
+      "parameters": [
+        {
+          "name": "subscription_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"description\":\"The unique identifier of the subscription.\",\"title\":\"Subscription Id\"}"
+        }
+      ],
+      "requestBody": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/UpdateWebhookSubscriptionRequest"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}/secret",
+      "operationId": "rotate_webhook_subscription_secret_v1_webhooks_subscriptions__subscription_id__secret_post",
+      "summary": "Rotate the secret for a webhook subscription",
+      "parameters": [
+        {
+          "name": "subscription_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"description\":\"The unique identifier of the subscription.\",\"title\":\"Subscription Id\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webhooks/subscriptions/{subscription_id}/test",
+      "operationId": "send_test_webhook_event_v1_webhooks_subscriptions__subscription_id__test_post",
+      "summary": "Send a test webhook event for a subscription",
+      "parameters": [
+        {
+          "name": "subscription_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"minLength\":1,\"maxLength\":100,\"description\":\"The unique identifier of the subscription.\",\"title\":\"Subscription Id\"}"
+        }
+      ],
+      "requestBody": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/SendTestWebhookEventRequest"
+      },
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webhooks/events/",
+      "operationId": "list_webhook_event_definitions_v1_webhooks_events__get",
+      "summary": "List webhook event definitions",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Webhooks"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webpos/",
+      "operationId": "create_web_pos_device_v1_webpos__post",
+      "summary": "Create a Web POS device",
+      "parameters": [],
+      "requestBody": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/CreateWebPOSDeviceRequest"
+      },
+      "responses": [
+        {
+          "status": "201",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Web POS"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webpos/{webpos_device_id}",
+      "operationId": "fetch_web_pos_device_v1_webpos__webpos_device_id__get",
+      "summary": "Fetch a Web POS device",
+      "parameters": [
+        {
+          "name": "webpos_device_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"format\":\"uuid\",\"title\":\"The unique ID of the Web POS device.\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Web POS"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/v1/webpos/{webpos_device_id}/payments",
+      "operationId": "create_web_pos_payment_v1_webpos__webpos_device_id__payments_post",
+      "summary": "Create a Web POS payment",
+      "parameters": [
+        {
+          "name": "webpos_device_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"format\":\"uuid\",\"title\":\"The unique ID of the Web POS device.\"}"
+        }
+      ],
+      "requestBody": {
+        "contentType": "application/json",
+        "schemaRef": "#/components/schemas/CreateWebPOSPaymentRequest"
+      },
+      "responses": [
+        {
+          "status": "201",
+          "description": "Successful Response"
+        },
+        {
+          "status": "400",
+          "description": "Bad Request"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Web POS"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/webpos/{webpos_device_id}/payments/{payment_id}",
+      "operationId": "fetch_web_pos_payment_v1_webpos__webpos_device_id__payments__payment_id__get",
+      "summary": "Fetch a Web POS payment",
+      "parameters": [
+        {
+          "name": "webpos_device_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"format\":\"uuid\",\"title\":\"The unique ID of the Web POS device.\"}"
+        },
+        {
+          "name": "payment_id",
+          "in": "path",
+          "required": true,
+          "schema": "{\"type\":\"string\",\"format\":\"uuid\",\"title\":\"The unique ID of the Web POS payment.\"}"
+        }
+      ],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        },
+        {
+          "status": "401",
+          "description": "Unauthorized"
+        },
+        {
+          "status": "403",
+          "description": "Forbidden"
+        },
+        {
+          "status": "404",
+          "description": "Not Found"
+        },
+        {
+          "status": "429",
+          "description": "Too Many Requests"
+        }
+      ],
+      "tags": [
+        "Web POS"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/v1/oauth2/token_info",
+      "operationId": "get_token_info_v1_oauth2_token_info_get",
+      "summary": "Get token info",
+      "parameters": [],
+      "responses": [
+        {
+          "status": "200",
+          "description": "Successful Response"
+        }
+      ],
+      "tags": [
+        "OAuth 2"
+      ]
+    }
+  ],
+  "sourceFormat": "openapi",
+  "sourceFile": "yoco_openapi.json",
+  "digest": "sha256:1ee03e82bc45a5a8d3468e3032173ee3fd57b5f4939be4c4cd4a060290f95dc2"
+}

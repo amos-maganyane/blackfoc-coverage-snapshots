@@ -1,0 +1,41 @@
+{
+  "Data": {
+    "ReadRefundAccount": "Y",
+    "Initiation": {
+      "InstructionIdentification": "INSTR-TEST-001",
+      "LocalInstrument": "RTC",
+      "EndToEndIdentification": "E2E-TEST-001",
+      "ChargeBearer": "S",
+      "Creditor": {
+        "Name": "Test Creditor Name"
+      },
+      "CreditorAccount": {
+        "SchemeName": "AccountType.BranchId.AccountNumber",
+        "Identification": "632005-1234567890",
+        "Name": "Test Creditor Account",
+        "SecondaryIdentification": "ABSA"
+      },
+      "DebtorAccount": {
+        "SchemeName": "AccountType.BranchId.AccountNumber",
+        "Identification": "632005-0987654321",
+        "SecondaryIdentification": "ABSA",
+        "AccountName": "Test Debtor Account"
+      },
+      "InstructedAmount": {
+        "Amount": 100.00,
+        "Currency": "ZAR"
+      },
+      "RemittanceInformation": {
+        "Unstructured": "Payment for test invoice INV-001"
+      },
+      "SupplementaryData": {
+        "ConsentType": "SINGLE",
+        "TppUrl": "https://tpp.example.com/callback"
+      }
+    }
+  },
+  "Risk": {
+    "MerchantCategoryCode": "5411",
+    "PaymentContextCode": "BillPayment"
+  }
+}

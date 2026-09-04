@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "Data": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "DomesticPaymentId": { "type": "string", "minLength": 1 },
+        "ConsentId": { "type": "string", "minLength": 1 },
+        "Status": {
+          "type": "string",
+          "enum": [
+            "Pending",
+            "Rejected",
+            "AcceptedSettlementInProcess",
+            "AcceptedSettlementCompleted",
+            "AcceptedWithoutPosting",
+            "AcceptedCreditSettlementCompleted"
+          ]
+        },
+        "CreationDateTime": { "type": "string", "format": "date-time" },
+        "StatusUpdateDateTime": { "type": "string", "format": "date-time" }
+      },
+      "required": ["DomesticPaymentId", "ConsentId", "CreationDateTime", "Status", "StatusUpdateDateTime"]
+    },
+    "Risk": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "MerchantCategoryCode": { "type": "string", "minLength": 1 },
+        "PaymentContextCode": {
+          "type": "string",
+          "enum": ["BillPayment", "eCommerceGoods", "eCommerceServices", "Party to Party", "Other"]
+        }
+      },
+      "required": ["MerchantCategoryCode", "PaymentContextCode"]
+    },
+    "Links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Rel": { "type": "string", "minLength": 1 },
+          "Href": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "Meta": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Name": { "type": "string", "minLength": 1 },
+          "Value": {}
+        }
+      }
+    }
+  },
+  "required": ["Data", "Risk"]
+}
