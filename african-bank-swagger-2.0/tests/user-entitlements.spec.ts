@@ -101,6 +101,18 @@ test.describe('POST /users/{userId}/entitlements', () => {
 // ===========================
 test.describe('DELETE /users/{userId}/entitlements/{entitlementId}', () => {
 
+  test('[UE-13] @extended Given a pre-existing user and entitlement, when deleted with authorized credentials, then returns 200', async ({ request }) => {
+    const userId = process.env.TEST_USER_ID;
+    const entitlementId = process.env.TEST_ENTITLEMENT_ID;
+    test.skip(!userId || !entitlementId, 'Skipped: set TEST_USER_ID and TEST_ENTITLEMENT_ID to real IDs to execute');
+
+    const response = await request.delete(
+      `${API_BASE}/users/${userId}/entitlements/${entitlementId}`,
+      { headers: authHeaders() },
+    );
+    expect(response.status()).toBe(200);
+  });
+
   test('[UE-09] @smoke Given valid delete request, when submitted with authorized credentials, then returns 204', async ({ request }) => {
     const start = Date.now();
     const response = await request.delete(

@@ -1,9 +1,27 @@
 import { test, expect } from '@playwright/test';
 import { authHeaders, headersWithoutAuth, headersWithInvalidToken, headersWithReadOnlyToken, READ_ONLY_TOKEN } from './helpers/auth';
+import { makeCreateAccountPayload } from './helpers/test-data';
 
 const API_BASE = process.env.API_BASE!;
 
 test.describe('GET /accounts/{accountId}/transaction-requests', () => {
+
+  test('[TR-05] @smoke Given a newly created account, when requesting transaction requests, then returns 200', async ({ request }) => {
+    const acctResp = await request.post(`${API_BASE}/accounts`, {
+      headers: authHeaders(),
+      data: makeCreateAccountPayload(),
+    });
+    expect(acctResp.status()).toBe(201);
+    const account = await acctResp.json();
+    const accountId: string = account.id ?? account.accountId ?? account.data?.id;
+    expect(accountId).toBeDefined();
+
+    const response = await request.get(
+      `${API_BASE}/accounts/${accountId}/transaction-requests`,
+      { headers: authHeaders() },
+    );
+    expect(response.status()).toBe(200);
+  });
 
   test('[TR-01] @smoke Given non-existent account ID, when requesting transaction requests, then returns 404 not found', async ({ request }) => {
     const response = await request.get(

@@ -1,11 +1,33 @@
 import { test, expect } from '@playwright/test';
 import { authHeaders, headersWithoutAuth, headersWithInvalidToken, headersWithReadOnlyToken, READ_ONLY_TOKEN } from './helpers/auth';
+import { makeCreateAccountPayload } from './helpers/test-data';
 
 const API_BASE = process.env.API_BASE!;
 const TODAY = new Date().toISOString().slice(0, 10);
 const PAST_DATE = '2024-01-01';
 
 test.describe('GET /accounts/{accountId}/transactions', () => {
+
+  test('[TX-05] @smoke Given a newly created account, when requesting transactions, then returns 200', async ({ request }) => {
+    const payload = makeCreateAccountPayload();
+    const acctResp = await request.post(`${API_BASE}/accounts`, {
+      headers: authHeaders(),
+      data: payload,
+    });
+    expect(acctResp.status()).toBe(201);
+    const account = await acctResp.json();
+    const accountId: string = account.id ?? account.accountId ?? account.data?.id;
+    expect(accountId).toBeDefined();
+
+    const response = await request.get(
+      `${API_BASE}/accounts/${accountId}/transactions`,
+      {
+        headers: authHeaders(),
+        params: { customerId: payload.customerId, fromDate: PAST_DATE, toDate: TODAY },
+      },
+    );
+    expect(response.status()).toBe(200);
+  });
 
   test('[TX-01] @smoke Given non-existent account ID with required params, when requesting transactions, then returns 404 not found', async ({ request }) => {
     const response = await request.get(

@@ -57,6 +57,25 @@ test.describe('GET /products', () => {
 // ===========================
 test.describe('GET /products/{code}', () => {
 
+  test('[PR-10] @smoke Given a real product code from the product list, when retrieved, then returns 200 with matching code', async ({ request }) => {
+    const listResp = await request.get(`${API_BASE}/products`, {
+      headers: authHeaders(),
+    });
+    expect(listResp.status()).toBe(200);
+    const list = await listResp.json();
+    const products: Array<{ code: string }> = list.products ?? [];
+    test.skip(products.length === 0, 'Skipped: no products returned by the environment to fetch by code');
+    const code = products[0].code;
+
+    const response = await request.get(
+      `${API_BASE}/products/${code}`,
+      { headers: authHeaders() },
+    );
+    expect(response.status()).toBe(200);
+    const body = await response.json();
+    expect(body.code).toBe(code);
+  });
+
   test('[PR-06] @smoke Given non-existent product code, when retrieved, then returns 404 not found', async ({ request }) => {
     const response = await request.get(
       `${API_BASE}/products/NONEXISTENT-CODE-99999`,

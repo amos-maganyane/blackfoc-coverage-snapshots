@@ -9,6 +9,26 @@ const API_BASE = process.env.API_BASE!;
 // ===========================
 test.describe('PUT /fica/individuals/{ficaId}', () => {
 
+  test('[FU-05] @smoke Given a newly created FICA record, when updated with a valid payload, then returns 200', async ({ request }) => {
+    const createResp = await request.post(`${API_BASE}/fica/individuals`, {
+      headers: authHeaders(),
+      data: makeIndividualFicaPayload(),
+    });
+    expect(createResp.status()).toBe(201);
+    const created = await createResp.json();
+    const ficaId: string = created.id ?? created.ficaId ?? created.data?.id;
+    expect(ficaId).toBeDefined();
+
+    const response = await request.put(
+      `${API_BASE}/fica/individuals/${ficaId}`,
+      {
+        headers: authHeaders(),
+        data: makeIndividualFicaPayload(),
+      },
+    );
+    expect(response.status()).toBe(200);
+  });
+
   test('[FU-01] @smoke Given valid FICA update payload, when submitted to non-existent FICA ID, then returns 404 not found', async ({ request }) => {
     const response = await request.put(
       `${API_BASE}/fica/individuals/nonexistent-fica-99999`,

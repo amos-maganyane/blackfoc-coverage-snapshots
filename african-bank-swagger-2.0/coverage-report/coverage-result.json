@@ -3,8 +3,8 @@
   "testedEndpoints": 39,
   "endpointCoverage": 100,
   "totalStatusConditions": 170,
-  "testedStatusConditions": 164,
-  "statusCodeCoverage": 96.47058823529412,
+  "testedStatusConditions": 161,
+  "statusCodeCoverage": 94.70588235294117,
   "matrix": [
     {
       "method": "GET",
@@ -41,8 +41,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "401",
         "403",
         "400",
@@ -55,9 +55,12 @@
       "testFiles": [
         "account-by-id.spec.ts",
         "accounts-list.spec.ts",
+        "transactions.spec.ts",
         "txn-beneficiary.spec.ts",
         "txn-freeform.spec.ts",
         "txn-public-account.spec.ts",
+        "txn-request-types.spec.ts",
+        "txn-requests.spec.ts",
         "txn-transfer.spec.ts"
       ],
       "excluded": false
@@ -96,8 +99,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "404",
         "401",
         "403"
@@ -123,12 +126,15 @@
         "404"
       ],
       "testedStatusCodes": [
+        "201",
         "200",
         "404",
         "401",
         "403"
       ],
-      "extraStatusCodes": [],
+      "extraStatusCodes": [
+        "201"
+      ],
       "tested": true,
       "testFiles": [
         "txn-request-types.spec.ts"
@@ -146,12 +152,15 @@
         "404"
       ],
       "testedStatusCodes": [
+        "201",
         "200",
         "404",
         "401",
         "403"
       ],
-      "extraStatusCodes": [],
+      "extraStatusCodes": [
+        "201"
+      ],
       "tested": true,
       "testFiles": [
         "txn-requests.spec.ts"
@@ -170,7 +179,6 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
         "404",
         "401",
@@ -195,7 +203,6 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
         "404",
         "401",
@@ -220,7 +227,6 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
         "404",
         "401",
@@ -245,7 +251,6 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
         "404",
         "401",
@@ -269,12 +274,15 @@
         "404"
       ],
       "testedStatusCodes": [
+        "201",
         "200",
         "404",
         "401",
         "403"
       ],
-      "extraStatusCodes": [],
+      "extraStatusCodes": [
+        "201"
+      ],
       "tested": true,
       "testFiles": [
         "transactions.spec.ts"
@@ -362,8 +370,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "401",
         "403",
         "400"
@@ -392,8 +400,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "404",
         "401",
         "403"
@@ -418,8 +426,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "404",
         "401",
         "403"
@@ -446,8 +454,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "404",
         "401",
         "403"
@@ -472,8 +480,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "404",
         "401",
         "403"
@@ -499,11 +507,11 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "404",
         "401",
         "403",
-        "201"
+        "201",
+        "200"
       ],
       "extraStatusCodes": [
         "201"
@@ -527,11 +535,11 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "404",
         "401",
         "403",
-        "201"
+        "201",
+        "200"
       ],
       "extraStatusCodes": [],
       "tested": true,
@@ -576,12 +584,12 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
         "401",
         "403",
         "400",
-        "404"
+        "404",
+        "200"
       ],
       "extraStatusCodes": [
         "400"
@@ -589,6 +597,7 @@
       "tested": true,
       "testFiles": [
         "fica-individuals.spec.ts",
+        "fica-update.spec.ts",
         "workflows.spec.ts"
       ],
       "excluded": false
@@ -604,11 +613,11 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "404",
         "401",
         "403",
-        "201"
+        "201",
+        "200"
       ],
       "extraStatusCodes": [
         "201"
@@ -632,6 +641,7 @@
         "404"
       ],
       "testedStatusCodes": [
+        "201",
         "200",
         "404",
         "401",
@@ -770,8 +780,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "401",
         "403",
         "400"
@@ -844,8 +854,8 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "201",
+        "200",
         "404",
         "401",
         "403"
@@ -870,10 +880,10 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "404",
         "401",
         "403",
+        "200",
         "201"
       ],
       "extraStatusCodes": [
@@ -899,11 +909,11 @@
         "404"
       ],
       "testedStatusCodes": [
-        "200",
         "404",
         "401",
         "403",
-        "201"
+        "201",
+        "200"
       ],
       "extraStatusCodes": [],
       "tested": true,
@@ -986,13 +996,13 @@
     }
   ],
   "excludedEndpoints": [],
-  "testCount": 400,
+  "testCount": 252,
   "unmatchedAssertions": [],
   "assertionsLinkedToExcludedEndpoints": [],
   "literalDuplicateEndpoints": [],
   "qualityChecklist": {
     "verdict": "pass",
-    "totalTests": 187,
+    "totalTests": 195,
     "findings": [],
     "summary": {
       "testsWithoutTag": 0,

@@ -5,6 +5,18 @@ const API_BASE = process.env.API_BASE!;
 
 test.describe('GET /accounts/{accountId}/transactions/{transactionId}', () => {
 
+  test('[TI-05] @extended Given a pre-existing account and transaction, when retrieved, then returns 200', async ({ request }) => {
+    const accountId = process.env.TEST_ACCOUNT_ID;
+    const transactionId = process.env.TEST_TRANSACTION_ID;
+    test.skip(!accountId || !transactionId, 'Skipped: set TEST_ACCOUNT_ID and TEST_TRANSACTION_ID to real IDs to execute');
+
+    const response = await request.get(
+      `${API_BASE}/accounts/${accountId}/transactions/${transactionId}`,
+      { headers: authHeaders() },
+    );
+    expect(response.status()).toBe(200);
+  });
+
   test('[TI-01] @smoke Given non-existent transaction ID, when retrieved, then returns 404 not found', async ({ request }) => {
     const response = await request.get(
       `${API_BASE}/accounts/nonexistent-account-99999/transactions/nonexistent-txn-99999`,
