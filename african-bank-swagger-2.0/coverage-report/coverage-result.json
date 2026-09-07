@@ -996,7 +996,8 @@
     }
   ],
   "excludedEndpoints": [],
-  "testCount": 252,
+  "testCount": 195,
+  "assertionCount": 252,
   "unmatchedAssertions": [],
   "assertionsLinkedToExcludedEndpoints": [],
   "literalDuplicateEndpoints": [],
