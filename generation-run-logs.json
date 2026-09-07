@@ -1,0 +1,72 @@
+[
+  {
+    "target": "ABSA",
+    "endpointCount": 5,
+    "startedAt": "2026-08-23T22:58:07Z",
+    "completedAt": "2026-08-23T23:01:13.580Z",
+    "durationSeconds": 186,
+    "pipeline": {
+      "inputAdapted": true,
+      "testGenerated": true,
+      "staticVerified": true,
+      "coverageAnalyzed": true,
+      "reportGenerated": true
+    }
+  },
+  {
+    "target": "African Bank",
+    "endpointCount": 39,
+    "startedAt": "2026-08-24T00:33:26Z",
+    "completedAt": "2026-08-24T00:39:24.244Z",
+    "durationSeconds": 358,
+    "pipeline": {
+      "inputAdapted": true,
+      "testGenerated": true,
+      "staticVerified": true,
+      "coverageAnalyzed": true,
+      "reportGenerated": true
+    }
+  },
+  {
+    "target": "Yoco OpenAPI",
+    "endpointCount": 42,
+    "startedAt": "2026-08-24T06:48:32Z",
+    "completedAt": "2026-08-24T06:54:19.905Z",
+    "durationSeconds": 347,
+    "pipeline": {
+      "inputAdapted": true,
+      "testGenerated": true,
+      "staticVerified": true,
+      "coverageAnalyzed": true,
+      "reportGenerated": true
+    }
+  },
+  {
+    "target": "Peach",
+    "endpointCount": 35,
+    "startedAt": "2026-09-04T10:42:09.233Z",
+    "completedAt": "2026-09-04T10:46:20.141Z",
+    "durationSeconds": 251,
+    "pipeline": {
+      "inputAdapted": true,
+      "testGenerated": true,
+      "staticVerified": true,
+      "coverageAnalyzed": true,
+      "reportGenerated": true
+    }
+  },
+  {
+    "target": "Yoco HTML",
+    "endpointCount": 54,
+    "startedAt": "2026-09-04T11:13:03.217Z",
+    "completedAt": "2026-09-04T11:16:41.318Z",
+    "durationSeconds": 218,
+    "pipeline": {
+      "inputAdapted": true,
+      "testGenerated": true,
+      "staticVerified": true,
+      "coverageAnalyzed": true,
+      "reportGenerated": true
+    }
+  }
+]
