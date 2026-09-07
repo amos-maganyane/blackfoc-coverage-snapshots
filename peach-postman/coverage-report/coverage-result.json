@@ -712,6 +712,7 @@
     }
   ],
   "testCount": 66,
+  "assertionCount": 66,
   "unmatchedAssertions": [],
   "assertionsLinkedToExcludedEndpoints": [],
   "literalDuplicateEndpoints": [],
