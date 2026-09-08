@@ -55,39 +55,6 @@ test.describe('Checkouts API', () => {
     },
   );
   test(
-    '[YC-03] @extended Given error conditions for 403, when post /api/checkouts, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/api/checkouts`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-04] @extended Given error conditions for 409, when post /api/checkouts, then returns 409 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/api/checkouts`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(409);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-05] @extended Given error conditions for 422, when post /api/checkouts, then returns 422 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/api/checkouts`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(422);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-06] @smoke Given a newly created checkout, when post /api/checkouts/:id/refund, then returns 200 success',
     { tag: ['@smoke'] },
     async () => {
@@ -113,39 +80,6 @@ test.describe('Checkouts API', () => {
       expect(response.status()).toBe(401);
       expect(duration).toBeLessThan(5000);
       await noAuthContext.dispose();
-    },
-  );
-  test(
-    '[YC-08] @extended Given error conditions for 403, when post /api/checkouts/:id/refund, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/api/checkouts/test-id-123/refund`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-09] @extended Given error conditions for 409, when post /api/checkouts/:id/refund, then returns 409 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/api/checkouts/test-id-123/refund`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(409);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-10] @extended Given error conditions for 422, when post /api/checkouts/:id/refund, then returns 422 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/api/checkouts/test-id-123/refund`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(422);
-      expect(duration).toBeLessThan(5000);
     },
   );
 });

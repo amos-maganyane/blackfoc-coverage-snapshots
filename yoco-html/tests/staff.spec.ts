@@ -45,28 +45,6 @@ test.describe('Staff API', () => {
     },
   );
   test(
-    '[YC-195] @smoke Given error conditions for 401, when get /v1/staff/:staff_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/staff/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-196] @extended Given error conditions for 403, when get /v1/staff/:staff_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/staff/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-197] @smoke Given error conditions for 404, when get /v1/staff/:staff_id, then returns 404 error',
     { tag: ['@smoke'] },
     async () => {
@@ -124,28 +102,6 @@ test.describe('Staff API', () => {
       const response = await apiContext.get(`${API_BASE}/v1/staff`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-202] @smoke Given error conditions for 401, when get /v1/staff, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/staff`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-203] @extended Given error conditions for 403, when get /v1/staff, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/staff`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

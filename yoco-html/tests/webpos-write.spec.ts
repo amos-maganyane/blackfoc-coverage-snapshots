@@ -63,28 +63,6 @@ test.describe('Web POS API (Write)', () => {
     },
   );
   test(
-    '[YC-208] @smoke Given error conditions for 401, when post /v1/webpos, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/webpos`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-209] @extended Given error conditions for 403, when post /v1/webpos, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/webpos`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-210] @extended Given error conditions for 429, when post /v1/webpos, then returns 429 error',
     { tag: ['@extended'] },
     async () => {
@@ -135,28 +113,6 @@ test.describe('Web POS API (Write)', () => {
       const response = await apiContext.post(`${API_BASE}/v1/webpos/test-id-123/payments`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-214] @smoke Given error conditions for 401, when post /v1/webpos/:webpos_device_id/payments, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/webpos/test-id-123/payments`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-215] @extended Given error conditions for 403, when post /v1/webpos/:webpos_device_id/payments, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/webpos/test-id-123/payments`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

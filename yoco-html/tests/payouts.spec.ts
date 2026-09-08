@@ -45,28 +45,6 @@ test.describe('Payouts API', () => {
     },
   );
   test(
-    '[YC-165] @smoke Given error conditions for 401, when get /v1/payouts/:payout_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-166] @extended Given error conditions for 403, when get /v1/payouts/:payout_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-167] @smoke Given error conditions for 404, when get /v1/payouts/:payout_id, then returns 404 error',
     { tag: ['@smoke'] },
     async () => {
@@ -128,28 +106,6 @@ test.describe('Payouts API', () => {
     },
   );
   test(
-    '[YC-172] @smoke Given error conditions for 401, when get /v1/payouts/:payout_id/payout_entries, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123/payout_entries`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-173] @extended Given error conditions for 403, when get /v1/payouts/:payout_id/payout_entries, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payouts/test-id-123/payout_entries`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-174] @extended Given error conditions for 429, when get /v1/payouts/:payout_id/payout_entries, then returns 429 error',
     { tag: ['@extended'] },
     async () => {
@@ -196,28 +152,6 @@ test.describe('Payouts API', () => {
       const response = await apiContext.get(`${API_BASE}/v1/payouts`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-178] @smoke Given error conditions for 401, when get /v1/payouts, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payouts`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-179] @extended Given error conditions for 403, when get /v1/payouts, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payouts`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

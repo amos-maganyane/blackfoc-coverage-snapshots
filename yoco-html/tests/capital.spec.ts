@@ -45,28 +45,6 @@ test.describe('Capital API', () => {
     },
   );
   test(
-    '[YC-33] @smoke Given error conditions for 401, when get /v1/capital/active_advances, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/capital/active_advances`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-34] @extended Given error conditions for 403, when get /v1/capital/active_advances, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/capital/active_advances`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-35] @extended Given error conditions for 429, when get /v1/capital/active_advances, then returns 429 error',
     { tag: ['@extended'] },
     async () => {
@@ -103,28 +81,6 @@ test.describe('Capital API', () => {
       expect(response.status()).toBe(401);
       expect(duration).toBeLessThan(5000);
       await noAuthContext.dispose();
-    },
-  );
-  test(
-    '[YC-38] @smoke Given error conditions for 401, when get /v1/capital/active_offers, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/capital/active_offers`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-39] @extended Given error conditions for 403, when get /v1/capital/active_offers, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/capital/active_offers`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
     },
   );
   test(

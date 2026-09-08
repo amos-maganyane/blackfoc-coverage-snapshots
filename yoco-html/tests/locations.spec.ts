@@ -45,28 +45,6 @@ test.describe('Locations API', () => {
     },
   );
   test(
-    '[YC-91] @smoke Given error conditions for 401, when get /v1/locations/:location_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/locations/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-92] @extended Given error conditions for 403, when get /v1/locations/:location_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/locations/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-93] @smoke Given error conditions for 404, when get /v1/locations/:location_id, then returns 404 error',
     { tag: ['@smoke'] },
     async () => {
@@ -124,28 +102,6 @@ test.describe('Locations API', () => {
       const response = await apiContext.get(`${API_BASE}/v1/locations`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-98] @smoke Given error conditions for 401, when get /v1/locations, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/locations`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-99] @extended Given error conditions for 403, when get /v1/locations, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/locations`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

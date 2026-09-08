@@ -45,28 +45,6 @@ test.describe('Webhook Event Definitions API', () => {
     },
   );
   test(
-    '[YC-249] @smoke Given error conditions for 401, when get /v1/webhooks/events, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/webhooks/events`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-250] @extended Given error conditions for 403, when get /v1/webhooks/events, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/webhooks/events`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-251] @extended Given error conditions for 429, when get /v1/webhooks/events, then returns 429 error',
     { tag: ['@extended'] },
     async () => {

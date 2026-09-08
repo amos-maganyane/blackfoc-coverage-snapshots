@@ -3,8 +3,8 @@
   "testedEndpoints": 54,
   "endpointCoverage": 100,
   "totalStatusConditions": 230,
-  "testedStatusConditions": 230,
-  "statusCodeCoverage": 100,
+  "testedStatusConditions": 180,
+  "statusCodeCoverage": 78.26086956521739,
   "matrix": [
     {
       "method": "POST",
@@ -18,10 +18,7 @@
       ],
       "testedStatusCodes": [
         "200",
-        "401",
-        "403",
-        "409",
-        "422"
+        "401"
       ],
       "extraStatusCodes": [
         "401"
@@ -44,10 +41,7 @@
       ],
       "testedStatusCodes": [
         "200",
-        "401",
-        "403",
-        "409",
-        "422"
+        "401"
       ],
       "extraStatusCodes": [
         "401"
@@ -70,8 +64,7 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "400",
-        "403"
+        "400"
       ],
       "extraStatusCodes": [
         "401"
@@ -94,8 +87,7 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "400",
-        "403"
+        "400"
       ],
       "extraStatusCodes": [
         "401"
@@ -118,8 +110,7 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "400",
-        "403"
+        "400"
       ],
       "extraStatusCodes": [
         "401"
@@ -223,7 +214,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -246,7 +236,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -270,7 +259,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -296,7 +284,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -320,7 +307,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -346,7 +332,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -370,7 +355,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -396,7 +380,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -420,7 +403,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -446,7 +428,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -470,7 +451,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -496,7 +476,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -520,7 +499,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -546,7 +524,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -590,7 +567,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -616,7 +592,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -641,7 +616,6 @@
         "201",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -665,7 +639,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -690,7 +663,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -716,7 +688,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -740,7 +711,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -766,7 +736,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -790,7 +759,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -816,7 +784,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -841,7 +808,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -865,7 +831,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -891,7 +856,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -915,7 +879,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -941,7 +904,6 @@
         "200",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -966,7 +928,6 @@
         "201",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -991,7 +952,6 @@
         "201",
         "401",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -1015,7 +975,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -1040,7 +999,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -1066,7 +1024,6 @@
         "401",
         "201",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -1090,7 +1047,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -1115,7 +1071,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "404",
         "429"
       ],
@@ -1139,7 +1094,6 @@
       "testedStatusCodes": [
         "200",
         "401",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -1164,7 +1118,6 @@
         "401",
         "200",
         "400",
-        "403",
         "429"
       ],
       "extraStatusCodes": [],
@@ -1190,7 +1143,6 @@
         "200",
         "401",
         "400",
-        "403",
         "404",
         "429"
       ],
@@ -1217,7 +1169,6 @@
         "200",
         "401",
         "400",
-        "403",
         "404",
         "429"
       ],
@@ -1244,7 +1195,6 @@
         "200",
         "401",
         "400",
-        "403",
         "404",
         "429"
       ],
@@ -1317,14 +1267,14 @@
     }
   ],
   "excludedEndpoints": [],
-  "testCount": 284,
-  "assertionCount": 284,
+  "testCount": 193,
+  "assertionCount": 193,
   "unmatchedAssertions": [],
   "assertionsLinkedToExcludedEndpoints": [],
   "literalDuplicateEndpoints": [],
   "qualityChecklist": {
     "verdict": "pass",
-    "totalTests": 284,
+    "totalTests": 193,
     "findings": [],
     "summary": {
       "testsWithoutTag": 0,

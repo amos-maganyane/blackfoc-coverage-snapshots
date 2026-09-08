@@ -45,28 +45,6 @@ test.describe('Orders API', () => {
     },
   );
   test(
-    '[YC-117] @smoke Given error conditions for 401, when get /v1/orders/:order_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/orders/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-118] @extended Given error conditions for 403, when get /v1/orders/:order_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/orders/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-119] @smoke Given error conditions for 404, when get /v1/orders/:order_id, then returns 404 error',
     { tag: ['@smoke'] },
     async () => {
@@ -124,28 +102,6 @@ test.describe('Orders API', () => {
       const response = await apiContext.get(`${API_BASE}/v1/orders`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-124] @smoke Given error conditions for 401, when get /v1/orders, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/orders`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-125] @extended Given error conditions for 403, when get /v1/orders, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/orders`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

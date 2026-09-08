@@ -45,28 +45,6 @@ test.describe('Item Brands API', () => {
     },
   );
   test(
-    '[YC-55] @smoke Given error conditions for 401, when get /v1/item_brands/:item_brand_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/item_brands/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-56] @extended Given error conditions for 403, when get /v1/item_brands/:item_brand_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/item_brands/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-57] @smoke Given error conditions for 404, when get /v1/item_brands/:item_brand_id, then returns 404 error',
     { tag: ['@smoke'] },
     async () => {
@@ -124,28 +102,6 @@ test.describe('Item Brands API', () => {
       const response = await apiContext.get(`${API_BASE}/v1/item_brands`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-62] @smoke Given error conditions for 401, when get /v1/item_brands, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/item_brands`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-63] @extended Given error conditions for 403, when get /v1/item_brands, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/item_brands`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

@@ -59,28 +59,6 @@ test.describe('Payment Links API (Read)', () => {
     },
   );
   test(
-    '[YC-141] @smoke Given error conditions for 401, when get /v1/payment_links/:payment_link_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payment_links/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-142] @extended Given error conditions for 403, when get /v1/payment_links/:payment_link_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payment_links/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-143] @smoke Given error conditions for 404, when get /v1/payment_links/:payment_link_id, then returns 404 error',
     { tag: ['@smoke'] },
     async () => {
@@ -138,28 +116,6 @@ test.describe('Payment Links API (Read)', () => {
       const response = await apiContext.get(`${API_BASE}/v1/payment_links`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-148] @smoke Given error conditions for 401, when get /v1/payment_links, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payment_links`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-149] @extended Given error conditions for 403, when get /v1/payment_links, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/payment_links`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

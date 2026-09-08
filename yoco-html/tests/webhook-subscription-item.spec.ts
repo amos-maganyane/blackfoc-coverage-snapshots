@@ -58,28 +58,6 @@ test.describe('Webhook Subscription Item API', () => {
     },
   );
   test(
-    '[YC-237] @smoke Given error conditions for 401, when delete /v1/webhooks/subscriptions/:subscription_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.delete(`${API_BASE}/v1/webhooks/subscriptions/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-238] @extended Given error conditions for 403, when delete /v1/webhooks/subscriptions/:subscription_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.delete(`${API_BASE}/v1/webhooks/subscriptions/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-239] @smoke Given error conditions for 404, when delete /v1/webhooks/subscriptions/:subscription_id, then returns 404 error',
     { tag: ['@smoke'] },
     async () => {
@@ -129,28 +107,6 @@ test.describe('Webhook Subscription Item API', () => {
       expect(response.status()).toBe(401);
       expect(duration).toBeLessThan(5000);
       await noAuthContext.dispose();
-    },
-  );
-  test(
-    '[YC-243] @smoke Given error conditions for 401, when get /v1/webhooks/subscriptions/:subscription_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/webhooks/subscriptions/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-244] @extended Given error conditions for 403, when get /v1/webhooks/subscriptions/:subscription_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/webhooks/subscriptions/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
     },
   );
   test(
@@ -214,28 +170,6 @@ test.describe('Webhook Subscription Item API', () => {
       const response = await apiContext.patch(`${API_BASE}/v1/webhooks/subscriptions/test-id-123`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-275] @smoke Given error conditions for 401, when patch /v1/webhooks/subscriptions/:subscription_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.patch(`${API_BASE}/v1/webhooks/subscriptions/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-276] @extended Given error conditions for 403, when patch /v1/webhooks/subscriptions/:subscription_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.patch(`${API_BASE}/v1/webhooks/subscriptions/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

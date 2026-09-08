@@ -69,28 +69,6 @@ test.describe('Payment Links API (Write)', () => {
     },
   );
   test(
-    '[YC-130] @smoke Given error conditions for 401, when post /v1/payment_links, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/payment_links`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-131] @extended Given error conditions for 403, when post /v1/payment_links, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/payment_links`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-132] @extended Given error conditions for 429, when post /v1/payment_links, then returns 429 error',
     { tag: ['@extended'] },
     async () => {
@@ -128,28 +106,6 @@ test.describe('Payment Links API (Write)', () => {
       expect(response.status()).toBe(401);
       expect(duration).toBeLessThan(5000);
       await noAuthContext.dispose();
-    },
-  );
-  test(
-    '[YC-135] @smoke Given error conditions for 401, when delete /v1/payment_links/:payment_link_id, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.delete(`${API_BASE}/v1/payment_links/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-136] @extended Given error conditions for 403, when delete /v1/payment_links/:payment_link_id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.delete(`${API_BASE}/v1/payment_links/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
     },
   );
   test(

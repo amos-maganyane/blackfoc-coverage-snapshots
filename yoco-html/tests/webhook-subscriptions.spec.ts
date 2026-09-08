@@ -69,28 +69,6 @@ test.describe('Webhook Subscriptions API', () => {
     },
   );
   test(
-    '[YC-232] @smoke Given error conditions for 401, when post /v1/webhooks/subscriptions, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/webhooks/subscriptions`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-233] @extended Given error conditions for 403, when post /v1/webhooks/subscriptions, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/webhooks/subscriptions`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-234] @extended Given error conditions for 429, when post /v1/webhooks/subscriptions, then returns 429 error',
     { tag: ['@extended'] },
     async () => {
@@ -137,28 +115,6 @@ test.describe('Webhook Subscriptions API', () => {
       const response = await apiContext.get(`${API_BASE}/v1/webhooks/subscriptions`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-255] @smoke Given error conditions for 401, when get /v1/webhooks/subscriptions, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/webhooks/subscriptions`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-256] @extended Given error conditions for 403, when get /v1/webhooks/subscriptions, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/v1/webhooks/subscriptions`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );

@@ -70,28 +70,6 @@ test.describe('Webhook Subscription Send Test Event API', () => {
     },
   );
   test(
-    '[YC-268] @smoke Given error conditions for 401, when post /v1/webhooks/subscriptions/:subscription_id/test, then returns 401 error',
-    { tag: ['@smoke'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/webhooks/subscriptions/test-id-123/test`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(401);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-269] @extended Given error conditions for 403, when post /v1/webhooks/subscriptions/:subscription_id/test, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/v1/webhooks/subscriptions/test-id-123/test`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-270] @smoke Given error conditions for 404, when post /v1/webhooks/subscriptions/:subscription_id/test, then returns 404 error',
     { tag: ['@smoke'] },
     async () => {

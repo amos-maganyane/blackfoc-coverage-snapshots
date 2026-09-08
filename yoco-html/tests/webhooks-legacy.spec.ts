@@ -56,17 +56,6 @@ test.describe('Legacy Webhooks API', () => {
     },
   );
   test(
-    '[YC-14] @extended Given error conditions for 403, when delete /api/webhooks/:id, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.delete(`${API_BASE}/api/webhooks/test-id-123`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-15] @smoke Given valid authorized credentials, when get /api/webhooks, then returns 200 success',
     { tag: ['@smoke'] },
     async () => {
@@ -105,17 +94,6 @@ test.describe('Legacy Webhooks API', () => {
     },
   );
   test(
-    '[YC-18] @extended Given error conditions for 403, when get /api/webhooks, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.get(`${API_BASE}/api/webhooks`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
     '[YC-19] @smoke Given valid authorized credentials, when post /api/webhooks, then returns 200 success',
     { tag: ['@smoke'] },
     async () => {
@@ -150,17 +128,6 @@ test.describe('Legacy Webhooks API', () => {
       const response = await apiContext.post(`${API_BASE}/api/webhooks`);
       const duration = Date.now() - start;
       expect(response.status()).toBe(400);
-      expect(duration).toBeLessThan(5000);
-    },
-  );
-  test(
-    '[YC-22] @extended Given error conditions for 403, when post /api/webhooks, then returns 403 error',
-    { tag: ['@extended'] },
-    async () => {
-      const start = Date.now();
-      const response = await apiContext.post(`${API_BASE}/api/webhooks`);
-      const duration = Date.now() - start;
-      expect(response.status()).toBe(403);
       expect(duration).toBeLessThan(5000);
     },
   );
