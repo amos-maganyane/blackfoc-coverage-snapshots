@@ -45,7 +45,7 @@ The same API (Yoco) was run through two different input formats to demonstrate t
 | Response scenarios to test | 206 | 230 |
 | Tests generated | 250 | 193 |
 
-This comparison shows that output depth depends on the completeness of the source material provided. In this Yoco sample, the HTML documentation covered a broader surface area than the supplied OpenAPI file, so it yielded more endpoints and response scenarios.
+This comparison shows that output depth depends on the completeness of the source material provided. In this Yoco sample, the HTML documentation covered a broader surface area than the supplied OpenAPI file, so it yielded more endpoints and response scenarios. HTML test count is lower because only independently verifiable scenarios are retained (180/230), while OpenAPI retains 205/206.
 Bottom line: both formats produce strong, usable output. The operational advantage of OpenAPI is its consistency, structure, and suitability for automation; raw HTML documentation remains a viable input when that is the source material available.
 
 ## Delivery Contents
