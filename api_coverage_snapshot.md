@@ -1,6 +1,6 @@
 
 ## Summary
-133 distinct endpoints across four APIs, with 131 covered. Yoco was run twice to compare input formats, producing 844 tests across 5 input runs. This run demonstrated four input formats: OpenAPI, Swagger, Postman, and HTML documentation. The same approach extends to other documentation formats and source types.
+133 distinct endpoints across four APIs, with 131 covered. Yoco was run twice to compare input formats, producing 753 tests across 5 input runs. This run demonstrated four input formats: OpenAPI, Swagger, Postman, and HTML documentation. The same approach extends to other documentation formats and source types.
 Each suite is delivered as a self-contained test project that can be configured and executed against a target environment.
 
 ## Results at a Glance
@@ -10,7 +10,7 @@ Each suite is delivered as a self-contained test project that can be configured 
 | African Bank | Swagger 2.0 | 39/39 (100.0%) | 161/170 (94.7%) | 195 |
 | Peach Payments | Postman Collection | 33/35 (94.3%) | 33/35 (94.3%) | 66 |
 | Yoco | OpenAPI 3.1 | 42/42 (100.0%) | 205/206 (99.5%) | 250 |
-| Yoco | HTML Documentation | 54/54 (100.0%) | 230/230 (100.0%) | 284 |
+| Yoco | HTML Documentation | 54/54 (100.0%) | 180/230 (78.3%) | 193 |
 
 ## What the Tool Observed
 
@@ -43,7 +43,7 @@ The same API (Yoco) was run through two different input formats to demonstrate t
 | --- | --- | --- |
 | Endpoints discovered | 42 | 54 |
 | Response scenarios to test | 206 | 230 |
-| Tests generated | 250 | 284 |
+| Tests generated | 250 | 193 |
 
 This comparison shows that output depth depends on the completeness of the source material provided. In this Yoco sample, the HTML documentation covered a broader surface area than the supplied OpenAPI file, so it yielded more endpoints and response scenarios.
 Bottom line: both formats produce strong, usable output. The operational advantage of OpenAPI is its consistency, structure, and suitability for automation; raw HTML documentation remains a viable input when that is the source material available.
